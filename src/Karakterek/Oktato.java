@@ -101,7 +101,8 @@ public class Oktato extends Karakter {
 		if(siker) {
 			System.out.println("A hallgato megvedi magat\n");
 		} else {
-			System.out.println("A hallgato nem tudta megvedeni magat\n");
+			System.out.println("A hallgato nem tudta megvedeni magat\n" +
+					"A hallgato mindent elejt és meghal\n");
 			hallgato.mindentelejt();
 			hallgato.jelenlegi = null;
 

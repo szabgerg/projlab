@@ -34,7 +34,7 @@ public class Karakter {
 		if (newSzoba.beenged()) {
 			System.out.println("A szobaban van eleg hely\n");
 			jelenlegi.kilep(this);
-			newSzoba.setBentlevok(this);
+			newSzoba.setBentlevok(null);
 		} else {
 			System.out.println("A szoba tele, nincs hely\n");
 		}
@@ -81,7 +81,7 @@ public class Karakter {
 		Scanner scanner = new Scanner(System.in);
 		String targy = scanner.nextLine();
 		System.out.println("A kivalasztott targy leteve\n");
-		jelenlegi.setBentiTargyak();
+		jelenlegi.setBentiTargyak(null);
 	}
 
 	/*
