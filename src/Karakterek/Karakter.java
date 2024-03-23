@@ -4,26 +4,41 @@ import Szoba.Szoba;
 import Targyak.Targyinventory;
 
 import java.util.Scanner;
-
+/*
+* Karakter osztály ami a játékban szereplő karaktereket reprezentálja
+* A karaktereknek van egy szobájuk ahol tartózkodnak és egy eszközkeszletük
+* A karakterek tudnak mozogni, tárgyakat felvenni, letenni és mindent elejteni
+* Ősosztálya a hallgató és az oktató osztálynak
+* */
 public class Karakter {
+	/*
+	* Szoba amiben a karakter tartózkodik
+	* Nem lehet null
+	* */
+	protected Szoba jelenlegi;
+	protected Targyinventory eszkozkeszlet;
+	public Karakter(Szoba szoba, Targyinventory inventory) {
+	}
 	public void felvesz() {
-		System.out.println("Targy felvetel\n" +
-				"Milyen targyat szeretnel felvenni?\n");
-		Szoba szoba = new Szoba();
-		szoba.getBentiTargyak();
-		Targyinventory eszkozok = new Targyinventory();
+		System.out.println("Targy felvetel\n");
+		System.out.println("Hany targy van mar a hallgato inventory-jaban? (n)\n");
 		Scanner scanner = new Scanner(System.in);
+		int hely = scanner.nextInt();
+		if (hely == 5) {
+			System.out.println("Nincs tobb hely a hallgato inventory-jaban\n");
+			return;
+		}
+		System.out.println("Milyen targyat szeretnel felvenni?\n");
+		jelenlegi.getBentiTargyak();
 		String targy = scanner.nextLine();
-		System.out.println("A kivalasztott targy: " + targy + " felveve\n");
-		if (eszkozok.AddTargy()) {
+		if (eszkozkeszlet.AddTargy(null)) {
 			System.out.println("A targy felvetele sikeres\n");
-			szoba.RemoveTargy();
+			jelenlegi.RemoveTargy(null);
 		} else {
 			System.out.println("A targy felvetele sikertelen\n");
 		}
 
 	}
-
 	public void letesz() {
 		System.out.println("Targy letetel\n" +
 				"Milyen targyat szeretnel letenni?\n");
@@ -37,15 +52,13 @@ public class Karakter {
 		Scanner scanner = new Scanner(System.in);
 		String targy = scanner.nextLine();
 		System.out.println("A kivalasztott targy leteve\n");
-		Szoba szoba = new Szoba();
-		szoba.setBentiTargyak();
+		jelenlegi.setBentiTargyak();
 	}
 
 	public void mozog(Szoba newSzoba) {
-		Szoba old = new Szoba();
 		if (newSzoba.beenged()) {
 			System.out.println("A szobaban van eleg hely\n");
-			old.kilep(this);
+			jelenlegi.kilep(this);
 		} else {
 			System.out.println("A szoba tele nincs hely\n");
 		}
@@ -57,10 +70,8 @@ public class Karakter {
 
 	public void mindentelejt() {
 		System.out.println("Minden targy eldobva\n");
-		Szoba szoba = new Szoba();
-		Targyinventory eszkozok = new Targyinventory();
-		szoba.setBentiTargyak(eszkozok);
-		eszkozok.targyak.clear();
+		jelenlegi.setBentiTargyak(null);
+		eszkozkeszlet.targyak.clear();
 	}
 
 	public Karakter getID() {
