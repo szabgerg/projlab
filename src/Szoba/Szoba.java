@@ -17,35 +17,6 @@ import Targyak.Romlandok.Romlandok;
  */
 public class Szoba {
 
-    /* A szoba befogadóképessége,
-     * eltárolja, hogy egyszerre hány 
-     * karakter tartózkodhat az adott szobában
-    */
-    private int befogadokepesseg;
-
-    /* Olyan szobák listája, amelyekre
-     * nyílik ajtó a szobából, azaz
-     * lehet köztük egyenesen közlekedni
-     */
-    private List<Szoba> szomszedok;
-
-    /* Jelenleg a szobában tartózkodó
-     * karakterek listája
-     */
-    private List<Karakter> bentlevok;
-
-    /* Olyan tárgyak listája, amelyek
-     * a szobán belül le vannak téve
-     * azaz nem tartoznak egy karakterhez sem
-     */
-    private Targyinventory bentiTargyak;
-
-    /* Olyan tárgyak listája, amelyek
-     * hatása jelenleg befolyásolja, kibővíti
-     * a szoba működését
-     */
-    private Targyinventory aktivTargyak;
-
     /* A szoba befogadóképessége alapján
      * eldönti, hogy egy új karakter be tud-e lépni
      * @return: true, ha beléphet, false, ha tele a szoba
