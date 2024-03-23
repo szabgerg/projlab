@@ -34,8 +34,9 @@ public class Karakter {
 		if (newSzoba.beenged()) {
 			System.out.println("A szobaban van eleg hely\n");
 			jelenlegi.kilep(this);
+			newSzoba.setBentlevok(this);
 		} else {
-			System.out.println("A szoba tele nincs hely\n");
+			System.out.println("A szoba tele, nincs hely\n");
 		}
 	}
 	/*

@@ -40,7 +40,7 @@ public class Hallgato extends Karakter {
 	public void mozog(Szoba newSzoba) {
 		System.out.println("Hallgato mozog\n");
 		super.mozog(newSzoba);
-		newSzoba.getAktivTargy();
+		newSzoba.getAktiv();
 		System.out.println("A szoba gazos? (I/N)\n");
 		Scanner scanner = new Scanner(System.in);
 		String choice = scanner.nextLine();

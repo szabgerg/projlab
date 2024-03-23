@@ -37,7 +37,7 @@ public class Oktato extends Karakter {
 	public void mozog(Szoba newSzoba) {
 		System.out.println("Oktato mozog\n");
 		super.mozog(newSzoba);
-		jelenlegi.getAktivTargy();
+		jelenlegi.getAktiv();
 		System.out.println("A szoba gazos? (I/N)\n");
 		Scanner scanner = new Scanner(System.in);
 		String choice = scanner.nextLine();
@@ -76,7 +76,6 @@ public class Oktato extends Karakter {
 		} else {
 			System.out.println("Nem ertelmezett valasz\n");
 		} while(hallgato.equals("I") || hallgato.equals("N"));
-
 	}
 	/*
 	 * Az oktato bena valtozojat allitja be
