@@ -45,17 +45,12 @@ public class Karakter {
 	 */
 	public void felvesz() {
 		System.out.println("Targy felvetel\n");
-		System.out.println("Hany targy van mar a hallgato inventory-jaban? (n)\n");
-		Scanner scanner = new Scanner(System.in);
-		int hely = scanner.nextInt();
-		if (hely == 5) {
-			System.out.println("Nincs tobb hely a hallgato inventory-jaban\n");
-			return;
-		}
 		System.out.println("Milyen targyat szeretnel felvenni?\n");
 		jelenlegi.getBentiTargyak();
+		Scanner scanner = new Scanner(System.in);
 		String targy = scanner.nextLine();
-		if (eszkozkeszlet.AddTargy(null)) {
+		scanner.close();
+		if (eszkozkeszlet.AddTargy(null)) {  //ha sikerült a tárgy felvétele
 			System.out.println("A targy felvetele sikeres\n");
 			jelenlegi.RemoveTargy(null);
 		} else {
@@ -80,8 +75,13 @@ public class Karakter {
 				"6. Maszk\n");
 		Scanner scanner = new Scanner(System.in);
 		String targy = scanner.nextLine();
-		System.out.println("A kivalasztott targy leteve\n");
-		jelenlegi.setBentiTargyak(null);
+		scanner.close();
+		if(Targyinventory.RemoveTargy(targy)) {  //ha sikerült a tárgy letétele
+			System.out.println("A kivalasztott targy leteve\n");
+			jelenlegi.setBentiTargyak(null);
+		} else {
+			System.out.println("A kivalasztott targy nem letezik\n");
+		}
 	}
 
 	/*
