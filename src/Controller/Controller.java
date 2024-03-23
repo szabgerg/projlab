@@ -1,5 +1,8 @@
 package Controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import java.util.Scanner;
 import Szoba.Szoba;
 import Karakterek.Hallgato;
@@ -26,8 +29,14 @@ public class Controller {
         Szoba szoba_A = new Szoba();    // Szoba konstruktorában: Szoba létrehozva + Szoba neve
         Szoba szoba_B = new Szoba();
 
-        szoba_A.setSzomszedok(szoba_B);
-        szoba_B.setSzomszedok(szoba_A);
+        List<Szoba> szobaList1 = new ArrayList<>();
+        List<Szoba> szobaLista2 = new ArrayList<>();
+
+        szobaLista1.add(szoba_A);
+        szobaLista2.add(szoba_B);
+
+                szoba_A.setSzomszedok(szoba_B);
+        szoba_B.setSzomszedok(szobaLista1);
 
         //System.out.println("Két szoba inicializálása megtörtént");
 

@@ -1,7 +1,7 @@
 public class Main {
 	public static void main(String[] args) {
 		System.out.println("Üdvözöl a házi!:)");
+		Tester tester = new Tester();
+		tester.startMenu();
 	}
-
-	Tester tester = new Tester();
 }
