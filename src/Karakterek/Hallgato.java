@@ -10,14 +10,32 @@ import Targyak.Targyinventory;
 import Targyak.Tranzisztor;
 
 import java.util.Scanner;
-
+/*
+* Hallgato osztaly ami a jatekban szereplo hallgatokat reprezentalja
+* A Hallgato osztaly a Karakter osztalybol szarmazik
+* A Hallgato osztalyban a hallgato mozgasat, vedelmet, teleportalasat, es targyak aktivalasat valositjuk meg
+ */
 public class Hallgato extends Karakter {
+	/*
+	* Hallgato konstruktora
+	* @param szoba - a szoba, ahol a hallgato tartozkodik
+	* @param inventory - a hallgato targykeszlete
+	*
+	 */
 	public Hallgato(Szoba szoba, Targyinventory inventory) {
 		super(szoba, inventory);
 		System.out.println("Hallgato letrehozasa\n");
 		System.out.println("Hallgato eszkozkeszlete letrehozva\n");
 		System.out.println("Hallgato szobaba teve\n");
 	}
+	/*
+	* Az hallgato mozgasat megvalosito metodus
+	* @param newSzoba - az uj szoba, ahova a hallgato mozog
+	* A metodusban a hallgato mozgasat valositjuk meg, es a szobaban levo aktiv
+	* targyakat is vizsgaljuk
+	* Ha a szoba gazos, akkor a hallgato maszkot hasznal
+	* Ha a hallgatonak nincs maszkja, akkor elejt mindent
+	 */
 	@Override
 	public void mozog(Szoba newSzoba) {
 		System.out.println("Hallgato mozog\n");
@@ -46,7 +64,16 @@ public class Hallgato extends Karakter {
 			System.out.println("Nem ertelmezett valasz\n");
 		} while (choice.equals("I") || choice.equals("N"));
 	}
-
+	/*
+	* Az hallgato targyak aktivalasat megvalosito metodus
+	* A metodusban a hallgato targyak aktivalasat valositjuk meg
+	* A hallgato kivalaszthat egy targyat, amit aktivalni szeretne
+	* A hallgato valaszthat a kovetkezo targyak kozul:
+	* 1. Tranzisztor
+	* 2. Rongy
+	* 3. Camambert
+	* 4. Logarlec
+	 */
 	void aktival() {
 		System.out.println("Hallgato aktival egy targyat\n");
 		System.out.println("A targyak amiket magadnal viselsz:\n" +
@@ -83,6 +110,14 @@ public class Hallgato extends Karakter {
 		} while ((choice > 0) && (choice < 5));
 		System.out.println("A kivalasztott targy aktivalva\n");
 	}
+	/*
+	* A metodusban a hallgato lelekelvetel elleni vedelmet valositjuk meg
+	* Ha a hallgato rendelkezik tvsszel, akkor sikeresen vedekezik
+	* Ha a hallgato nem rendelkezik tvsszel, akkor megvizsgaljuk, hogy rendelkezik-e sorospoharral
+	* Ha a hallgato rendelkezik sorospoharral, akkor sikeresen vedekezik
+	* Ha a hallgato nem rendelkezik sorospoharral, akkor meghal
+	* @return - a hallgato sikeresen vedekezett-e
+	 */
 
 	public boolean vedekezes() {
 		System.out.println("Hallgato vedekezik\n");
@@ -115,8 +150,13 @@ public class Hallgato extends Karakter {
 			return false;
 		} while (choice.equals("I") || choice.equals("N"));
 
+		return false;
 	}
-
+	/*
+	* A metodusban a hallgato teleportalasat valositjuk meg
+	* A hallgato teleportalasahoz szukseges ket tranzisztor
+	* Ha ossze vannak kapcsolva a tranzisztorok, akkor a hallgato teleportal
+	 */
 	public void teleport() {
 		System.out.println("Hallgato teleportal\n");
 		Tranzisztor t1 = new Tranzisztor();
@@ -138,7 +178,11 @@ public class Hallgato extends Karakter {
 			System.out.println("Nem ertelmezett valasz\n");
 		} while (choice.equals("I") || choice.equals("N"));
 	}
-
+	/*
+	* A metodusban a hallgato tranzisztorok osszekapcsolasat valositjuk meg
+	* Egy tranzisztor egyszerre csak egy masikkal kapcsolhato ossze
+	*
+	 */
 	public void osszekapcsol() {
 		System.out.println("Transzisztorok osszekapcsolasa\n");
 		Tranzisztor t1 = new Tranzisztor();

@@ -13,12 +13,35 @@ import java.util.Scanner;
 public class Karakter {
 	/*
 	* Szoba amiben a karakter tartózkodik
-	* Nem lehet null
+	* Nem lehet null, amig a karakter a játékban van
 	* */
 	protected Szoba jelenlegi;
 	protected Targyinventory eszkozkeszlet;
+	/*
+	* Karakter konstruktora
+	* @param szoba - a szoba, ahol a karakter tartózkodik
+	* @param inventory - a karakter eszközkeszlete
+	 */
 	public Karakter(Szoba szoba, Targyinventory inventory) {
 	}
+	/*
+	* A karakter mozgását megvalósító metódus
+	* @param newSzoba - az új szoba, ahova a karakter mozog
+	* A metódusban a karakter mozgását valósítjuk meg
+	*
+	 */
+	public void mozog(Szoba newSzoba) {
+		if (newSzoba.beenged()) {
+			System.out.println("A szobaban van eleg hely\n");
+			jelenlegi.kilep(this);
+		} else {
+			System.out.println("A szoba tele nincs hely\n");
+		}
+	}
+	/*
+	* A metódusban a karakter tárgyfelvételét valósítjuk meg
+	* Ha a karakternek nincs helye a tárgyaknak, akkor nem tud felvenni
+	 */
 	public void felvesz() {
 		System.out.println("Targy felvetel\n");
 		System.out.println("Hany targy van mar a hallgato inventory-jaban? (n)\n");
@@ -39,6 +62,11 @@ public class Karakter {
 		}
 
 	}
+	/*
+	* A metódusban a karakter tárgyletevését valósítjuk meg
+	* Ha a karakternek nincs tárgya, akkor nem tud letenni
+	* Amit letett, az a szobában lesz, mas karakterek felvehetik
+	 */
 	public void letesz() {
 		System.out.println("Targy letetel\n" +
 				"Milyen targyat szeretnel letenni?\n");
@@ -55,33 +83,36 @@ public class Karakter {
 		jelenlegi.setBentiTargyak();
 	}
 
-	public void mozog(Szoba newSzoba) {
-		if (newSzoba.beenged()) {
-			System.out.println("A szobaban van eleg hely\n");
-			jelenlegi.kilep(this);
-		} else {
-			System.out.println("A szoba tele nincs hely\n");
-		}
-	}
-
+	/*
+	* A karakter melyik szobában tartózkodik
+	 */
 	public Szoba getSzoba() {
 		return null;
 	}
-
+	/*
+	* A karakter minden tárgyát eldobó metódus
+	 */
 	public void mindentelejt() {
 		System.out.println("Minden targy eldobva\n");
 		jelenlegi.setBentiTargyak(null);
 		eszkozkeszlet.targyak.clear();
 	}
-
+	/*
+	* Visszaadja a karakter azonosítóját
+	* Kell ez egyaltalan?
+	 */
 	public Karakter getID() {
 		return null;
 	}
-
+	/*
+	* A karakter eszközkeszletét visszaadó metódus
+	 */
 	public Targyinventory getEszkozkeszlet() {
 		return null;
 	}
-
+	/*
+	* A karakter eszközkeszletét beállító metódus
+	 */
 	public void setEszkozkeszlet(Targyinventory eszkozok) {
 		System.out.println("Eszkozkeszlet beallitasa\n");
 	}

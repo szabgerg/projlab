@@ -31,8 +31,8 @@ public class Controller {
 
         //System.out.println("Két szoba inicializálása megtörtént");
 
-        Hallgato hallgato = new Hallgato();
-        Oktato oktato = new Oktato();
+        Hallgato hallgato = new Hallgato(null, null);
+        Oktato oktato = new Oktato(null, null);
 
         //System.out.println("Két karakter sikeresen létrehozva");
 

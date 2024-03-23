@@ -104,7 +104,7 @@ public class Oktato extends Karakter {
 		} else {
 			System.out.println("A hallgato nem tudta megvedeni magat\n");
 			hallgato.mindentelejt();
-
+			hallgato.jelenlegi = null;
 
 		}
 	}
