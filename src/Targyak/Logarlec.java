@@ -10,7 +10,7 @@ public class Logarlec implements ITargy{
      * Logarlec konstruktor
      */
     public Logarlec() {
-        System.out.println("Logarlec létrehozva");
+        System.out.println("Logarlec létrehozva\n");
     }
 
     /*

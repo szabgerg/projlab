@@ -7,7 +7,7 @@ public class Targyinventory {
      * Targyinventory konstruktor
      */
     public Targyinventory() {
-        System.out.println("Targyinventory létrehozva");
+        System.out.println("Targyinventory létrehozva\n");
     }
 
     public Targyinventory(ITargy targy) {

@@ -96,7 +96,7 @@ public class Tester {
             System.out.println("4-es teszteset sikeresen lefutott\n");
             break;
 
-        //Sikeres mozgás
+        //Sikeres mozgás                                        ---------------->>> EZ MOST JÓ SZERINTEM
         case 5:
             k1.mozog(sz2);
             System.out.println("5-ös teszteset sikeresen lefutott\n");

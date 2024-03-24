@@ -11,7 +11,7 @@ public class Tranzisztor implements ITargy{
      * Tranzisztor konstruktor
      */
     public Tranzisztor() {
-        System.out.println("Tranzisztor létrehozva");
+        System.out.println("Tranzisztor létrehozva\n");
     }
 
     /*

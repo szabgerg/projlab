@@ -8,7 +8,7 @@ import Szoba.Szoba;
 public class Tvsz extends Romlandok{
     // Konstruktor, amely létrehoz egy új Tvsz objektumot
     public Tvsz() {
-        System.out.print("TVSZ létrehozva");
+        System.out.print("TVSZ létrehozva\n");
     }
     
     @Override

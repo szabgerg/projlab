@@ -8,7 +8,7 @@ public class Camambert implements ITargy{
      * Camambert konstruktor
      */
     public Camambert() {
-        System.out.println("Camambert létrehozva");
+        System.out.println("Camambert létrehozva\n");
     }
 
     /*
