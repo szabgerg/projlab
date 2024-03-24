@@ -16,13 +16,20 @@ import Targyak.Romlandok.Romlandok;
  * különböző tulajdonságokkal rendelkezhetnek
  */
 public class Szoba {
+
+    /* Szoba default konstruktora
+    */
+    public Szoba() {
+        System.out.println("Szoba letrehozva");
+    }
+	
     /* Szoba osztály konstruktora
      * szoba inventoryját feltölti, szobába karaktereket beteszi
     */
     public Szoba(List<Karakter> karakterek, Targyinventory inventory) {
-        System.out.println("Szoba letrehozasa\n");
-	System.out.println("Szoba inventoryja letrehozva\n");
-	System.out.println("Szobaba karakterek beteve\n");
+        System.out.println("Szoba letrehozasa");
+	System.out.println("Szoba inventoryja feltoltve");
+	System.out.println("Szobaba karakterek beteve");
     }
     /* A szoba befogadóképessége alapján
      * eldönti, hogy egy új karakter be tud-e lépni
