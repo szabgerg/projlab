@@ -35,6 +35,7 @@ public class Oktato extends Karakter {
 	 */
 	@Override
 	public void mozog(Szoba newSzoba) {
+		Szoba jelenlegi = new Szoba();
 		System.out.println("Oktato mozog\n");
 		super.mozog(newSzoba);
 		jelenlegi.getAktiv();
@@ -98,6 +99,7 @@ public class Oktato extends Karakter {
 	 * vege a jateknak
 	 */
 	void lelekelvetel() {
+		Szoba jelenlegi = new Szoba();
 		System.out.println("Oktato lelekelvetel\n");
 		jelenlegi.getBentlevok();
 		Hallgato hallgato = new Hallgato(new Szoba(), new Targyinventory());
@@ -108,7 +110,7 @@ public class Oktato extends Karakter {
 			System.out.println("A hallgato nem tudta megvedeni magat\n" +
 					"A hallgato mindent elejt és meghal\n");
 			hallgato.mindentelejt();
-			hallgato.jelenlegi = null;
+			hallgato.setSzoba(null);
 
 		}
 	}
