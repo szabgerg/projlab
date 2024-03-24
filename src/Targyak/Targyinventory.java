@@ -1,4 +1,6 @@
 package Targyak;
+import Targyak.Romlandok.Romlandok;
+
 import java.util.Scanner;
 
 public class Targyinventory {
@@ -8,7 +10,10 @@ public class Targyinventory {
     public Targyinventory() {
         System.out.println("Targyinventory létrehozva");
     }
-    
+    public Targyinventory(Romlandok r) {
+        System.out.println("Targyinventory létrehozva");
+    }
+
     /*
      * Tárgy hozzáadása az inventory-hoz
      * @param targy - a hozzáadandó tárgy
