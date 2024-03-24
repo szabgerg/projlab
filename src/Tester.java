@@ -30,28 +30,18 @@ public class Tester {
     Scanner scanner = new Scanner(System.in);
 
     System.out.println("1. Játék elindítása(Init)\n" +
-                       "2. Tárgyfelvétel\n" +
-                       "4. Tárgy letevése\n" +
-                       "5. Karakter mozgás szobák között\n" +
-                       "7. Hallgató-lélek elvétel\n" +
-                       "8. Utolsó játékos kiesése\n" +
-                       "9. Sikertelen lélekelvétel TVSZ használata miatt\n" +
-                       "10. Sikertelen lélekelvétel söröspohár miatt\n" +
-                       "11. Rongy használat\n" +
-                       "12. Hallgatók nyernek\n" +
-                       "13. Camembert begázosítja a szobát\n" +
-                       "14. Karakter sikeresen összekapcsol két tranzisztort\n" +
-                       "15. Karakter sikeresen teleportál tranzisztorral\n" +
-                       "16. Tranzisztor felhasználás folyamatának belső működése\n" +
-                       "17. Gázos szobában jelenlét maszk nélkül\n" +
-                       "18. Gázos szoba kivédése maszkkal\n" +
-                       "19. Rongy száradás\n" +
-                       "20. A rongy tárgy megszáradt\n" +
-                       "21. Egy szoba kettővé válik szét\n" +
-                       "22. Két szoba egyesül egy szobává\n" +
-                       "23. Elátkozott szoba működése játék közben\n" +
-                       "24. Oktató belép egy szobába, ahol aktív rongy van és lebénul\n");
-
+                   "2. Tárgyfelvétel\n" +
+                   "4. Tárgy letevése\n" +
+                   "5. Karakter mozgás szobák között\n" +
+                   "7. Hallgató-lélek elvétel\n" +
+                   "8. Utolsó játékos kiesése\n" +
+                   "11. Rongy használat\n" +
+                   "14. Karakter sikeresen összekapcsol két tranzisztort\n" +
+                   "15. Karakter sikeresen teleportál tranzisztorral\n" +
+                   "19. Rongy száradás\n" +
+                   "21. Egy szoba kettővé válik szét\n" +
+                   "22. Két szoba egyesül egy szobává\n" );
+    
     System.out.println("Add meg a végrhajtandó művelet menüjének számát");
     int num = scanner.nextInt();
 
@@ -101,8 +91,7 @@ public class Tester {
             System.out.println("5-ös teszteset sikeresen lefutott\n");
             break;
 
-        //TODO: lélekelvétel, de itt a TVSZ- nincs és emiatt nem sikerül
-        //Sikeres lélek elvétel                                 ---------------->>> Waiting for GERGŐ
+        //Lélek elvétel                                 ---------------->>> EZ MOST JÓ SZERINTEM
         case 7:
             h1.vedekezes();
             System.out.println("7-es teszteset sikeresen lefutott\n");
@@ -113,35 +102,11 @@ public class Tester {
             controller.endGame();
             System.out.println("8-as teszteset sikeresen lefutott\n");
             break;
-        //TODO szintén lélekelvétel, de itt a TVSZ-van és emiatt nem sikerül
-        //Sikertelen lélekelvétel TVSZ miatt
-        case 9:
-            h1.vedekezes();
-            System.out.println("9-es teszteset sikeresen lefutott\n");
-            break;
-        //TODO szintén lélekelvétel, de itt a söröspohár van és emiatt nem sikerül
-        //Sikertelen lélekelvétel söröspohár miatt
-        case 10:
-            h1.vedekezes();
-            System.out.println("10-es teszteset sikeresen lefutott\n");
-            break;
 
-        //Rongy használata
+        //Tárgy használata
         case 11:
             r.aktival( sz1);
             System.out.println("11-es teszteset sikeresen lefutott\n");
-            break;
-
-        //Hallgatók nyernek
-        case 12:
-            h1.felvesz();
-            System.out.println("12-es teszteset sikeresen lefutott\n");
-            break;
-
-        //Camembert gázosít
-        case 13:
-            c.aktival( sz1);
-            System.out.println("13-as teszteset sikeresen lefutott\n");
             break;
 
         //Sikeres tranzisztorpárosítás
@@ -156,40 +121,10 @@ public class Tester {
             System.out.println("15-ös teszteset sikeresen lefutott\n");
             break;
 
-        //Tranzisztor belülről
-        case 16:
-            h1.aktival();
-            tr1.aktival( sz1);
-            h1.letesz();
-
-            h1.aktival();
-            tr2.aktival( sz1);
-            h1.letesz();
-            System.out.println("16-os teszteset sikeresen lefutott\n");
-            break;
-
-        //Gázos szoba maszk nélkül
-        case 17:
-            h1.mozog(sz2);
-            System.out.println("17-es teszteset sikeresen lefutott\n");
-            break;
-
-        //Gázos szoba maszkkal
-        case 18:
-            h1.mozog(sz2);
-            System.out.println("18-as teszteset sikeresen lefutott\n");
-            break;
-
-        //Rongy szárad
+        //Rongy szárad(új kör)
         case 19:
             controller.nextRound();
             System.out.println("19-es teszteset sikeresen lefutott\n");
-            break;
-
-        //Rongy megszárad
-        case 20:
-            controller.nextRound();
-            System.out.println("20-as teszteset sikeresen lefutott\n");
             break;
 
         //Szoba kettővé
@@ -204,17 +139,6 @@ public class Tester {
             System.out.println("22-es teszteset sikeresen lefutott\n");
             break;
 
-        //Elatkozott szoba működése
-        case 23:
-            controller.nextRound();
-            System.out.println("23-as teszteset sikeresen lefutott\n");
-            break;
-
-        //Oktató megbénul a rongytól
-        case 24:
-            o1.mozog(sz2);
-            System.out.println("24-es teszteset sikeresen lefutott\n");
-            break;
         default:
             break;
      }

@@ -115,7 +115,7 @@ public class Szoba {
      * @return Targyinventory, az aktív tárgyak listája
      */
     public Targyinventory getAktiv(){
-        return null;
+        return new Targyinventory();
     }
 
     /* Beállítja a szoba jelenleg aktív hatással bíró tárgyait,

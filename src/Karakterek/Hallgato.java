@@ -164,6 +164,7 @@ public class Hallgato extends Karakter {
 			} else if (sors.equals("N")) {
 				System.out.println("A hallgato nem rendelkezik sorospoharral\n");
 				System.out.println("A hallgato meghal\n");
+				scanner.close();
 				return false;
 			} else {
 				System.out.println("Nem ertelmezett valasz\n");
