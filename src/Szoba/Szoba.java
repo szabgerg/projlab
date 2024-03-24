@@ -141,6 +141,7 @@ public class Szoba {
      */
     public void removeAktiv(Romlandok r){
         Targyinventory ti = getAktiv();
+	ti.remove(r);
         System.out.println("Aktiv targy lejart");
     }
 
