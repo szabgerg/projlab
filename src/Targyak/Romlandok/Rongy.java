@@ -6,7 +6,7 @@ import Szoba.Szoba;
 public class Rongy extends Romlandok{
     // Konstruktor, amely létrehoz egy új Rongy objektumot
     public Rongy() {
-        System.out.print("Rongy létrehozva");
+        System.out.print("Rongy létrehozva\n");
     }
 
     // Felülírja a Romlandok osztály aktival metódusát

@@ -8,7 +8,7 @@ import Szoba.Szoba;
 public class Sorospohar extends Romlandok{
     // Konstruktor, amely létrehoz egy új Sorospohar objektumot
     public Sorospohar() {
-        System.out.print("Sorospohár létrehozva");
+        System.out.print("Sorospohár létrehozva\n");
     }
 
     // Felülírja a Romlandok osztály aktival metódusát

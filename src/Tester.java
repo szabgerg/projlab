@@ -32,9 +32,8 @@ public class Tester {
     System.out.println("1. Játék elindítása(Init)\n" +
                    "2. Tárgyfelvétel\n" +
                    "4. Tárgy letevése\n" +
-                   "5. Sikeres karakter mozgás szobák között\n" +
-                   "6. Sikertelen szobaváltási kísérlet\n" +
-                   "7. Sikeres hallgató-lélek elvétel\n" +
+                   "5. Karakter mozgás szobák között\n" +
+                   "7. Hallgató-lélek elvétel\n" +
                    "8. Utolsó játékos kiesése\n" +
                    "9. Sikertelen lélekelvétel TVSZ használata miatt\n" +
                    "10. Sikertelen lélekelvétel söröspohár miatt\n" +
@@ -96,30 +95,25 @@ public class Tester {
             System.out.println("4-es teszteset sikeresen lefutott\n");
             break;
 
-        //Sikeres mozgás
+        //Sikeres mozgás                                        ---------------->>> EZ MOST JÓ SZERINTEM
         case 5:
             k1.mozog(sz2);
             System.out.println("5-ös teszteset sikeresen lefutott\n");
             break;
 
-        //Sikertelen mozgás
-        case 6:
-            k1.mozog(sz2);
-            System.out.println("6-os teszteset sikeresen lefutott\n");
-            break;
-
-        //Sikeres lélek elvétel
+        //TODO: lélekelvétel, de itt a TVSZ- nincs és emiatt nem sikerül
+        //Sikeres lélek elvétel                                 ---------------->>> Waiting for GERGŐ
         case 7:
             h1.vedekezes();
             System.out.println("7-es teszteset sikeresen lefutott\n");
             break;
-
+        //TODO: szerintem itt nem elég hogy lefut az endgame, de javitsatok ki ha tévedek
         //Utolso játékos kiesés
         case 8:
             controller.endGame();
             System.out.println("8-as teszteset sikeresen lefutott\n");
             break;
-
+        //TODO szintén lélekelvétel, de itt a TVSZ-van és emiatt nem sikerül
         //Sikertelen lélekelvétel TVSZ miatt
         case 9:
             h1.vedekezes();

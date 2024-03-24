@@ -6,7 +6,7 @@ import Targyak.ITargy;
 public class Romlandok implements ITargy{
     // Konstruktor, amely létrehoz egy új Romlandok objektumot
     public Romlandok() {
-        System.out.print("Romlandok létrehozva");
+        System.out.print("Romlandok létrehozva\n");
     }
 
     // A romlik metódus, amely csökkenti az objektum élettartamát
