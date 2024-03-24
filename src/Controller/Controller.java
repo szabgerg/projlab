@@ -9,7 +9,7 @@ import Karakterek.Hallgato;
 import Karakterek.Oktato;
 
 import Targyak.Targyinventory;
-import Targyak.Romlandok.Camambert;
+import Targyak.Camambert;
 import Targyak.Romlandok.Maszk;
 import Targyak.Romlandok.Romlandok;
 import Targyak.Romlandok.Rongy;
@@ -27,15 +27,17 @@ public class Controller {
 
     public void init() {
         Szoba szoba_A = new Szoba();    // Szoba konstruktorában: Szoba létrehozva + Szoba neve
+        System.out.println("szoba_A létrehozva");
         Szoba szoba_B = new Szoba();
+        System.out.println("szoba_B létrehozva");
 
-        List<Szoba> szobaList1 = new ArrayList<>();
+        List<Szoba> szobaLista1 = new ArrayList<>();
         List<Szoba> szobaLista2 = new ArrayList<>();
 
         szobaLista1.add(szoba_A);
         szobaLista2.add(szoba_B);
 
-                szoba_A.setSzomszedok(szoba_B);
+        szoba_A.setSzomszedok(szobaLista2);
         szoba_B.setSzomszedok(szobaLista1);
 
         //System.out.println("Két szoba inicializálása megtörtént");
@@ -61,7 +63,7 @@ public class Controller {
         t3.AddTargy(camembert);
 
         Tvsz TVSZ = new Tvsz();
-        t4. AddTargy(TVSZ);
+        t4.AddTargy(TVSZ);
 
         Maszk maszk = new Maszk();
         t1.AddTargy(maszk);
@@ -82,31 +84,66 @@ public class Controller {
     }
 
     public void nextRound() {
-        System.out.println("Letelt egy kor? (I/N)\n");
-        Scanner sc = new Scanner(System.in);
+        System.out.println("Következő kör kezdete\n");
+        
+        System.out.println("Van Rongy a tárgyak között? (I/N)");
+        Scanner scanner = new Scanner(System.in);
+        String choice = scanner.nextLine();
+        ////////////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        Rongy r = new Rongy();
+        Szoba s = new Szoba();
+        s.getAktiv();
 
-        while (true) {
-            if (sc.nextLine().equals('I')) {
-                System.out.println("Letelt egy kör, indul a következő");
-                break;
-            } else if (sc.nextLine().equals('N')) {
-                System.out.println("Nem telt le még a kör");
-                break;
-            } else {
-                System.out.println("Érvénytelen válasz, adj meg újat!");
+        do if(choice.equals("I")){
+            System.out.println("Mennyi a rongy élettartama? (n)");
+            int left = scanner.nextInt();
+            if(left > 1){
+                r.romlik();
+            } else if(left == 1){
+                r.romlik();
+                s.removeAktiv(r);
+                System.out.println("A Rongy teljesen megszáradt, törlődik.");
             }
-        }
+        } else if(choice.equals("N")){
+            System.out.println("Nincs rongy a szobában, ami száradjon.");
+        } else {
+            System.out.println("Érvénytelen válasz\n");
+        } while (choice.equals("I") || choice.equals("N"));
+
+        scanner.close();
     }
 
-    public void nextPlayer() {}
+    public void nextPlayer() {
+        System.out.println("Az aktuális játékos befejezte a körét? (I/N)\n");
+        Scanner scanner = new Scanner(System.in);
+        String choice = scanner.nextLine();
 
+        do if (choice.equals("I")) {
+			System.out.println("A sor a következő játákoson van!\n");
+
+		} else if (choice.equals("N")) {
+			System.out.println("Folytassa a körét!\n");
+		} else {
+			System.out.println("Érvénytelen válasz\n");
+		} while (choice.equals("I") || choice.equals("N"));
+
+    }
+
+    //TODO
     public void endGame() {
+
         System.out.println("Véget ért a játék? (I/N)\n");
         Scanner sc = new Scanner(System.in);
 
         while (true) {
             if (sc.nextLine().equals('I')) {
                 System.out.println("Vége a játéknak");
+                Hallgato h1 = new Hallgato();
+                Szoba sz1 = new Szoba();
+                if(h1.getSzoba() == null){
+                    sz1.kilep(h1);
+                    
+                }
                 break;
             } else if (sc.nextLine().equals('N')) {
                 System.out.println("Nincs még vége a játéknak");
@@ -115,5 +152,6 @@ public class Controller {
                 System.out.println("Érvénytelen válasz, adj meg újat!");
             }
         }
+        sc.close();
     }
 }

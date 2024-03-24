@@ -1,6 +1,6 @@
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("Üdvözöl a házi!:)");
+		System.out.println("-----------------------------LOGARLÉC-----------------------------");
 		Tester tester = new Tester();
 		tester.startMenu();
 	}
