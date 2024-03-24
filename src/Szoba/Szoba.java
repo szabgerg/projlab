@@ -16,7 +16,11 @@ import Targyak.Romlandok.Romlandok;
  * különböző tulajdonságokkal rendelkezhetnek
  */
 public class Szoba {
-
+    public Szoba(List<Karakter> karakterek, Targyinventory inventory) {
+        System.out.println("Szoba letrehozasa\n");
+	System.out.println("Szoba inventoryja letrehozva\n");
+	System.out.println("Szobaba karakterek beteve\n");
+    }
     /* A szoba befogadóképessége alapján
      * eldönti, hogy egy új karakter be tud-e lépni
      * @return: true, ha beléphet, false, ha tele a szoba
