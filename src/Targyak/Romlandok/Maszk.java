@@ -1,5 +1,6 @@
 package Targyak.Romlandok;
 import java.util.Scanner;
+import Szoba.Szoba;
 
 // A Maszk osztály, amely a Romlandok osztályból származik
 public class Maszk extends Romlandok{
@@ -10,7 +11,7 @@ public class Maszk extends Romlandok{
 
     // Felülírja a Romlandok osztály aktival metódusát
     @Override
-    public void aktival() {
+    public void aktival(Szoba s) {
         System.out.print("Maszk használva");
         // Csökkenti a maszk élettartamát
         romlik();

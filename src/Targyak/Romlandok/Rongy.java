@@ -1,6 +1,7 @@
 package Targyak.Romlandok;
 
-import java.util.Scanner;
+import Szoba.Szoba;
+import Targyak.Targyinventory;
 
 // A Rongy osztály, amely a Romlandok osztályból származik
 public class Rongy extends Romlandok{
@@ -11,9 +12,9 @@ public class Rongy extends Romlandok{
 
     // Felülírja a Romlandok osztály aktival metódusát
     @Override
-    public void aktival() {
+    public void aktival(Szoba s) {
         System.out.print("Rongy használva");
         // Berakrja a rongyot a szobáb aktív tárgyai közé
-        Szoba.setAktiv();
+        new Szoba().setAktiv(s.getAktiv());
     }
 }

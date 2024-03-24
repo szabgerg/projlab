@@ -1,4 +1,5 @@
 package Targyak.Romlandok;
+import Szoba.Szoba;
 import Targyak.ITargy;
 
 // A Romlandok osztály, amely implementálja az ITargy interfészt
@@ -14,5 +15,5 @@ public class Romlandok implements ITargy{
     }
 
     // Az aktival metódus, amit majd a leszármazottak valósítanak meg
-    public void aktival() {}
+    public void aktival(Szoba s) {}
 }

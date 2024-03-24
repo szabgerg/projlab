@@ -2,6 +2,8 @@ package Targyak;
 
 import java.util.Scanner;
 
+import Szoba.Szoba;
+
 //megvalósítja az ITargy interfészt
 public class Tranzisztor implements ITargy{
 
@@ -33,23 +35,24 @@ public class Tranzisztor implements ITargy{
      * Visszaadja hogy a tranzisztor melyik szobában van
      * @return int - a tranzisztor szobája
      */
-   /*  public int getSzoba(){
+    public Szoba getSzoba(){
         System.out.println("Szoba lekérdezve");
-        return 0;
-    } */
+        return new Szoba();
+    }
 
     /*
      * Beállítja a tranzisztor szobáját
      * @param s - a beállítandó szoba
      */
-    /* public void setSzoba(int s){
+    public void setSzoba(Szoba s){
         System.out.println("Szoba beállítva");
-    } */
+    }
 
     /*
-    * Tranzisztor aktiválása
+    * Tranzisztor aktiválása, aktiv jelzés beállítása
     */
-    public void aktival() {
+    public void aktival(Szoba s) {
+        //boolean aktiv->true;
         System.out.println("Tranzisztor aktiválva");
     }
 
@@ -73,5 +76,13 @@ public class Tranzisztor implements ITargy{
             System.out.println("Nem értelmezett válasz");
             return false;
         }
+    }
+
+    /*
+     * Tranzisztor kikapcsolása, aktiv jelzés beállítása
+     */
+    public void kikapcsol(){
+        //boolean aktiv->false;
+        System.out.println("Tranzisztor kikapcsolva");
     }
 }

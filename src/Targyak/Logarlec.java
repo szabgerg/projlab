@@ -1,6 +1,7 @@
 package Targyak;
 
 import Controller.Controller;
+import Szoba.Szoba;
 
 //megvalósítja az ITargy interfészt
 public class Logarlec implements ITargy{
@@ -15,7 +16,7 @@ public class Logarlec implements ITargy{
     /*
     *A Logarlec tárgy aktiválása, a játék véget ér
     */
-    public void aktival() {
+    public void aktival(Szoba s) {
         System.out.println("Logarlec aktiválva");
         new Controller().endGame(); //A játék véget ér
     }

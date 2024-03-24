@@ -2,6 +2,8 @@ package Targyak.Romlandok;
 
 import java.util.Scanner;
 
+import Szoba.Szoba;
+
 // A Tvsz osztály, amely a Romlandok osztályból származik
 public class Tvsz extends Romlandok{
     // Konstruktor, amely létrehoz egy új Tvsz objektumot
@@ -11,7 +13,7 @@ public class Tvsz extends Romlandok{
     
     @Override
     // Felülírja a Romlandok osztály aktival metódusát
-    public void aktival() {
+    public void aktival(Szoba s) {
         System.out.print("Tvsz használva");
         // Csökkenti a Tvsz élettartamát
         romlik();

@@ -38,6 +38,8 @@ public class Oktato extends Karakter {
 		System.out.println("Oktato mozog\n");
 		super.mozog(newSzoba);
 		jelenlegi.getAktiv();
+
+		////////////GAZOS///////////////////////////////////////////
 		System.out.println("A szoba gazos? (I/N)\n");
 		Scanner scanner = new Scanner(System.in);
 		String choice = scanner.nextLine();
@@ -52,6 +54,7 @@ public class Oktato extends Karakter {
 			System.out.println("Nem ertelmezett valasz\n");
 		} while(choice.equals("I") || choice.equals("N"));
 
+		////////////RONGY///////////////////////////////////////////
 		System.out.println("Van a szobaban rongy? (I/N)\n");
 		String rongy = scanner.nextLine();
 		do if(rongy.equals("I")) {
@@ -64,6 +67,7 @@ public class Oktato extends Karakter {
 			System.out.println("Nem ertelmezett valasz\n");
 		} while(rongy.equals("I") || rongy.equals("N"));
 
+		////////////LELEKELVETEL/////////////////////////////////////
 		jelenlegi.getBentlevok();
 		System.out.println("Van a szobaban hallgató? (I/N)\n");
 		String hallgato = scanner.nextLine();
