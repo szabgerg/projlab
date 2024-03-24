@@ -101,7 +101,7 @@ public class Tester {
             System.out.println("5-ös teszteset sikeresen lefutott\n");
             break;
 
-        //TODO
+        //TODO: lélekelvétel, de itt a TVSZ- nincs és emiatt nem sikerül
         //Sikeres lélek elvétel                                 ---------------->>> Waiting for GERGŐ
         case 7:
             h1.vedekezes();
@@ -113,7 +113,7 @@ public class Tester {
             controller.endGame();
             System.out.println("8-as teszteset sikeresen lefutott\n");
             break;
-
+        //TODO szintén lélekelvétel, de itt a TVSZ-van és emiatt nem sikerül
         //Sikertelen lélekelvétel TVSZ miatt
         case 9:
             h1.vedekezes();
