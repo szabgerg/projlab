@@ -12,9 +12,9 @@ public class Rongy extends Romlandok{
 
     // Felülírja a Romlandok osztály aktival metódusát
     @Override
-    public void aktival(Szoba s) {
-        System.out.print("Rongy használva");
-        // Berakrja a rongyot a szobáb aktív tárgyai közé
-        new Szoba().setAktiv(s.getAktiv());
+    public void aktival(Szoba s){
+        System.out.println("Rongy aktivalva");
+        //hozzadja a rongyot az aktiv inventoryhoz
+        s.getAktiv().AddTargy(this);
     }
 }

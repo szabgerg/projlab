@@ -16,6 +16,6 @@ public class Camambert implements ITargy{
     */
     public void aktival(Szoba s) {
         System.out.println("Camambert aktiválva");
-        
+        s.getAktiv().AddTargy(this);
     }
 }

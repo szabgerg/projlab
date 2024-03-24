@@ -54,6 +54,7 @@ public class Tranzisztor implements ITargy{
     public void aktival(Szoba s) {
         //boolean aktiv->true;
         System.out.println("Tranzisztor aktiválva");
+        s.getAktiv().AddTargy(this);
     }
 
     /*

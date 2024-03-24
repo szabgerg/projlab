@@ -8,31 +8,18 @@ public class Targyinventory {
     public Targyinventory() {
         System.out.println("Targyinventory létrehozva");
     }
+
+    public Targyinventory(ITargy targy) {
+        System.out.println("Targyinventory létrehozva tárggyal");
+    }
     
     /*
      * Tárgy hozzáadása az inventory-hoz
      * @param targy - a hozzáadandó tárgy
-     * @return - sikerült-e a hozzáadás
      */
-    public boolean AddTargy(ITargy targy) {
+    public void AddTargy(ITargy targy) {
+        /*add to inventory */
         System.out.println("Tárgy hozzáadása az inventory-hoz");
-        System.out.println("Hány tárgy van már a hallgató inventory-jában? (n)");
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        scanner.close();
-
-        if(n < 5){ //5 a maximum
-            System.out.println("A tárgy hozzáadása sikeres");
-            return true;
-        }
-        else if (n >= 5){
-            System.out.println("A tárgy hozzáadása sikertelen, mert a hallgató inventory-ja tele van");
-            return false;
-        }
-        else{
-            System.out.println("Nem értelmezett válasz");
-            return false;
-        }
     }
     /*
      * Tárgy eltávolítása az inventory-ból

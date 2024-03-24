@@ -15,6 +15,8 @@ public class Sorospohar extends Romlandok{
     @Override
     public void aktival(Szoba s) {
         System.out.print("Sorospohár használva");
+        // Hozzáadja a sorospoharat az aktiv inventoryhoz
+        s.getAktiv().AddTargy(this);
         // Csökkenti a sorospohár élettartamát
         romlik();
         System.out.println("Aktív tárgy idejéből mennyi van hátra? (n)");

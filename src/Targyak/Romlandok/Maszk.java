@@ -13,6 +13,8 @@ public class Maszk extends Romlandok{
     @Override
     public void aktival(Szoba s) {
         System.out.print("Maszk használva");
+        // Hozzáadja a maszkot az aktiv inventoryhoz
+        s.getAktiv().AddTargy(this);
         // Csökkenti a maszk élettartamát
         romlik();
         System.out.println("Aktív tárgy idejéből mennyi van hátra? (n)");

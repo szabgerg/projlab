@@ -15,6 +15,8 @@ public class Tvsz extends Romlandok{
     // Felülírja a Romlandok osztály aktival metódusát
     public void aktival(Szoba s) {
         System.out.print("Tvsz használva");
+        // Hozzáadja a Tvsz-t az aktiv inventoryhoz
+        s.getAktiv().AddTargy(this);
         // Csökkenti a Tvsz élettartamát
         romlik();
         System.out.println("Aktív tárgy idejéből mennyi van hátra? (n)");

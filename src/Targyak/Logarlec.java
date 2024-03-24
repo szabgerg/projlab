@@ -18,6 +18,7 @@ public class Logarlec implements ITargy{
     */
     public void aktival(Szoba s) {
         System.out.println("Logarlec aktiválva");
+        s.getAktiv().AddTargy(this);
         new Controller().endGame(); //A játék véget ér
     }
 }
