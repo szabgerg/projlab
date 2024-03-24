@@ -121,11 +121,13 @@ public class Controller {
 			int left = scanner.nextInt();
 			if (left > 1) {
 				r.romlik();
+				scanner.close();
                 return;
 			} else if (left == 1) {
 				r.romlik();
 				s.removeAktiv(r);
 				System.out.println("A Rongy teljesen megszáradt, törlődik.");
+				scanner.close();
                 return;
 			}
 		} else if (choice.equals("N")) {
