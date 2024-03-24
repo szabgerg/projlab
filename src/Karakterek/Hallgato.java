@@ -135,7 +135,7 @@ public class Hallgato extends Karakter {
 		String choice = scanner.nextLine();
 		do if (choice.equals("I")) {
 			Tvsz tvsz = new Tvsz();
-			tvsz.aktival(jelenlegi);
+			tvsz.aktival(null);
 			System.out.println("A hallgato sikeresen vedekezik\n");
 			tvsz.romlik();
 			System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
@@ -145,7 +145,7 @@ public class Hallgato extends Karakter {
 			}
 			scanner.close();
 			return true;
-		} else if (choice.equals("N")) {
+		} else if (choice.equals("N")) {//söröspohár
 			System.out.println("A hallgato nem rendelkezik tvsszel\n");
 			System.out.println("A hallgatonak van sorospohara? (I/N)\n");
 			String sors = scanner.nextLine();
@@ -164,6 +164,7 @@ public class Hallgato extends Karakter {
 			} else if (sors.equals("N")) {
 				System.out.println("A hallgato nem rendelkezik sorospoharral\n");
 				System.out.println("A hallgato meghal\n");
+				return false;
 			} else {
 				System.out.println("Nem ertelmezett valasz\n");
 				scanner.close();
@@ -174,8 +175,6 @@ public class Hallgato extends Karakter {
 			scanner.close();
 			return false;
 		} while (choice.equals("I") || choice.equals("N"));
-		scanner.close();
-		return false;
 	}
 	/*
 	* A metodusban a hallgato teleportalasat valositjuk meg
