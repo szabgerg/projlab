@@ -80,18 +80,14 @@ public class Karakter {
 		System.out.println("A targyak amiket magadnal viselsz:\n" +
 				"1. Tvsz\n" +
 				"2. Söröspohár\n" +
-				"3. Tranzisztor\n" +
-				"4. Rongy\n" +
-				"5. Camambert\n" +
-				"6. Maszk\n");
+				"3. Rongy\n" +
+				"4. Camambert\n" +
+				"5. Maszk\n");
 		Scanner scanner = new Scanner(System.in);
+		scanner.nextInt();
+		eszkozkeszlet.RemoveTargy(null);
+		jelenlegi.setBentiTargyak(null);
 		scanner.close();
-		if (eszkozkeszlet.RemoveTargy(null)) {  //ha sikerült a tárgy letétele
-			System.out.println("A kivalasztott targy leteve\n");
-			jelenlegi.setBentiTargyak(null);
-		} else {
-			System.out.println("A kivalasztott targy nem letezik\n");
-		}
 	}
 
 	/*

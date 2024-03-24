@@ -30,8 +30,7 @@ public class Tester {
     Scanner scanner = new Scanner(System.in);
 
     System.out.println("1. Játék elindítása(Init)\n" +
-                   "2. Sikeres tárgyfelvétel\n" +
-                   "3. Sikertelen tárgyfelvétel\n" +
+                   "2. Tárgyfelvétel\n" +
                    "4. Tárgy letevése\n" +
                    "5. Sikeres karakter mozgás szobák között\n" +
                    "6. Sikertelen szobaváltási kísérlet\n" +
@@ -85,20 +84,14 @@ public class Tester {
             System.out.println("1-es teszteset sikeresen lefutott\n");
             break;
 
-        //Sikeres tárgyfelvétel                                         ---------------->>> EZ MOST JÓ SZERINTEM
+        // Tárgyfelvétel                                         ---------------->>> EZ MOST JÓ SZERINTEM
         case 2:
             h1.felvesz();
             System.out.println("2-es teszteset sikeresen lefutott\n");
             break;
 
-        //Sikertelen tárgyfelvétel
-        case 3:
-            h1.felvesz();
-            System.out.println("3-as teszteset sikeresen lefutott\n");
-            break;
-
-        //Tárgy letevése
-        case 4: 
+        //Tárgy letevése                                        ---------------->>> EZ MOST JÓ SZERINTEM
+        case 4:                                                     
             h1.letesz();
             System.out.println("4-es teszteset sikeresen lefutott\n");
             break;
