@@ -1,22 +1,20 @@
 package Controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import java.util.Scanner;
-
-import Szoba.Szoba;
 import Karakterek.Hallgato;
 import Karakterek.Oktato;
-
-import Targyak.Targyinventory;
+import Szoba.Szoba;
 import Targyak.Camambert;
+import Targyak.Logarlec;
 import Targyak.Romlandok.Maszk;
 import Targyak.Romlandok.Rongy;
 import Targyak.Romlandok.Sorospohar;
 import Targyak.Romlandok.Tvsz;
-import Targyak.Logarlec;
+import Targyak.Targyinventory;
 import Targyak.Tranzisztor;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 /*
  * Kontroller osztály, a játékban azokat a metódusokat valósítja meg,
@@ -110,64 +108,66 @@ public class Controller {
 
 		System.out.println("Van Rongy a tárgyak között? (I/N)");
 		Scanner scanner = new Scanner(System.in);
-		String choice = scanner.nextLine();
-
-
-		do if (choice.equals("I")) {
-		    Rongy r = new Rongy();
-		    Szoba s = new Szoba();
-		    s.getAktiv();
-			System.out.println("Mennyi a rongy élettartama? (n)");
-			int left = scanner.nextInt();
-			if (left > 1) {
-				r.romlik();
-                return;
-			} else if (left == 1) {
-				r.romlik();
-				s.removeAktiv(r);
-				System.out.println("A Rongy teljesen megszáradt, törlődik.");
-                return;
+		String choice;
+		do {
+			choice = scanner.nextLine();
+			if (choice.equals("I")) {
+				Rongy r = new Rongy();
+				Szoba s = new Szoba();
+				s.getAktiv();
+				System.out.println("Mennyi a rongy élettartama? (n)");
+				int left = scanner.nextInt();
+				if (left > 1) {
+					r.romlik();
+					return;
+				} else if (left == 1) {
+					r.romlik();
+					s.removeAktiv(r);
+					System.out.println("A Rongy teljesen megszáradt, törlődik.");
+					return;
+				}
+			} else if (choice.equals("N")) {
+				System.out.println("Nincs rongy a szobában, ami száradjon.");
+			} else {
+				System.out.println("Érvénytelen válasz\n");
 			}
-		} else if (choice.equals("N")) {
-			System.out.println("Nincs rongy a szobában, ami száradjon.");
-		} else {
-			System.out.println("Érvénytelen válasz\n");
 		} while (!(choice.equals("I") || choice.equals("N")));
 
 		scanner.close();
+
 	}
 
 	/*
 	 * Követkzeő játékos kiválasztása
 	 */
 	public void nextPlayer() {
-        System.out.println("Van még élő hallgató? (I/N)\n");
-        Scanner scanner = new Scanner(System.in);
-        String choice;
-        do {
-            choice = scanner.nextLine();
-            if (choice.equals("I")) {
-                System.out.println("Az aktuális játékos befejezte a körét? (I/N)\n");
-                choice = scanner.nextLine();
-                do if (choice.equals("I")) {
-                    System.out.println("A sor a következő játákoson van!\n");
+		System.out.println("Van még élő hallgató? (I/N)\n");
+		Scanner scanner = new Scanner(System.in);
+		String choice;
+		do {
+			choice = scanner.nextLine();
+			if (choice.equals("I")) {
+				System.out.println("Az aktuális játékos befejezte a körét? (I/N)\n");
+				choice = scanner.nextLine();
+				do if (choice.equals("I")) {
+					System.out.println("A sor a következő játákoson van!\n");
 
-                } else if (choice.equals("N")) {
-                    System.out.println("Folytassa a körét!\n");
-                } else {
-                    System.out.println("Érvénytelen válasz\n");
-                } while (!(choice.equals("I") || choice.equals("N")));
-            } else if (choice.equals("N")) {
-                System.out.println("Az oktatók nyertek\n");
-                this.endGame();
-            } else {
-                System.out.println("Érvénytelen válasz\n");
-            }
-        }while (!(choice.equals("I") || choice.equals("N"))) ;
+				} else if (choice.equals("N")) {
+					System.out.println("Folytassa a körét!\n");
+				} else {
+					System.out.println("Érvénytelen válasz\n");
+				} while (!(choice.equals("I") || choice.equals("N")));
+			} else if (choice.equals("N")) {
+				System.out.println("Az oktatók nyertek\n");
+				this.endGame();
+			} else {
+				System.out.println("Érvénytelen válasz\n");
+			}
+		} while (!(choice.equals("I") || choice.equals("N")));
 
-            scanner.close();
+		scanner.close();
 
-    }
+	}
 
 	//TODO
 	/*
