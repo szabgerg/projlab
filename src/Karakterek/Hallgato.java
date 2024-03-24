@@ -2,7 +2,7 @@ package Karakterek;
 
 import Szoba.Szoba;
 import Targyak.Logarlec;
-import Targyak.Romlandok.Camambert;
+import Targyak.Camambert;
 import Targyak.Romlandok.Rongy;
 import Targyak.Romlandok.Sorospohar;
 import Targyak.Romlandok.Tvsz;
