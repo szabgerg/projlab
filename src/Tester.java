@@ -143,7 +143,7 @@ public class Tester {
 
         //Rongy használata
         case 11:
-            r.aktival();
+            r.aktival( sz1);
             System.out.println("11-es teszteset sikeresen lefutott\n");
             break;
 
@@ -155,7 +155,7 @@ public class Tester {
 
         //Camembert gázosít
         case 13:
-            c.aktival();
+            c.aktival( sz1);
             System.out.println("13-as teszteset sikeresen lefutott\n");
             break;
 
@@ -174,11 +174,11 @@ public class Tester {
         //Tranzisztor belülről
         case 16:
             h1.aktival();
-            tr1.aktival();
+            tr1.aktival( sz1);
             h1.letesz();
 
             h1.aktival();
-            tr2.aktival();
+            tr2.aktival( sz1);
             h1.letesz();
             System.out.println("16-os teszteset sikeresen lefutott\n"); 
             break;
