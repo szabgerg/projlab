@@ -127,13 +127,14 @@ public class Hallgato extends Karakter {
 
 	public boolean vedekezes() {
 		Targyinventory eszkozkeszlet = new Targyinventory();
+		Szoba jelenlegi = new Szoba();
 		System.out.println("Hallgato vedekezik\n");
 		System.out.println("Van Tvsz-e? (I/N)\n");
 		Scanner scanner = new Scanner(System.in);
 		String choice = scanner.nextLine();
 		do if (choice.equals("I")) {
 			Tvsz tvsz = new Tvsz();
-			tvsz.aktival();
+			tvsz.aktival(jelenlegi);
 			System.out.println("A hallgato sikeresen vedekezik\n");
 			System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 			int left = scanner.nextInt();
@@ -147,7 +148,7 @@ public class Hallgato extends Karakter {
 			String sors = scanner.nextLine();
 			do if (sors.equals("I")) {
 				Sorospohar sorsospohar = new Sorospohar();
-				sorsospohar.aktival();
+				sorsospohar.aktival(jelenlegi);
 				System.out.println("A hallgato sikeresen vedekezik\n");
 				System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 				int left = scanner.nextInt();
