@@ -141,8 +141,8 @@ public class Szoba {
      */
     public void removeAktiv(Romlandok r){
         Targyinventory ti = getAktiv();
-	ti.RemoveTargy(r);
-	setAktiv(ti);
+	    ti.RemoveTargy(r);
+	    setAktiv(ti);
         System.out.println("Aktiv targy lejart");
     }
 

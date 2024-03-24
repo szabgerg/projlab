@@ -1,4 +1,6 @@
 package Targyak;
+import Targyak.Romlandok.Romlandok;
+
 import java.util.Scanner;
 
 public class Targyinventory {
