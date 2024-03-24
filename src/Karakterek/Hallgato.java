@@ -214,4 +214,12 @@ public class Hallgato extends Karakter {
 			System.out.println("A tranzisztorok nem kapcsolhatoak ossze\n");
 		}
 	}
+
+	/*
+	* A metodusban a hallgato szobajat allitjuk be
+	* @param szoba - a beallitando szoba
+	 */
+	public void setSzoba(Szoba szoba) {
+		System.out.println("Hallgato szoba atallitva\n");
+	}
 }
