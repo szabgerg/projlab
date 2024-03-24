@@ -31,16 +31,16 @@ public class Tester {
 
     System.out.println("1. Játék elindítása(Init)\n" +
                    "2. Tárgyfelvétel\n" +
-                   "4. Tárgy letevése\n" +
-                   "5. Karakter mozgás szobák között\n" +
-                   "7. Hallgató-lélek elvétel\n" +
-                   "8. Utolsó játékos kiesése\n" +
-                   "11. Rongy használat\n" +
-                   "14. Karakter sikeresen összekapcsol két tranzisztort\n" +
-                   "15. Karakter sikeresen teleportál tranzisztorral\n" +
-                   "19. Rongy száradás\n" +
-                   "21. Egy szoba kettővé válik szét\n" +
-                   "22. Két szoba egyesül egy szobává\n" );
+                   "3. Tárgy letevése\n" +
+                   "4. Karakter mozgás szobák között\n" +
+                   "5. Hallgató-lélek elvétel\n" +
+                   "6. Utolsó játékos kiesése\n" +
+                   "7. Rongy használat\n" +
+                   "8. Karakter sikeresen összekapcsol két tranzisztort\n" +
+                   "9. Karakter sikeresen teleportál tranzisztorral\n" +
+                   "10. Rongy száradás\n" +
+                   "11. Egy szoba kettővé válik szét\n" +
+                   "12. Két szoba egyesül egy szobává\n" );
     
     System.out.println("Add meg a végrhajtandó művelet menüjének számát");
     int num = scanner.nextInt();
@@ -80,63 +80,63 @@ public class Tester {
             break;
 
         //Tárgy letevése                                        ---------------->>> EZ MOST JÓ SZERINTEM
-        case 4:
+        case 3:
             h1.letesz();
-            System.out.println("4-es teszteset sikeresen lefutott\n");
+            System.out.println("3-as teszteset sikeresen lefutott\n");
             break;
 
         //Sikeres mozgás                                        ---------------->>> EZ MOST JÓ SZERINTEM
-        case 5:
+        case 4:
             k1.mozog(sz2);
-            System.out.println("5-ös teszteset sikeresen lefutott\n");
+            System.out.println("4-es teszteset sikeresen lefutott\n");
             break;
 
         //Lélek elvétel                                 ---------------->>> EZ MOST JÓ SZERINTEM
-        case 7:
+        case 5:
             h1.vedekezes();
-            System.out.println("7-es teszteset sikeresen lefutott\n");
+            System.out.println("5-ös teszteset sikeresen lefutott\n");
             break;
         //TODO: szerintem itt nem elég hogy lefut az endgame, de javitsatok ki ha tévedek
         //Utolso játékos kiesés
-        case 8:
+        case 6:
             controller.endGame();
-            System.out.println("8-as teszteset sikeresen lefutott\n");
+            System.out.println("6-os teszteset sikeresen lefutott\n");
             break;
 
         //Tárgy használata
-        case 11:
+        case 7:
             r.aktival( sz1);
-            System.out.println("11-es teszteset sikeresen lefutott\n");
+            System.out.println("7-es teszteset sikeresen lefutott\n");
             break;
 
         //Sikeres tranzisztorpárosítás
-        case 14:
+        case 8:
             h1.osszekapcsol();
-            System.out.println("14-es teszteset sikeresen lefutott\n");
+            System.out.println("8-as teszteset sikeresen lefutott\n");
             break;
 
         //Teleportálás
-        case 15:
+        case 9:
             h1.teleport();
-            System.out.println("15-ös teszteset sikeresen lefutott\n");
+            System.out.println("9-es teszteset sikeresen lefutott\n");
             break;
 
-        //Rongy szárad(új kör)
-        case 19:
+        //Új kör
+        case 10:
             controller.nextRound();
-            System.out.println("19-es teszteset sikeresen lefutott\n");
+            System.out.println("10-es teszteset sikeresen lefutott\n");
             break;
 
         //Szoba kettővé
-        case 21:
+        case 11:
             sz1.split(sz1);
-            System.out.println("21-es teszteset sikeresen lefutott\n");
+            System.out.println("11-es teszteset sikeresen lefutott\n");
             break;
 
         //Szobak egyesülnek
-        case 22:
+        case 12:
             sz1.merge(sz2);
-            System.out.println("22-es teszteset sikeresen lefutott\n");
+            System.out.println("12-es teszteset sikeresen lefutott\n");
             break;
 
         default:
