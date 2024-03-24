@@ -60,7 +60,7 @@ public class Karakter {
 		jelenlegi.getBentiTargyak();
 		String targy = scanner.nextLine();
 		scanner.close();
-		eszkozkeszlet.AddTargy(null)
+		eszkozkeszlet.AddTargy(null);
 		System.out.println("A targy felvetele sikeres\n");
 		jelenlegi.setBentiTargyak(null);
 
