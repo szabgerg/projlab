@@ -11,11 +11,9 @@ import Karakterek.Oktato;
 import Targyak.Targyinventory;
 import Targyak.Camambert;
 import Targyak.Romlandok.Maszk;
-import Targyak.Romlandok.Romlandok;
 import Targyak.Romlandok.Rongy;
 import Targyak.Romlandok.Sorospohar;
 import Targyak.Romlandok.Tvsz;
-import Targyak.ITargy;
 import Targyak.Logarlec;
 import Targyak.Tranzisztor;
 

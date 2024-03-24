@@ -1,7 +1,6 @@
 package Targyak.Romlandok;
 
 import Szoba.Szoba;
-import Targyak.Targyinventory;
 
 // A Rongy osztály, amely a Romlandok osztályból származik
 public class Rongy extends Romlandok{

@@ -12,7 +12,6 @@ import Karakterek.Oktato;
 import Karakterek.Karakter;
 import Targyak.Romlandok.Rongy;
 import Targyak.Camambert;
-import Targyak.Tranzisztor;
 
 /* Tester osztály, feladata a menüsor felkínálása a felhasználó számára
  * és a kiválasztott szám szerinti művelet végrehajtása a mintabjektumok segítségével.

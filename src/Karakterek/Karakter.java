@@ -59,7 +59,7 @@ public class Karakter {
 		}
 		System.out.println("Milyen targyat szeretnel felvenni?\n");
 		jelenlegi.getBentiTargyak();
-		String targy = scanner.nextLine();
+		
 		scanner.close();
 		eszkozkeszlet.AddTargy(null);
 		System.out.println("A targy felvetele sikeres\n");
@@ -85,7 +85,6 @@ public class Karakter {
 				"5. Camambert\n" +
 				"6. Maszk\n");
 		Scanner scanner = new Scanner(System.in);
-		String targy = scanner.nextLine();
 		scanner.close();
 		if (eszkozkeszlet.RemoveTargy(null)) {  //ha sikerült a tárgy letétele
 			System.out.println("A kivalasztott targy leteve\n");
@@ -107,7 +106,6 @@ public class Karakter {
 	 */
 	public void mindentelejt() {
 		Szoba jelenlegi = new Szoba();
-		Targyinventory eszkozkeszlet = new Targyinventory();
 		System.out.println("Minden targy eldobva\n");
 		jelenlegi.setBentiTargyak(null);
 	}

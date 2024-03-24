@@ -61,6 +61,7 @@ public class Oktato extends Karakter {
 		do if(rongy.equals("I")) {
 			System.out.println("Az oktato megbenul\n");
 			setbena(true);
+			scanner.close();
 			return;
 		} else if(rongy.equals("N")) {
 			System.out.println("Az oktato nem benul meg\n");
@@ -75,12 +76,14 @@ public class Oktato extends Karakter {
 		do if(hallgato.equals("I")) {
 			System.out.println("Az oktato elveszi a lelket a hallgatonak\n");
 			lelekelvetel();
+			scanner.close();
 			return;
 		} else if(hallgato.equals("N")) {
 			System.out.println("Nincs a szobaban hallgato\n");
 		} else {
 			System.out.println("Nem ertelmezett valasz\n");
 		} while(hallgato.equals("I") || hallgato.equals("N"));
+		scanner.close();
 	}
 	/*
 	 * Az oktato bena valtozojat allitja be

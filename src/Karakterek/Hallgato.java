@@ -63,6 +63,7 @@ public class Hallgato extends Karakter {
 		} else {
 			System.out.println("Nem ertelmezett valasz\n");
 		} while (choice.equals("I") || choice.equals("N"));
+		scanner.close();
 	}
 	/*
 	* Az hallgato targyak aktivalasat megvalosito metodus
@@ -141,6 +142,7 @@ public class Hallgato extends Karakter {
 			if (left == 1) {
 				eszkozkeszlet.RemoveTargy(null);
 			}
+			scanner.close();
 			return true;
 		} else if (choice.equals("N")) {
 			System.out.println("A hallgato nem rendelkezik tvsszel\n");
@@ -155,19 +157,22 @@ public class Hallgato extends Karakter {
 				if (left == 1) {
 					eszkozkeszlet.RemoveTargy(null);
 				}
+				scanner.close();
 				return true;
 			} else if (sors.equals("N")) {
 				System.out.println("A hallgato nem rendelkezik sorospoharral\n");
 				System.out.println("A hallgato meghal\n");
 			} else {
 				System.out.println("Nem ertelmezett valasz\n");
+				scanner.close();
 				return false;
 			} while (sors.equals("I") || sors.equals("N"));
 		} else {
 			System.out.println("Nem ertelmezett valasz\n");
+			scanner.close();
 			return false;
 		} while (choice.equals("I") || choice.equals("N"));
-
+		scanner.close();
 		return false;
 	}
 	/*
@@ -195,6 +200,7 @@ public class Hallgato extends Karakter {
 		} else {
 			System.out.println("Nem ertelmezett valasz\n");
 		} while (choice.equals("I") || choice.equals("N"));
+		scanner.close();
 	}
 	/*
 	* A metodusban a hallgato tranzisztorok osszekapcsolasat valositjuk meg
