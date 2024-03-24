@@ -1,33 +1,34 @@
 package Karakterek;
 
 import Szoba.Szoba;
-import Targyak.ITargy;
 import Targyak.Targyinventory;
 
 import java.util.Scanner;
+
 /*
-* Karakter osztály ami a játékban szereplő karaktereket reprezentálja
-* A karaktereknek van egy szobájuk ahol tartózkodnak és egy eszközkeszletük
-* A karakterek tudnak mozogni, tárgyakat felvenni, letenni és mindent elejteni
-* Ősosztálya a hallgató és az oktató osztálynak
-* */
+ * Karakter osztály ami a játékban szereplő karaktereket reprezentálja
+ * A karaktereknek van egy szobájuk ahol tartózkodnak és egy eszközkeszletük
+ * A karakterek tudnak mozogni, tárgyakat felvenni, letenni és mindent elejteni
+ * Ősosztálya a hallgató és az oktató osztálynak
+ * */
 public class Karakter {
 	/*
-	* Szoba amiben a karakter tartózkodik
-	* Nem lehet null, amig a karakter a játékban van
-	*
-	*/
+	 * Szoba amiben a karakter tartózkodik
+	 * Nem lehet null, amig a karakter a játékban van
+	 *
+	 */
 	/* Karakter konstruktora
-	* @param szoba - a szoba, ahol a karakter tartózkodik
-	* @param inventory - a karakter eszközkeszlete
+	 * @param szoba - a szoba, ahol a karakter tartózkodik
+	 * @param inventory - a karakter eszközkeszlete
 	 */
 	public Karakter(Szoba szoba, Targyinventory inventory) {
 	}
+
 	/*
-	* A karakter mozgását megvalósító metódus
-	* @param newSzoba - az új szoba, ahova a karakter mozog
-	* A metódusban a karakter mozgását valósítjuk meg
-	*
+	 * A karakter mozgását megvalósító metódus
+	 * @param newSzoba - az új szoba, ahova a karakter mozog
+	 * A metódusban a karakter mozgását valósítjuk meg
+	 *
 	 */
 	public void mozog(Szoba newSzoba) {
 		Szoba jelenlegi = new Szoba();
@@ -39,31 +40,36 @@ public class Karakter {
 			System.out.println("A szoba tele, nincs hely\n");
 		}
 	}
+
 	/*
-	* A metódusban a karakter tárgyfelvételét valósítjuk meg
-	* Ha a karakternek nincs helye a tárgyaknak, akkor nem tud felvenni
+	 * A metódusban a karakter tárgyfelvételét valósítjuk meg
+	 * Ha a karakternek nincs helye a tárgyaknak, akkor nem tud felvenni
 	 */
 	public void felvesz() {
 		Szoba jelenlegi = new Szoba();
 		Targyinventory eszkozkeszlet = new Targyinventory();
 		System.out.println("Targy felvetel\n");
+		System.out.println("Hany targy van mar a hallgato inventory-jaban? (n)\n");
+		Scanner scanner = new Scanner(System.in);
+		int hely = scanner.nextInt();
+		if (hely == 5) {
+			System.out.println("Nincs tobb hely a hallgato inventory-jaban\n");
+			return;
+		}
 		System.out.println("Milyen targyat szeretnel felvenni?\n");
 		jelenlegi.getBentiTargyak();
-		Scanner scanner = new Scanner(System.in);
 		String targy = scanner.nextLine();
 		scanner.close();
-		if (eszkozkeszlet.AddTargy(null)) {  //ha sikerült a tárgy felvétele
-			System.out.println("A targy felvetele sikeres\n");
-			jelenlegi.setBentiTargyak(null);
-		} else {
-			System.out.println("A targy felvetele sikertelen\n");
-		}
+		eszkozkeszlet.AddTargy(null)
+		System.out.println("A targy felvetele sikeres\n");
+		jelenlegi.setBentiTargyak(null);
 
 	}
+
 	/*
-	* A metódusban a karakter tárgyletevését valósítjuk meg
-	* Ha a karakternek nincs tárgya, akkor nem tud letenni
-	* Amit letett, az a szobában lesz, mas karakterek felvehetik
+	 * A metódusban a karakter tárgyletevését valósítjuk meg
+	 * Ha a karakternek nincs tárgya, akkor nem tud letenni
+	 * Amit letett, az a szobában lesz, mas karakterek felvehetik
 	 */
 	public void letesz() {
 		Szoba jelenlegi = new Szoba();
@@ -80,7 +86,7 @@ public class Karakter {
 		Scanner scanner = new Scanner(System.in);
 		String targy = scanner.nextLine();
 		scanner.close();
-		if(eszkozkeszlet.RemoveTargy(null)) {  //ha sikerült a tárgy letétele
+		if (eszkozkeszlet.RemoveTargy(null)) {  //ha sikerült a tárgy letétele
 			System.out.println("A kivalasztott targy leteve\n");
 			jelenlegi.setBentiTargyak(null);
 		} else {
@@ -89,13 +95,14 @@ public class Karakter {
 	}
 
 	/*
-	* A karakter melyik szobában tartózkodik
+	 * A karakter melyik szobában tartózkodik
 	 */
 	public Szoba getSzoba() {
 		return null;
 	}
+
 	/*
-	* A karakter minden tárgyát eldobó metódus
+	 * A karakter minden tárgyát eldobó metódus
 	 */
 	public void mindentelejt() {
 		Szoba jelenlegi = new Szoba();
@@ -103,21 +110,24 @@ public class Karakter {
 		System.out.println("Minden targy eldobva\n");
 		jelenlegi.setBentiTargyak(null);
 	}
+
 	/*
-	* Visszaadja a karakter azonosítóját
-	* Kell ez egyaltalan?
+	 * Visszaadja a karakter azonosítóját
+	 * Kell ez egyaltalan?
 	 */
 	public Karakter getID() {
 		return null;
 	}
+
 	/*
-	* A karakter eszközkeszletét visszaadó metódus
+	 * A karakter eszközkeszletét visszaadó metódus
 	 */
 	public Targyinventory getEszkozkeszlet() {
 		return null;
 	}
+
 	/*
-	* A karakter eszközkeszletét beállító metódus
+	 * A karakter eszközkeszletét beállító metódus
 	 */
 	public void setEszkozkeszlet(Targyinventory eszkozok) {
 		System.out.println("Eszkozkeszlet beallitasa\n");
