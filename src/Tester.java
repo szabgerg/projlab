@@ -119,7 +119,7 @@ public class Tester {
             h1.vedekezes();
             System.out.println("9-es teszteset sikeresen lefutott\n");
             break;
-        
+        //TODO szintén lélekelvétel, de itt a söröspohár van és emiatt nem sikerül
         //Sikertelen lélekelvétel söröspohár miatt
         case 10:
             h1.vedekezes();

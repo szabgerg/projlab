@@ -137,6 +137,7 @@ public class Hallgato extends Karakter {
 			Tvsz tvsz = new Tvsz();
 			tvsz.aktival(jelenlegi);
 			System.out.println("A hallgato sikeresen vedekezik\n");
+			tvsz.romlik();
 			System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 			int left = scanner.nextInt();
 			if (left == 1) {
@@ -152,6 +153,7 @@ public class Hallgato extends Karakter {
 				Sorospohar sorsospohar = new Sorospohar();
 				sorsospohar.aktival(jelenlegi);
 				System.out.println("A hallgato sikeresen vedekezik\n");
+				sorsospohar.romlik();
 				System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 				int left = scanner.nextInt();
 				if (left == 1) {
