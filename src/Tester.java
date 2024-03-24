@@ -2,6 +2,7 @@ import java.util.Scanner;
 import Controller.Controller;
 import Szoba.Szoba;
 import Targyak.Targyinventory;
+import Targyak.Tranzisztor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,9 @@ import java.util.List;
 import Karakterek.Hallgato;
 import Karakterek.Oktato;
 import Karakterek.Karakter;
+import Targyak.Romlandok.Rongy;
+import Targyak.Camambert;
+import Targyak.Tranzisztor;
 
 /* Tester osztály, feladata a menüsor felkínálása a felhasználó számára
  * és a kiválasztott szám szerinti művelet végrehajtása a mintabjektumok segítségével.
@@ -71,125 +75,161 @@ public class Tester {
     Oktato o1 = new Oktato(sz1, t1);
     Hallgato h1 = new Hallgato(sz1, t1);
 
+    Rongy r = new Rongy();
+    Camambert c = new Camambert();
+    Tranzisztor tr1 = new Tranzisztor();
+    Tranzisztor tr2 = new Tranzisztor();
+
     switch(num){
 
         //Init
         case 1:
             controller.init();
+            System.out.println("1-es teszteset sikeresen lefutott\n");
             break;
 
         //Sikeres tárgyfelvétel
         case 2:
             h1.felvesz();
+            System.out.println("2-es teszteset sikeresen lefutott\n");
             break;
 
         //Sikertelen tárgyfelvétel
         case 3:
             h1.felvesz();
+            System.out.println("3-as teszteset sikeresen lefutott\n");
             break;
 
         //Tárgy letevése
         case 4: 
             h1.letesz();
+            System.out.println("4-es teszteset sikeresen lefutott\n");
             break;
 
         //Sikeres mozgás
         case 5:
             k1.mozog(sz2);
+            System.out.println("5-ös teszteset sikeresen lefutott\n");
             break;
 
         //Sikertelen mozgás
         case 6:
             k1.mozog(sz2);
+            System.out.println("6-os teszteset sikeresen lefutott\n");
             break;
 
         //Sikeres lélek elvétel
         case 7:
             h1.vedekezes();
+            System.out.println("7-es teszteset sikeresen lefutott\n");
             break;
 
         //Utolso játékos kiesés
         case 8:
             controller.endGame();
+            System.out.println("8-as teszteset sikeresen lefutott\n");
             break;
 
         //Sikertelen lélekelvétel TVSZ miatt
         case 9:
             h1.vedekezes();
+            System.out.println("9-es teszteset sikeresen lefutott\n");
             break;
         
         //Sikertelen lélekelvétel söröspohár miatt
         case 10:
             h1.vedekezes();
+            System.out.println("10-es teszteset sikeresen lefutott\n");
             break;
 
         //Rongy használata
         case 11:
-
+            r.aktival();
+            System.out.println("11-es teszteset sikeresen lefutott\n");
             break;
 
         //Hallgatók nyernek
         case 12:
             h1.felvesz();
+            System.out.println("12-es teszteset sikeresen lefutott\n");
             break;
 
         //Camembert gázosít
         case 13:
-
+            c.aktival();
+            System.out.println("13-as teszteset sikeresen lefutott\n");
             break;
 
         //Sikeres tranzisztorpárosítás
         case 14:
-
+            h1.osszekapcsol();
+            System.out.println("14-es teszteset sikeresen lefutott\n");
             break;
 
         //Teleportálás
         case 15:
-
+            h1.teleport();
+            System.out.println("15-ös teszteset sikeresen lefutott\n");
             break;
 
         //Tranzisztor belülről
         case 16:
+            h1.aktival();
+            tr1.aktival();
+            h1.letesz();
 
+            h1.aktival();
+            tr2.aktival();
+            h1.letesz();
+            System.out.println("16-os teszteset sikeresen lefutott\n"); 
             break;
 
         //Gázos szoba maszk nélkül
         case 17:
             h1.mozog(sz2);
+            System.out.println("17-es teszteset sikeresen lefutott\n");
             break;
 
         //Gázos szoba maszkkal
         case 18:
             h1.mozog(sz2);
+            System.out.println("18-as teszteset sikeresen lefutott\n");
             break;
 
         //Rongy szárad
         case 19:
             controller.nextRound();
+            System.out.println("19-es teszteset sikeresen lefutott\n");
             break;
 
         //Rongy megszárad
         case 20:
             controller.nextRound();
+            System.out.println("20-as teszteset sikeresen lefutott\n");
             break;
 
         //Szoba kettővé
         case 21:            
             sz1.split(sz1);
+            System.out.println("21-es teszteset sikeresen lefutott\n");
             break;
 
         //Szobak egyesülnek
         case 22:
             sz1.merge(sz2);
+            System.out.println("22-es teszteset sikeresen lefutott\n");
             break;
 
         //Elatkozott szoba működése
         case 23:
+            controller.nextRound();
+            System.out.println("23-as teszteset sikeresen lefutott\n");
             break;
 
         //Oktató megbénul a rongytól
         case 24:
-
+            o1.mozog(sz2);
+            System.out.println("24-es teszteset sikeresen lefutott\n"); 
             break;
         default:
             break;

@@ -19,12 +19,30 @@ import Targyak.ITargy;
 import Targyak.Logarlec;
 import Targyak.Tranzisztor;
 
-
+/*
+ * Kontroller osztály, a játékban azokat a metódusokat valósítja meg, 
+ * amik egyik osztályhoz sem tratoznak szorosan.
+ * Kívülről nyúl bele a játék irányításába.
+ * A kontroller képes inicializálni egy pályát, beállítani a szobákat, karakrereket és tárgyakat,
+ * végrehajtj a körönkénti élettartamcsökkentést, felelős a következő játékos értesítéséért illetve a 
+ * játék zárását is ez az osztály kezeli.
+ */
 public class Controller {
+
+    /*
+     * Kontruktor, ami létrehoz egy Controller-t
+     */
     public Controller() {
         System.out.println("Controller letrehozva");
     }
 
+    /*
+     * Inicializációt hajtja végre, létrehoz két szobát, amelyeket egymás szomszédainak állít be.
+     * Létrehoz egy oktató és egy hallgató játékost.
+     * Létrehoz minden tárgyból egyet (logarléc, tranzisztor, camambert, maszk, rongy, tvsz, sorospohar)
+     * A létrehozott tárgyakat (4db (t1-t4) itt létrehozott) gyűjteményekbe pakolja és ezeket állítja be 
+     * a szobák aktív tárgyainak és a karakterek eszközkészletének
+     */
     public void init() {
         Szoba szoba_A = new Szoba();    // Szoba konstruktorában: Szoba létrehozva + Szoba neve
         System.out.println("szoba_A létrehozva");
@@ -83,13 +101,18 @@ public class Controller {
 
     }
 
+    /*
+     * Végrehajtja a rongy élettartamának csökkentését körönként, ha
+     * a hátralevő idejük 1-el való csökkentése már 0-nak felel meg, akkor 
+     * az 1-el való értékcsökkenés után el is tűnik az aktív tárgyak listájából, azaz megszűnik
+     */
     public void nextRound() {
         System.out.println("Következő kör kezdete\n");
         
         System.out.println("Van Rongy a tárgyak között? (I/N)");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
-        ////////////////////////////////////////////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
         Rongy r = new Rongy();
         Szoba s = new Szoba();
         s.getAktiv();
@@ -113,6 +136,9 @@ public class Controller {
         scanner.close();
     }
 
+    /*
+     * Követkzeő játékos kiválasztása
+     */
     public void nextPlayer() {
         System.out.println("Az aktuális játékos befejezte a körét? (I/N)\n");
         Scanner scanner = new Scanner(System.in);
@@ -127,9 +153,15 @@ public class Controller {
 			System.out.println("Érvénytelen válasz\n");
 		} while (choice.equals("I") || choice.equals("N"));
 
+        scanner.close();
     }
 
     //TODO
+    /*
+     * Végrehajtja a játék végének lekezelését, ez két esetben fordulhat elő:
+     * 1. hallgató felveszi a logarlécet
+     * 2. oktatók mindegyik hallgatónak elvették a lelkét 
+     */
     public void endGame() {
 
         System.out.println("Véget ért a játék? (I/N)\n");
@@ -138,8 +170,11 @@ public class Controller {
         while (true) {
             if (sc.nextLine().equals('I')) {
                 System.out.println("Vége a játéknak");
-                Hallgato h1 = new Hallgato();
                 Szoba sz1 = new Szoba();
+                Camambert c1 = new Camambert();
+                Targyinventory tiv1 = new Targyinventory();
+                Hallgato h1 = new Hallgato(sz1, tiv1);
+                
                 if(h1.getSzoba() == null){
                     sz1.kilep(h1);
                     
