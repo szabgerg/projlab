@@ -138,18 +138,26 @@ public class Controller {
      * Követkzeő játékos kiválasztása
      */
     public void nextPlayer() {
-        System.out.println("Az aktuális játékos befejezte a körét? (I/N)\n");
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
+        System.out.println("Van még élő hallgató? (I/N)\n");
+        do if(choice.equals("I")){
+            System.out.println("Az aktuális játékos befejezte a körét? (I/N)\n");
+            choice = scanner.nextLine();
+            do if (choice.equals("I")) {
+                System.out.println("A sor a következő játákoson van!\n");
 
-        do if (choice.equals("I")) {
-			System.out.println("A sor a következő játákoson van!\n");
-
-		} else if (choice.equals("N")) {
-			System.out.println("Folytassa a körét!\n");
-		} else {
-			System.out.println("Érvénytelen válasz\n");
-		} while (choice.equals("I") || choice.equals("N"));
+            } else if (choice.equals("N")) {
+                System.out.println("Folytassa a körét!\n");
+            } else {
+                System.out.println("Érvénytelen válasz\n");
+            } while (choice.equals("I") || choice.equals("N"));
+        } else if(choice.equals("N")){
+            System.out.println("Az oktatók nyertek\n");
+            this.endGame();
+        } else {
+            System.out.println("Érvénytelen válasz\n");
+        } while (choice.equals("I") || choice.equals("N"));
 
         scanner.close();
     }
@@ -161,30 +169,6 @@ public class Controller {
      * 2. oktatók mindegyik hallgatónak elvették a lelkét 
      */
     public void endGame() {
-
-        System.out.println("Véget ért a játék? (I/N)\n");
-        Scanner sc = new Scanner(System.in);
-
-        while (true) {
-            if (sc.nextLine().equals('I')) {
-                System.out.println("Vége a játéknak");
-                Szoba sz1 = new Szoba();
-                Camambert c1 = new Camambert();
-                Targyinventory tiv1 = new Targyinventory();
-                Hallgato h1 = new Hallgato(sz1, tiv1);
-                
-                if(h1.getSzoba() == null){
-                    sz1.kilep(h1);
-                    
-                }
-                break;
-            } else if (sc.nextLine().equals('N')) {
-                System.out.println("Nincs még vége a játéknak");
-                break;
-            } else {
-                System.out.println("Érvénytelen válasz, adj meg újat!");
-            }
-        }
-        sc.close();
+        System.out.println("Játék vége\n");
     }
 }
