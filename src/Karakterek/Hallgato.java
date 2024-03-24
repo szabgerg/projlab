@@ -74,7 +74,7 @@ public class Hallgato extends Karakter {
 	* 3. Camambert
 	* 4. Logarlec
 	 */
-	void aktival() {
+	public void aktival() {
 		Szoba jelenlegi = new Szoba();
 		System.out.println("Hallgato aktival egy targyat\n");
 		System.out.println("A targyak amiket magadnal viselsz:\n" +
@@ -89,25 +89,25 @@ public class Hallgato extends Karakter {
 			case 1:
 				System.out.println("Tranzisztor aktivalva\n");
 				Tranzisztor tranzisztor = new Tranzisztor();
-				tranzisztor.aktival();
+				tranzisztor.aktival(jelenlegi);
 				jelenlegi.setBentiTargyak(null);
 				break;
 			case 2:
 				System.out.println("Rongy aktivalva\n");
 				Rongy rongy = new Rongy();
-				rongy.aktival();
+				rongy.aktival(jelenlegi);
 				jelenlegi.setBentiTargyak(null);
 				break;
 			case 3:
 				System.out.println("Camambert aktivalva\n");
 				Camambert camambert = new Camambert();
-				camambert.aktival();
+				camambert.aktival(jelenlegi);
 				jelenlegi.setBentiTargyak(null);
 				break;
 			case 4:
 				System.out.println("Logarlec aktivalva\n");
 				Logarlec logarlec = new Logarlec();
-				logarlec.aktival();
+				logarlec.aktival(jelenlegi);
 				break;
 			default:
 				System.out.println("Nincs ilyen targy\n");
