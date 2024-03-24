@@ -16,6 +16,9 @@ import Targyak.Romlandok.Romlandok;
  * különböző tulajdonságokkal rendelkezhetnek
  */
 public class Szoba {
+    /* Szoba osztály konstruktora
+     * szoba inventoryját feltölti, szobába karaktereket beteszi
+    */
     public Szoba(List<Karakter> karakterek, Targyinventory inventory) {
         System.out.println("Szoba letrehozasa\n");
 	System.out.println("Szoba inventoryja letrehozva\n");
