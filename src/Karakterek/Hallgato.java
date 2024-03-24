@@ -90,19 +90,19 @@ public class Hallgato extends Karakter {
 				System.out.println("Tranzisztor aktivalva\n");
 				Tranzisztor tranzisztor = new Tranzisztor();
 				tranzisztor.aktival();
-				jelenlegi.setAktiv(null);
+				jelenlegi.setBentiTargyak(null);
 				break;
 			case 2:
 				System.out.println("Rongy aktivalva\n");
 				Rongy rongy = new Rongy();
 				rongy.aktival();
-				jelenlegi.setAktiv(null);
+				jelenlegi.setBentiTargyak(null);
 				break;
 			case 3:
 				System.out.println("Camambert aktivalva\n");
 				Camambert camambert = new Camambert();
 				camambert.aktival();
-				jelenlegi.setAktiv(null);
+				jelenlegi.setBentiTargyak(null);
 				break;
 			case 4:
 				System.out.println("Logarlec aktivalva\n");
@@ -132,9 +132,9 @@ public class Hallgato extends Karakter {
 		Scanner scanner = new Scanner(System.in);
 		String choice = scanner.nextLine();
 		do if (choice.equals("I")) {
-			System.out.println("A hallgato sikeresen vedekezik\n");
 			Tvsz tvsz = new Tvsz();
 			tvsz.aktival();
+			System.out.println("A hallgato sikeresen vedekezik\n");
 			System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 			int left = scanner.nextInt();
 			if (left == 1) {
@@ -146,9 +146,9 @@ public class Hallgato extends Karakter {
 			System.out.println("A hallgatonak van sorospohara? (I/N)\n");
 			String sors = scanner.nextLine();
 			do if (sors.equals("I")) {
-				System.out.println("A hallgato sikeresen vedekezik\n");
 				Sorospohar sorsospohar = new Sorospohar();
 				sorsospohar.aktival();
+				System.out.println("A hallgato sikeresen vedekezik\n");
 				System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 				int left = scanner.nextInt();
 				if (left == 1) {
