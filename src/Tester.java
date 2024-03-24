@@ -4,8 +4,6 @@ import Szoba.Szoba;
 import Targyak.Targyinventory;
 import Targyak.Tranzisztor;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import Karakterek.Hallgato;
 import Karakterek.Oktato;
@@ -87,7 +85,7 @@ public class Tester {
             System.out.println("1-es teszteset sikeresen lefutott\n");
             break;
 
-        //Sikeres tárgyfelvétel
+        //Sikeres tárgyfelvétel                                         ---------------->>> EZ MOST JÓ SZERINTEM
         case 2:
             h1.felvesz();
             System.out.println("2-es teszteset sikeresen lefutott\n");

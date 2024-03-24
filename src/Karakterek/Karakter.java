@@ -59,12 +59,12 @@ public class Karakter {
 		}
 		System.out.println("Milyen targyat szeretnel felvenni?\n");
 		jelenlegi.getBentiTargyak();
-		
-		scanner.close();
+		scanner.nextInt();
 		eszkozkeszlet.AddTargy(null);
+		
 		System.out.println("A targy felvetele sikeres\n");
 		jelenlegi.setBentiTargyak(null);
-
+		scanner.close();
 	}
 
 	/*
