@@ -96,10 +96,10 @@ public class Tester {
             h1.vedekezes();
             System.out.println("5-ös teszteset sikeresen lefutott\n");
             break;
-        //TODO: szerintem itt nem elég hogy lefut az endgame, de javitsatok ki ha tévedek
+        //TODO: szerintem itt nem elég hogy lefut az endgame, de javitsatok ki ha tévedek, így már okés lesz, csak a megfelő választ kell adni
         //Utolso játékos kiesés
         case 6:
-            controller.endGame();
+            controller.nextPlayer();
             System.out.println("6-os teszteset sikeresen lefutott\n");
             break;
 

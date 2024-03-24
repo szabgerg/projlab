@@ -43,46 +43,55 @@ public class Oktato extends Karakter {
 		////////////GAZOS///////////////////////////////////////////
 		System.out.println("A szoba gazos? (I/N)\n");
 		Scanner scanner = new Scanner(System.in);
-		String choice = scanner.nextLine();
+		String choice;
 
-		do if(choice.equals("I")) {
-			System.out.println("A szoba gazos\n");
-			mindentelejt();
-			System.out.println("Az oktato elejt mindent\n");
-		} else if(choice.equals("N")) {
-			System.out.println("A szoba nem gazos\n");
-		} else {
-			System.out.println("Nem ertelmezett valasz\n");
-		} while(choice.equals("I") || choice.equals("N"));
+		do{
+			choice = scanner.nextLine();
+			if(choice.equals("I")) {
+				System.out.println("A szoba gazos\n");
+				mindentelejt();
+				System.out.println("Az oktato elejt mindent\n");
+			} else if(choice.equals("N")) {
+				System.out.println("A szoba nem gazos\n");
+			} else {
+				System.out.println("Nem ertelmezett valasz\n");
+			}
+		} while(!(choice.equals("I") || choice.equals("N")));
 
 		////////////RONGY///////////////////////////////////////////
 		System.out.println("Van a szobaban rongy? (I/N)\n");
-		String rongy = scanner.nextLine();
-		do if(rongy.equals("I")) {
-			System.out.println("Az oktato megbenul\n");
-			setbena(true);
-			scanner.close();
-			return;
-		} else if(rongy.equals("N")) {
-			System.out.println("Az oktato nem benul meg\n");
-		} else {
-			System.out.println("Nem ertelmezett valasz\n");
-		} while(rongy.equals("I") || rongy.equals("N"));
+		String rongy;
+		do{
+			rongy = scanner.nextLine();
+			if(rongy.equals("I")) {
+				System.out.println("Az oktato megbenul\n");
+				setbena(true);
+				scanner.close();
+				return;
+			} else if(rongy.equals("N")) {
+				System.out.println("Az oktato nem benul meg\n");
+			} else {
+				System.out.println("Nem ertelmezett valasz\n");
+			}
+		} while(!(rongy.equals("I") || rongy.equals("N")));
 
 		////////////LELEKELVETEL/////////////////////////////////////
 		jelenlegi.getBentlevok();
 		System.out.println("Van a szobaban hallgató? (I/N)\n");
-		String hallgato = scanner.nextLine();
-		do if(hallgato.equals("I")) {
-			System.out.println("Az oktato elveszi a lelket a hallgatonak\n");
-			lelekelvetel();
-			scanner.close();
-			return;
-		} else if(hallgato.equals("N")) {
-			System.out.println("Nincs a szobaban hallgato\n");
-		} else {
-			System.out.println("Nem ertelmezett valasz\n");
-		} while(hallgato.equals("I") || hallgato.equals("N"));
+		String hallgato;
+		do{
+			hallgato = scanner.nextLine();
+			if(hallgato.equals("I")) {
+				System.out.println("Az oktato elveszi a lelket a hallgatonak\n");
+				lelekelvetel();
+				scanner.close();
+				return;
+			} else if(hallgato.equals("N")) {
+				System.out.println("Nincs a szobaban hallgato\n");
+			} else {
+				System.out.println("Nem ertelmezett valasz\n");
+			}
+		} while(!(hallgato.equals("I") || hallgato.equals("N")));
 		scanner.close();
 	}
 	/*
