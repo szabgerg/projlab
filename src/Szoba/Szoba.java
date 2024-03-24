@@ -65,10 +65,12 @@ public class Szoba {
      */
     public Targyinventory getBentiTargyak(){
 		System.out.println("A szobában található tárgyak:\n" +
-        "1. Tranzisztor\n" +
-        "2. Rongy\n" +
-        "3. Camambert\n" +
-        "4. Logarlec\n");
+                "1. Tvsz\n" +
+                "2. Söröspohár\n" +
+                "3. Tranzisztor\n" +
+                "4. Rongy\n" +
+                "5. Camambert\n" +
+                "6. Maszk\n");
         return null;
     }
 
