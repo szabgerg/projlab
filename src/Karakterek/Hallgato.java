@@ -75,6 +75,7 @@ public class Hallgato extends Karakter {
 	* 4. Logarlec
 	 */
 	void aktival() {
+		Szoba jelenlegi = new Szoba();
 		System.out.println("Hallgato aktival egy targyat\n");
 		System.out.println("A targyak amiket magadnal viselsz:\n" +
 				"1. Tranzisztor\n" +
@@ -89,15 +90,19 @@ public class Hallgato extends Karakter {
 				System.out.println("Tranzisztor aktivalva\n");
 				Tranzisztor tranzisztor = new Tranzisztor();
 				tranzisztor.aktival();
+				jelenlegi.setAktiv(null);
 				break;
 			case 2:
 				System.out.println("Rongy aktivalva\n");
 				Rongy rongy = new Rongy();
+				rongy.aktival();
+				jelenlegi.setAktiv(null);
 				break;
 			case 3:
 				System.out.println("Camambert aktivalva\n");
 				Camambert camambert = new Camambert();
 				camambert.aktival();
+				jelenlegi.setAktiv(null);
 				break;
 			case 4:
 				System.out.println("Logarlec aktivalva\n");
@@ -109,6 +114,7 @@ public class Hallgato extends Karakter {
 				break;
 		} while ((choice > 0) && (choice < 5));
 		System.out.println("A kivalasztott targy aktivalva\n");
+		scanner.close();
 	}
 	/*
 	* A metodusban a hallgato lelekelvetel elleni vedelmet valositjuk meg
@@ -120,6 +126,7 @@ public class Hallgato extends Karakter {
 	 */
 
 	public boolean vedekezes() {
+		Targyinventory eszkozkeszlet = new Targyinventory();
 		System.out.println("Hallgato vedekezik\n");
 		System.out.println("Van Tvsz-e? (I/N)\n");
 		Scanner scanner = new Scanner(System.in);
@@ -128,6 +135,11 @@ public class Hallgato extends Karakter {
 			System.out.println("A hallgato sikeresen vedekezik\n");
 			Tvsz tvsz = new Tvsz();
 			tvsz.aktival();
+			System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
+			int left = scanner.nextInt();
+			if (left == 1) {
+				eszkozkeszlet.RemoveTargy(null);
+			}
 			return true;
 		} else if (choice.equals("N")) {
 			System.out.println("A hallgato nem rendelkezik tvsszel\n");
@@ -137,6 +149,11 @@ public class Hallgato extends Karakter {
 				System.out.println("A hallgato sikeresen vedekezik\n");
 				Sorospohar sorsospohar = new Sorospohar();
 				sorsospohar.aktival();
+				System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
+				int left = scanner.nextInt();
+				if (left == 1) {
+					eszkozkeszlet.RemoveTargy(null);
+				}
 				return true;
 			} else if (sors.equals("N")) {
 				System.out.println("A hallgato nem rendelkezik sorospoharral\n");
