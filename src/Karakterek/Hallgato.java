@@ -190,17 +190,15 @@ public class Hallgato extends Karakter {
 						return false;
 					} else {
 						System.out.println("Nem ertelmezett valasz\n");
-						scanner.close();
-						return false;
 					}
 				} while (!(sors.equals("I") || sors.equals("N")));
 			} else {
 				System.out.println("Nem ertelmezett valasz\n");
-				scanner.close();
-				return false;
 			}
 		} while (!(choice.equals("I") || choice.equals("N")));
+	return false;
 	}
+
 	/*
 	* A metodusban a hallgato teleportalasat valositjuk meg
 	* A hallgato teleportalasahoz szukseges ket tranzisztor
