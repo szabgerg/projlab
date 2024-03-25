@@ -43,10 +43,9 @@ public class Hallgato extends Karakter {
 		newSzoba.getAktiv();
 		System.out.println("A szoba gazos? (I/N)\n");
 		Scanner scanner = new Scanner(System.in);
-		String choice;
-
+		String choice ;                                        
 		do{
-			choice = scanner.nextLine();
+			choice = scanner.nextLine();								//No line found exception: test 9
 			if (choice.equals("I")) {
 				System.out.println("A szoba gazos\n");
 				System.out.println("Hallgatonak van maszkja? (I/N)\n");
@@ -69,7 +68,6 @@ public class Hallgato extends Karakter {
 				System.out.println("Nem ertelmezett valasz\n");
 			}
 		} while (!(choice.equals("I") || choice.equals("N")));
-		scanner.close();
 	}
 	/*
 	* Az hallgato targyak aktivalasat megvalosito metodus
@@ -209,7 +207,7 @@ public class Hallgato extends Karakter {
 			choice = scanner.nextLine();
 			if (choice.equals("I")) {
 				System.out.println("A tranzisztorok ossze vannak kapcsolva\n");
-				mozog(t2.getSzoba());
+				mozog(t2.getSzoba());												
 				t1.kikapcsol();
 				t2.kikapcsol();
 
@@ -220,7 +218,6 @@ public class Hallgato extends Karakter {
 				System.out.println("Nem ertelmezett valasz\n");
 			}
 		} while (!(choice.equals("I") || choice.equals("N")));
-		scanner.close();
 	}
 	/*
 	* A metodusban a hallgato tranzisztorok osszekapcsolasat valositjuk meg

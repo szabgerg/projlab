@@ -33,12 +33,12 @@ public class Tester {
                    "2. Tárgyfelvétel\n" +
                    "3. Tárgy letevése\n" +
                    "4. Karakter mozgás szobák között\n" +
-                   "5. Hallgató-lélek elvétel\n" +
-                   "6. Utolsó játékos kiesése\n" +
-                   "7. Rongy használat\n" +
+                   "5. Hallgatótól lélek elvétel\n" +
+                   "6. Következő játékos\n" +
+                   "7. Tárgy használat\n" +
                    "8. Karakter sikeresen összekapcsol két tranzisztort\n" +
                    "9. Karakter sikeresen teleportál tranzisztorral\n" +
-                   "10. Rongy száradás\n" +
+                   "10. Körváltás\n" +
                    "11. Egy szoba kettővé válik szét\n" +
                    "12. Két szoba egyesül egy szobává\n" );
     
@@ -67,13 +67,13 @@ public class Tester {
 
     switch(num){
 
-        //Init
+        //Init                                                  ---------------->>> EZ JÓ
         case 1:
             controller.init();
             System.out.println("1-es teszteset sikeresen lefutott\n");
             break;
 
-        // Tárgyfelvétel                                         ---------------->>> EZ MOST JÓ SZERINTEM
+        // Tárgyfelvétel                                        ---------------->>> EZ MOST JÓ SZERINTEM
         case 2:
             h1.felvesz();
             System.out.println("2-es teszteset sikeresen lefutott\n");
@@ -91,49 +91,50 @@ public class Tester {
             System.out.println("4-es teszteset sikeresen lefutott\n");
             break;
 
-        //Lélek elvétel                                 ---------------->>> EZ MOST JÓ SZERINTEM
+        //Lélek elvétel                                         ---------------->>> EZ MOST JÓ SZERINTEM
         case 5:
             h1.vedekezes();
             System.out.println("5-ös teszteset sikeresen lefutott\n");
             break;
-        //TODO: szerintem itt nem elég hogy lefut az endgame, de javitsatok ki ha tévedek, így már okés lesz, csak a megfelő választ kell adni
-        //Utolso játékos kiesés
+    
+        //Következő játékos                                     ---------------->>> EZ MOST JÓ SZERINTEM
         case 6:
             controller.nextPlayer();
             System.out.println("6-os teszteset sikeresen lefutott\n");
             break;
 
-        //Tárgy használata
+        //Tárgy használata                                      ---------------->>> EZ MOST JÓ SZERINTEM
         case 7:
-            r.aktival( sz1);
+            h1.aktival();
             System.out.println("7-es teszteset sikeresen lefutott\n");
             break;
 
-        //Sikeres tranzisztorpárosítás
+        //Sikeres tranzisztorpárosítás                          ---------------->>> EZ MOST JÓ SZERINTEM
         case 8:
             h1.osszekapcsol();
             System.out.println("8-as teszteset sikeresen lefutott\n");
             break;
 
+        //TODO: NO LINE FOUND EXCEPTION
         //Teleportálás
         case 9:
             h1.teleport();
             System.out.println("9-es teszteset sikeresen lefutott\n");
             break;
 
-        //Új kör
-        case 10:
+        //Új kör                                                --------------->>> EZ MOST JÓ SZERINTEM
+        case 10:                                                        
             controller.nextRound();
             System.out.println("10-es teszteset sikeresen lefutott\n");
             break;
 
-        //Szoba kettővé
+        //Szoba kettővé                                         ---------------->>> EZ MOST JÓ SZERINTEM
         case 11:
             sz1.split(sz1);
             System.out.println("11-es teszteset sikeresen lefutott\n");
             break;
 
-        //Szobak egyesülnek
+        //Szobak egyesülnek                                     ---------------->>> EZ MOST JÓ SZERINTEM
         case 12:
             sz1.merge(sz2);
             System.out.println("12-es teszteset sikeresen lefutott\n");

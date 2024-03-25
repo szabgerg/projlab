@@ -65,7 +65,6 @@ public class Tranzisztor implements ITargy{
         System.out.println("A tranzisztorok össze vannak kapcsolva? (I/N)");
         Scanner scanner = new Scanner(System.in);
         String valasz = scanner.nextLine();
-        scanner.close();
         if(valasz.equals("N")){
             System.out.println("Tranzisztor párosítható");
             return true;
@@ -77,6 +76,7 @@ public class Tranzisztor implements ITargy{
             System.out.println("Nem értelmezett válasz");
             return false;
         }
+        
     }
 
     /*
