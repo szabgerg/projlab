@@ -42,7 +42,7 @@ public class Tester {
 							"12. Egy szoba kettővé válik szét\n" +
 							"13. Két szoba egyesül egy szobává\n");
 
-		System.out.println("Add meg a végrhajtandó művelet menüjének számát");
+		System.out.println("Add meg a végrehajtandó művelet menüjének számát");
 		int num = scanner.nextInt();
 
 		while (num < 1 || num > 13) {
@@ -119,7 +119,6 @@ public class Tester {
 				System.out.println("9-es teszteset sikeresen lefutott\n");
 				break;
 
-			//TODO: NO LINE FOUND EXCEPTION
 			//Teleportálás
 			case 10:
 				h1.teleport();
