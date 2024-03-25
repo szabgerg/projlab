@@ -45,7 +45,7 @@ public class Tester {
 		System.out.println("Add meg a végrhajtandó művelet menüjének számát");
 		int num = scanner.nextInt();
 
-		while (num < 1 || num > 12) {
+		while (num < 1 || num > 13) {
 			System.out.println("Hibás szám, adj meg újat!");
 			num = scanner.nextInt();
 			scanner.close();
@@ -92,56 +92,56 @@ public class Tester {
 			//Oktató mozgás
 			case 5:
 				o1.mozog(sz2);
-				System.out.println("4-es teszteset sikeresen lefutott\n");
+				System.out.println("5-ös teszteset sikeresen lefutott\n");
 				break;
 
 			//Lélek elvétel                                         ---------------->>> EZ MOST JÓ SZERINTEM
 			case 6:
 				h1.vedekezes();
-				System.out.println("5-ös teszteset sikeresen lefutott\n");
+				System.out.println("6-os teszteset sikeresen lefutott\n");
 				break;
 
 			//Következő játékos                                     ---------------->>> EZ MOST JÓ SZERINTEM
 			case 7:
 				controller.nextPlayer();
-				System.out.println("6-os teszteset sikeresen lefutott\n");
+				System.out.println("7-es teszteset sikeresen lefutott\n");
 				break;
 
 			//Tárgy használata                                      ---------------->>> EZ MOST JÓ SZERINTEM
 			case 8:
 				h1.aktival();
-				System.out.println("7-es teszteset sikeresen lefutott\n");
+				System.out.println("8-as teszteset sikeresen lefutott\n");
 				break;
 
 			//Sikeres tranzisztorpárosítás                          ---------------->>> EZ MOST JÓ SZERINTEM
 			case 9:
 				h1.osszekapcsol();
-				System.out.println("8-as teszteset sikeresen lefutott\n");
+				System.out.println("9-es teszteset sikeresen lefutott\n");
 				break;
 
 			//TODO: NO LINE FOUND EXCEPTION
 			//Teleportálás
 			case 10:
 				h1.teleport();
-				System.out.println("9-es teszteset sikeresen lefutott\n");
+				System.out.println("10-es teszteset sikeresen lefutott\n");
 				break;
 
 			//Új kör                                                --------------->>> EZ MOST JÓ SZERINTEM
 			case 11:
 				controller.nextRound();
-				System.out.println("10-es teszteset sikeresen lefutott\n");
+				System.out.println("11-es teszteset sikeresen lefutott\n");
 				break;
 
 			//Szoba kettővé                                         ---------------->>> EZ MOST JÓ SZERINTEM
 			case 12:
 				sz1.split(sz1);
-				System.out.println("11-es teszteset sikeresen lefutott\n");
+				System.out.println("12-es teszteset sikeresen lefutott\n");
 				break;
 
 			//Szobak egyesülnek                                     ---------------->>> EZ MOST JÓ SZERINTEM
 			case 13:
 				sz1.merge(sz2);
-				System.out.println("12-es teszteset sikeresen lefutott\n");
+				System.out.println("13-as teszteset sikeresen lefutott\n");
 				break;
 
 			default:
