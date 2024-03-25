@@ -148,14 +148,16 @@ public class Controller {
 			choice = scanner.nextLine();
 			if (choice.equals("I")) {
 				System.out.println("Az aktuális játékos befejezte a körét? (I/N)\n");
+				do{
 				choice = scanner.nextLine();
-				do if (choice.equals("I")) {
-					System.out.println("A sor a következő játákoson van!\n");
+					if (choice.equals("I")) {
+						System.out.println("A sor a következő játákoson van!\n");
 
-				} else if (choice.equals("N")) {
-					System.out.println("Folytassa a körét!\n");
-				} else {
-					System.out.println("Érvénytelen válasz\n");
+					} else if (choice.equals("N")) {
+						System.out.println("Folytassa a körét!\n");
+					} else {
+						System.out.println("Érvénytelen válasz\n");
+					}
 				} while (!(choice.equals("I") || choice.equals("N")));
 			} else if (choice.equals("N")) {
 				System.out.println("Az oktatók nyertek\n");
