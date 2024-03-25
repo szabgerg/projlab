@@ -37,7 +37,14 @@ public class Oktato extends Karakter {
 	public void mozog(Szoba newSzoba) {
 		Szoba jelenlegi = new Szoba();
 		System.out.println("Oktato mozog\n");
-		super.mozog(newSzoba);
+		if (newSzoba.beenged()) {
+			System.out.println("A szobaban van eleg hely\n");
+			jelenlegi.kilep(this);
+			newSzoba.setBentlevok(null);
+			System.out.println("Sikeres mozgás\n");
+		} else {
+			System.out.println("A szoba tele, nincs hely\n");
+		}
 		jelenlegi.getAktiv();
 
 		////////////GAZOS///////////////////////////////////////////

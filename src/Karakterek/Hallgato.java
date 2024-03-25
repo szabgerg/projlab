@@ -39,14 +39,25 @@ public class Hallgato extends Karakter {
 	@Override
 	public void mozog(Szoba newSzoba) {
 		System.out.println("Hallgato mozog\n");
-		super.mozog(newSzoba);
+		Szoba jelenlegi = new Szoba();
+		boolean benegedett = newSzoba.beenged();
+		if (benegedett) {
+			System.out.println("A szobaban van eleg hely\n");
+			jelenlegi.kilep(this);
+			newSzoba.setBentlevok(null);
+			System.out.println("Sikeres mozgás\n\n");
+		} else {
+			System.out.println("A szoba tele, nincs hely\n");
+			return;
+		}
+
 		newSzoba.getAktiv();
 		System.out.println("A szoba gazos? (I/N)\n");
 		Scanner scanner = new Scanner(System.in);
-		String choice ;                                        
+		String cho = "";
 		do{
-			choice = scanner.nextLine();								//No line found exception: test 9
-			if (choice.equals("I")) {
+			cho = scanner.nextLine();
+			if (cho.equals("I")) {
 				System.out.println("A szoba gazos\n");
 				System.out.println("Hallgatonak van maszkja? (I/N)\n");
 				String mask;
@@ -62,12 +73,12 @@ public class Hallgato extends Karakter {
 					}
 				} while (!(mask.equals("I") || mask.equals("N")));
 
-			} else if (choice.equals("N")) {
+			} else if (cho.equals("N")) {
 				System.out.println("A szoba nem gazos\n");
 			} else {
 				System.out.println("Nem ertelmezett valasz\n");
 			}
-		} while (!(choice.equals("I") || choice.equals("N")));
+		} while (!(cho.equals("I") || cho.equals("N")));
 	}
 	/*
 	* Az hallgato targyak aktivalasat megvalosito metodus
@@ -207,7 +218,7 @@ public class Hallgato extends Karakter {
 			choice = scanner.nextLine();
 			if (choice.equals("I")) {
 				System.out.println("A tranzisztorok ossze vannak kapcsolva\n");
-				mozog(t2.getSzoba());												
+				mozog(t2.getSzoba());
 				t1.kikapcsol();
 				t2.kikapcsol();
 
@@ -218,6 +229,7 @@ public class Hallgato extends Karakter {
 				System.out.println("Nem ertelmezett valasz\n");
 			}
 		} while (!(choice.equals("I") || choice.equals("N")));
+		scanner.close();
 	}
 	/*
 	* A metodusban a hallgato tranzisztorok osszekapcsolasat valositjuk meg

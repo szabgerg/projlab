@@ -1,5 +1,7 @@
 package Szoba;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Scanner;
 
@@ -39,15 +41,14 @@ public class Szoba {
         int cap = getBefogadokepesseg();
         System.out.println("A szoba befogadokepessege " + cap);
         System.out.println("Hany karakter van mar a szobában?");
-		Scanner scanner = new Scanner(System.in);
-		int hanyan = scanner.nextInt();
-        scanner.close();
-        if (hanyan < cap) {
-            return true;
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        int hanyan = 0;
+        try {
+            hanyan = Integer.parseInt(reader.readLine());
+        } catch (Exception e) {
+            System.out.println("Hiba a bemenet olvasasakor");
         }
-        else {
-            return false;
-        }
+		return hanyan < cap;
     }
     
     /* Visszatér az adott szobában tartózkodó karakterekkel

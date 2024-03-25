@@ -30,18 +30,7 @@ public class Karakter {
 	 * A metódusban a karakter mozgását valósítjuk meg
 	 *
 	 */
-	public void mozog(Szoba newSzoba) {
-		Szoba jelenlegi = new Szoba();
-		if (newSzoba.beenged()) {
-			System.out.println("A szobaban van eleg hely\n");
-			jelenlegi.kilep(this);
-			newSzoba.setBentlevok(null);
-			System.out.println("Sikeres mozgás\n");
-		} else {
-			System.out.println("A szoba tele, nincs hely\n");
-		}
-		
-	}
+	public void mozog(Szoba newSzoba) {}
 
 	/*
 	 * A metódusban a karakter tárgyfelvételét valósítjuk meg
