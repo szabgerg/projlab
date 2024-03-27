@@ -43,7 +43,7 @@ public class Karakter {
 		System.out.println("Hany targy van mar a hallgato inventory-jaban? (n)\n");
 		Scanner scanner = new Scanner(System.in);
 		int hely = scanner.nextInt();
-		if (hely == 5) {
+		if (hely >= 5) {
 			System.out.println("Nincs tobb hely a hallgato inventory-jaban\n");
 			scanner.close();
 			return;
