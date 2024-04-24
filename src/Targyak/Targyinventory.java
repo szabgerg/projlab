@@ -1,4 +1,7 @@
 package Targyak;
+
+import java.util.List;
+
 /*
  * Targyinventory osztály
  */
@@ -6,6 +9,8 @@ public class Targyinventory {
     /*
      * Targyinventory konstruktor
      */
+
+    public List<ITargy> targyak;
     public Targyinventory() {
         System.out.println("Targyinventory létrehozva\n");
     }

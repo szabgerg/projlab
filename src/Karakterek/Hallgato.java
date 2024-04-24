@@ -90,7 +90,7 @@ public class Hallgato extends Karakter {
 	* 3. Camambert
 	* 4. Logarlec
 	 */
-	public void aktival() {
+	public void aktival(int hely) {
 		Szoba jelenlegi = new Szoba();
 		System.out.println("Hallgato aktival egy targyat\n");
 		System.out.println("A targyak amiket magadnal viselsz:\n" +
@@ -204,7 +204,7 @@ public class Hallgato extends Karakter {
 	* A hallgato teleportalasahoz szukseges ket tranzisztor
 	* Ha ossze vannak kapcsolva a tranzisztorok, akkor a hallgato teleportal
 	 */
-	public void teleport() {
+	public void teleport(int hely) {
 		System.out.println("Hallgato teleportal\n");
 		Tranzisztor t1 = new Tranzisztor();
 		t1.getPar();
@@ -234,7 +234,7 @@ public class Hallgato extends Karakter {
 	* Egy tranzisztor egyszerre csak egy masikkal kapcsolhato ossze
 	*
 	 */
-	public void osszekapcsol() {
+	public void osszekapcsol(int mit, int mivel) {
 		System.out.println("Transzisztorok osszekapcsolasa\n");
 		Tranzisztor t1 = new Tranzisztor();
 		boolean szabad1 = t1.canPair();
