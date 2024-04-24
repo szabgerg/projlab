@@ -16,6 +16,7 @@ import Targyak.Romlandok.Romlandok;
  * különböző tulajdonságokkal rendelkezhetnek
  */
 public class Szoba {
+    // Szoba privat attributumai
     private int befogadokepesseg;
     private List<Szoba> szomszedok;
     private List<Karakter> bentlevok;
