@@ -3,8 +3,6 @@ package Szoba;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.List;
-import java.util.Scanner;
-
 import Karakterek.Karakter;
 import Targyak.*;
 import Targyak.Romlandok.Romlandok;
@@ -18,44 +16,57 @@ import Targyak.Romlandok.Romlandok;
  * különböző tulajdonságokkal rendelkezhetnek
  */
 public class Szoba {
+    private int befogadokepesseg;
+    private List<Szoba> szomszedok;
+    private List<Karakter> bentlevok;
+    private Targyinventory bentiTargyak;
+    private Targyinventory aktivTargyak;
+    private int legutobbTakaritva;
 
     /* Szoba default konstruktora
     */
     public Szoba() {
         System.out.println("Szoba letrehozva");
+        befogadokepesseg = 0;
+        szomszedok = null;
+        bentiTargyak = null;
+        bentlevok = null;
+        aktivTargyak = null;
+        legutobbTakaritva = 0;
     }
 	
     /* Szoba osztály konstruktora
      * szoba inventoryját feltölti, szobába karaktereket beteszi
     */
-    public Szoba(Targyinventory inventory, int befogadokepesseg) {
+    public Szoba(int bef, List<Szoba> szomsz, List<Karakter> benti, Targyinventory inventory, Targyinventory targyi, int tak) {
+
         System.out.println("Szoba letrehozasa");
 	    System.out.println("Szoba inventoryja feltoltve");
 	    System.out.println("Szobaba karakterek beteve");
+       
+        befogadokepesseg = bef;
+        szomszedok = szomsz;
+        bentlevok = benti;
+        bentiTargyak = inventory;
+        aktivTargyak = targyi;
+        legutobbTakaritva = tak;
     }
     /* A szoba befogadóképessége alapján
      * eldönti, hogy egy új karakter be tud-e lépni
      * @return: true, ha beléphet, false, ha tele a szoba
      */
     public boolean beenged() {
-        int cap = getBefogadokepesseg();
-        System.out.println("A szoba befogadokepessege " + cap);
-        System.out.println("Hany karakter van mar a szobában?");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int hanyan = 0;
-        try {
-            hanyan = Integer.parseInt(reader.readLine());
-        } catch (Exception e) {
-            System.out.println("Hiba a bemenet olvasasakor");
+        if (getBentlevok().size() >= befogadokepesseg){
+            return true;
         }
-		return hanyan < cap;
+        return true;
     }
     
     /* Visszatér az adott szobában tartózkodó karakterekkel
      * @return karakterek listája
      */
     public List<Karakter> getBentlevok(){
-        return null;
+        return bentlevok;
     }
 
     /* Beállítja a szobában tartózkodó karaktereket,
@@ -64,6 +75,7 @@ public class Szoba {
      */
     public void setBentlevok(List<Karakter> k){
 		System.out.println("Bent levo karakterek beallitasa\n");
+        bentlevok = k;
     }
 
     /* Meghívódik, ha egy karakter elhagyja a szobát,
@@ -72,21 +84,15 @@ public class Szoba {
      */
     public void kilep(Karakter k){
         System.out.println("Kilepes a szobabol");
-        setBentlevok(null);
+        bentlevok.remove(k);
     }
 
     /* Visszatér a szobában található tárgyak listájával
      * @return Targyinventory
      */
     public Targyinventory getBentiTargyak(){
-		System.out.println("A szobában található tárgyak:\n" +
-                "1. Tvsz\n" +
-                "2. Söröspohár\n" +
-                "3. Tranzisztor\n" +
-                "4. Rongy\n" +
-                "5. Camambert\n" +
-                "6. Maszk\n");
-        return null;
+		System.out.println("A szobában található tárgyak:\n");
+        return bentiTargyak;
     }
 
     /* Beállítja a szobában található tárgyakat
@@ -94,13 +100,14 @@ public class Szoba {
      */
     public void setBentiTargyak(Targyinventory t){
 		System.out.println("Szoba targyainak beallitasa\n");
+        bentiTargyak = t;
     }
 
     /* Visszaadja a szoba szomszédait
      * @return a szobák listája, amelyekbe át lehet jutni
      */
     public List<Szoba> getSzomszedok(){
-        return null;
+        return szomszedok;
     }
 
     /* Beállítja a szoba szomszédait, akikhez
@@ -109,6 +116,7 @@ public class Szoba {
      */
     public void setSzomszedok(List<Szoba> s){
 		System.out.println("Szoba szomszedainak beallitasa\n");
+        this.szomszedok = s;
     }
 
     /* Visszaadja a szoba jelenleg aktív tárgyait,
@@ -116,7 +124,7 @@ public class Szoba {
      * @return Targyinventory, az aktív tárgyak listája
      */
     public Targyinventory getAktiv(){
-        return new Targyinventory();
+        return aktivTargyak;
     }
 
     /* Beállítja a szoba jelenleg aktív hatással bíró tárgyait,
@@ -125,6 +133,7 @@ public class Szoba {
      */
     public void setAktiv(Targyinventory targy){
 		System.out.println("Aktiv targyak beallitasa\n");
+        aktivTargyak = targy;
     }
 
     /* Beállítja a szoba befogadóképességét,
@@ -132,13 +141,14 @@ public class Szoba {
      */
     public void setBefogadokepesseg(int d){
 		System.out.println("Befogadokepesseg beallitasa\n");
+        befogadokepesseg = d;
     }
 
     /* Visszatér a szoba befogadóképességével
      * @return int
      */
     public int getBefogadokepesseg(){
-        return 5;
+        return befogadokepesseg;
     }
 
     /* Beállítja egy szoba összes attribútumát,
@@ -148,6 +158,12 @@ public class Szoba {
      */
     public void setUj(Szoba u){
 		System.out.println("Szoba attibutumainak beallitasa\n");
+        this.aktivTargyak = u.aktivTargyak;
+        this.befogadokepesseg = u.befogadokepesseg;
+        this.bentiTargyak = u.bentiTargyak;
+        this.bentlevok = u.bentlevok;
+        this.legutobbTakaritva = u.legutobbTakaritva;
+        this.szomszedok = u.szomszedok;
     }
 
     /* Kivesz egy aktív tárgyak a szoba aktív tárgyai közül,
@@ -191,6 +207,6 @@ public class Szoba {
      * @param Szoba
      */
     public Szoba getSzobaProperties(){
-        return null;
+        return this;
     }
 }

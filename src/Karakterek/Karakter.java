@@ -12,6 +12,8 @@ import java.util.Scanner;
  * Ősosztálya a hallgató és az oktató osztálynak
  * */
 public class Karakter {
+	protected Targyinventory eszkozkeszlet;
+	protected Szoba jelenlegi;
 	/*
 	 * Szoba amiben a karakter tartózkodik
 	 * Nem lehet null, amig a karakter a játékban van
