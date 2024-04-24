@@ -12,6 +12,7 @@ import java.util.Scanner;
  * Ősosztálya a hallgató és az oktató osztálynak
  * */
 public class Karakter {
+	// Karakter protected attributumai
 	protected Targyinventory eszkozkeszlet;
 	protected Szoba jelenlegi;
 	/*
