@@ -38,14 +38,14 @@ public class Karakter {
 	 * A metódusban a karakter tárgyfelvételét valósítjuk meg
 	 * Ha a karakternek nincs helye a tárgyaknak, akkor nem tud felvenni
 	 */
-	public void felvesz() {
+	public void felvesz(int hely) {
 		Szoba jelenlegi = new Szoba();
 		Targyinventory eszkozkeszlet = new Targyinventory();
 		System.out.println("Targy felvetel\n");
 		System.out.println("Hany targy van mar a hallgato inventory-jaban? (n)\n");
 		Scanner scanner = new Scanner(System.in);
-		int hely = scanner.nextInt();
-		if (hely >= 5) {
+		int pos = scanner.nextInt();
+		if (pos >= 5) {
 			System.out.println("Nincs tobb hely a hallgato inventory-jaban\n");
 			scanner.close();
 			return;
@@ -65,7 +65,7 @@ public class Karakter {
 	 * Ha a karakternek nincs tárgya, akkor nem tud letenni
 	 * Amit letett, az a szobában lesz, mas karakterek felvehetik
 	 */
-	public void letesz() {
+	public void letesz(int hely) {
 		Szoba jelenlegi = new Szoba();
 		Targyinventory eszkozkeszlet = new Targyinventory();
 		System.out.println("Targy letetel\n" +

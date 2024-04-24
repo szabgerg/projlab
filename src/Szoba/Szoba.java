@@ -192,7 +192,7 @@ public class Szoba {
      * amelyek meg fognak osztozni az eredeti attribútumain
      * @return újonnan létrejött 2 szoba listája
     */
-    public List<Szoba> split(Szoba sz){
+    public List<Szoba> split(){
         System.out.println("Szoba szetesik");
         Szoba uj1 = new Szoba();
         Szoba uj2 = new Szoba();

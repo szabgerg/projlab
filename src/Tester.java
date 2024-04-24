@@ -74,13 +74,13 @@ public class Tester {
 
 			// Tárgyfelvétel                                        ---------------->>> EZ MOST JÓ SZERINTEM
 			case 2:
-				h1.felvesz();
+				h1.felvesz(0);
 				System.out.println("2-es teszteset sikeresen lefutott\n");
 				break;
 
 			//Tárgy letevése                                        ---------------->>> EZ MOST JÓ SZERINTEM
 			case 3:
-				h1.letesz();
+				h1.letesz(0);
 				System.out.println("3-as teszteset sikeresen lefutott\n");
 				break;
 
@@ -109,19 +109,19 @@ public class Tester {
 
 			//Tárgy használata                                      ---------------->>> EZ MOST JÓ SZERINTEM
 			case 8:
-				h1.aktival();
+				h1.aktival(0);
 				System.out.println("8-as teszteset sikeresen lefutott\n");
 				break;
 
 			//Sikeres tranzisztorpárosítás                          ---------------->>> EZ MOST JÓ SZERINTEM
 			case 9:
-				h1.osszekapcsol();
+				h1.osszekapcsol(1,2);
 				System.out.println("9-es teszteset sikeresen lefutott\n");
 				break;
 
 			//Teleportálás
 			case 10:
-				h1.teleport();
+				h1.teleport(0);
 				System.out.println("10-es teszteset sikeresen lefutott\n");
 				break;
 
@@ -133,7 +133,7 @@ public class Tester {
 
 			//Szoba kettővé                                         ---------------->>> EZ MOST JÓ SZERINTEM
 			case 12:
-				sz1.split(sz1);
+				sz1.split();
 				System.out.println("12-es teszteset sikeresen lefutott\n");
 				break;
 
