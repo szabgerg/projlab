@@ -13,5 +13,6 @@ public class Tvsz extends Romlandok{
     // Felülírja a Romlandok osztály aktival metódusát
     public void aktival(Szoba s) {
         System.out.print("Tvsz használva");
+
     }
 }

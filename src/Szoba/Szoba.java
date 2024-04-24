@@ -28,10 +28,10 @@ public class Szoba {
     /* Szoba osztály konstruktora
      * szoba inventoryját feltölti, szobába karaktereket beteszi
     */
-    public Szoba(List<Karakter> karakterek, Targyinventory inventory) {
+    public Szoba(Targyinventory inventory, int befogadokepesseg) {
         System.out.println("Szoba letrehozasa");
-	System.out.println("Szoba inventoryja feltoltve");
-	System.out.println("Szobaba karakterek beteve");
+	    System.out.println("Szoba inventoryja feltoltve");
+	    System.out.println("Szobaba karakterek beteve");
     }
     /* A szoba befogadóképessége alapján
      * eldönti, hogy egy új karakter be tud-e lépni
