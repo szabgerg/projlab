@@ -2,6 +2,7 @@ package Szoba;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
 import Karakterek.Karakter;
 import Targyak.*;
@@ -22,6 +23,7 @@ public class Szoba {
     private List<Karakter> bentlevok;
     private Targyinventory bentiTargyak;
     private Targyinventory aktivTargyak;
+    //-1 ha még nem volt takarítva
     private int legutobbTakaritva;
 
     /* Szoba default konstruktora
@@ -33,9 +35,18 @@ public class Szoba {
         bentiTargyak = null;
         bentlevok = null;
         aktivTargyak = null;
-        legutobbTakaritva = 0;
+        legutobbTakaritva = -1;
     }
-	
+
+    public Szoba(int bef, Targyinventory targyinventory){
+        befogadokepesseg = bef;
+        bentiTargyak = targyinventory;
+        szomszedok = new ArrayList<Szoba>();
+        bentlevok = new ArrayList<Karakter>();
+        aktivTargyak = new Targyinventory();
+        legutobbTakaritva = -1;
+
+    }
     /* Szoba osztály konstruktora
      * szoba inventoryját feltölti, szobába karaktereket beteszi
     */

@@ -167,7 +167,7 @@ public class Proto {
 	}
 
 	private static Szoba newSzoba(Targyinventory inventory, int befogadokepesseg) {
-		Szoba sz = new Szoba(inventory, befogadokepesseg);
+		Szoba sz = new Szoba( befogadokepesseg, inventory);
 		szobak.add(sz);
 		return sz;
 	}
