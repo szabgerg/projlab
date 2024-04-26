@@ -1,6 +1,4 @@
-package Targyak.Romlandok;
-
-import Szoba.Szoba;
+package logarlec;
 
 // A Maszk osztály, amely a Romlandok osztályból származik
 public class Maszk extends Romlandok{

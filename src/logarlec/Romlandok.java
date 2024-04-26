@@ -1,6 +1,4 @@
-package Targyak.Romlandok;
-import Szoba.Szoba;
-import Targyak.ITargy;
+package logarlec;
 
 // A Romlandok osztály, amely implementálja az ITargy interfészt
 public class Romlandok implements ITargy{

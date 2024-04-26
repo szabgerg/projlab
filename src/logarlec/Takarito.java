@@ -1,7 +1,4 @@
-package Karakterek;
-
-import Szoba.Szoba;
-import Targyak.Targyinventory;
+package logarlec;
 
 public class Takarito extends Karakter {
 	public Takarito(Szoba sz, Targyinventory inventory) {

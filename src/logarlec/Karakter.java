@@ -1,7 +1,4 @@
-package Karakterek;
-
-import Szoba.Szoba;
-import Targyak.Targyinventory;
+package logarlec;
 
 import java.util.Scanner;
 

@@ -1,5 +1,4 @@
-package Targyak;
-import Szoba.Szoba;
+package logarlec;
 
 //megvalósítja az ITargy interfészt
 public class Camambert implements ITargy{

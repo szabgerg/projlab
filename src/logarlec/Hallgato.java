@@ -1,13 +1,4 @@
-package Karakterek;
-
-import Szoba.Szoba;
-import Targyak.Logarlec;
-import Targyak.Camambert;
-import Targyak.Romlandok.Rongy;
-import Targyak.Romlandok.Sorospohar;
-import Targyak.Romlandok.Tvsz;
-import Targyak.Targyinventory;
-import Targyak.Tranzisztor;
+package logarlec;
 
 import java.util.Scanner;
 /*

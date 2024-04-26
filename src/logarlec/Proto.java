@@ -1,10 +1,4 @@
-import Karakterek.Hallgato;
-import Karakterek.Karakter;
-import Karakterek.Oktato;
-import Karakterek.Takarito;
-import Szoba.Szoba;
-import Targyak.*;
-import Targyak.Romlandok.*;
+package logarlec;
 
 import java.io.*;
 import java.util.*;
@@ -27,36 +21,13 @@ public class Proto {
 	private static double randVal = -1;
 	//ha igazi random kellene
 	private static Random rand = new Random();
-	public static int testSzam = -1;//hányas teszt fut, hova kell a log
-	private static boolean elsolog = true; // ha true akkor a korábbi kimenet törlődik, különben a log csak kiegészül
 
 	public static void main(String[] args) {
 		ertelmezo(System.in);
 	}
 
-	public static void setTestSzam(int t) {
-		testSzam = t;
-	}
-
 	public static void logger(String s) {//logolás, ha fut teszt akkor a teszt számával jelölt out-ba, különben a run_log.txt-be
-		File file;
-		new File("logs").mkdirs();
-		if(testSzam > -1) {
-			file = new File("logs/out_" + testSzam + ".txt");
-		} else {
-			file = new File("logs/run_log.txt");
-		}
-		try {
-			if(elsolog){
-				file.delete();
-				elsolog = false;
-			}
-			PrintWriter fl = new PrintWriter(new FileWriter(file, true));
-			fl.write(s + "\n");
-			fl.close();
-		} catch (Exception e) {
-			System.out.println("Hiba a logolásnál");
-		}
+		System.out.println(s);
 	}
 
 

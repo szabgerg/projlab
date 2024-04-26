@@ -1,6 +1,4 @@
-package Targyak;
-
-import Szoba.Szoba;
+package logarlec;
 
 public class Legfrissito implements ITargy{
 	public Legfrissito() {
