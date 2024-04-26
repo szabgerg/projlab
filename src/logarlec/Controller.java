@@ -159,7 +159,6 @@ public class Controller {
 
 	}
 
-	//TODO
 	/*
 	 * Végrehajtja a játék végének lekezelését, ez két esetben fordulhat elő:
 	 * 1. hallgató felveszi a logarlécet
