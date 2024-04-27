@@ -1,0 +1,5 @@
+Szoba_letrehozva
+Oktato_letrehozva
+Oktato_mozogni_probal
+Nincs_hely
+Sikertelen_mozgas

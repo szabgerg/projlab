@@ -1,0 +1,6 @@
+Szoba_letrehozva
+Oktato_letrehozva
+Van_hely
+Regi_szobabol_kilep
+Uj_szobaba_mozgas
+Sikeres_mozgas

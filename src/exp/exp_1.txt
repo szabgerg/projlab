@@ -1,0 +1,6 @@
+Szoba_letrehozva
+Oktato_letrehozva
+Oktato_mozogni_probal
+Van_hely
+Kilepett_a_szobabol
+Sikeres_mozgas
