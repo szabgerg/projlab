@@ -15,9 +15,7 @@ public class Hallgato extends Karakter {
 	 */
 	public Hallgato(Szoba szoba, Targyinventory inventory) {
 		super(szoba, inventory);
-		System.out.println("Hallgato_letrehozasa\n");
-		System.out.println("Hallgato_eszkozkeszlete_letrehozva\n");
-		System.out.println("Hallgato_szobaba_teve\n");
+
 	}
 	/*
 	* Az hallgato mozgasat megvalosito metodus
@@ -29,19 +27,18 @@ public class Hallgato extends Karakter {
 	 */
 	@Override
 	public void mozog(Szoba newSzoba) {
-		System.out.println("Hallgato_mozogni_probal");
-		if(!newSzoba.beenged()){
-			System.out.print("Nincs_hely");
-			System.out.print("Sikertelen_mozgas");
-			return;}
-		System.out.print("Van_hely");
+		if(!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) return;
+
+
 		jelenlegi.kilep(this);
 		newSzoba.getBentlevok().add(this);
-		System.out.println("Uj_szobaba_mozgas");
 		jelenlegi = newSzoba;
 
-		System.out.print("Sikeres_mozgas");
 		if(newSzoba.getAktiv().getTargyak().isEmpty()) return;
+
+		/* Todo: mi van a szobában, erre reakció
+		 *
+		 */
 
 
 	}
@@ -56,49 +53,8 @@ public class Hallgato extends Karakter {
 	* 4. Logarlec
 	 */
 	public void aktival(int hely) {
-		Szoba jelenlegi = new Szoba();
-		System.out.println("Hallgato_aktival_egy_targyat\n");
-		System.out.println("A_targyak_amiket_magadnal_viselsz:\n" +
-				"1. Tranzisztor\n" +
-				"2. Rongy\n" +
-				"3. Camambert\n" +
-				"4. Logarlec\n" +
-				"Melyik targyat szeretned aktivalni? (n)\n");
-		Scanner scanner = new Scanner(System.in);
-		int choice;
-		do{
-			choice = scanner.nextInt();
-			switch (choice) {
-				case 1:
-					System.out.println("Tranzisztor_aktivalva\n");
-					Tranzisztor tranzisztor = new Tranzisztor();
-					tranzisztor.aktival(this);
-					jelenlegi.setBentiTargyak(null);
-					break;
-				case 2:
-					System.out.println("Rongy_aktivalva\n");
-					Rongy rongy = new Rongy();
-					rongy.aktival(this);
-					jelenlegi.setBentiTargyak(null);
-					break;
-				case 3:
-					System.out.println("Camambert_aktivalva\n");
-					Camambert camambert = new Camambert();
-					camambert.aktival(this);
-					jelenlegi.setBentiTargyak(null);
-					break;
-				case 4:
-					System.out.println("Logarlec_aktivalva\n");
-					Logarlec logarlec = new Logarlec();
-					logarlec.aktival(this);
-					break;
-				default:
-					System.out.println("Nincs_ilyen_targy\n");
-					break;
-			}
-		} while (!((choice > 0) && (choice < 5)));
-		System.out.println("A_kivalasztott_targy_aktivalva\n");
-		scanner.close();
+		ITargy t = eszkozkeszlet.getTargyak().get(hely);
+		t.aktival(this);
 	}
 	/*
 	* A metodusban a hallgato lelekelvetel elleni vedelmet valositjuk meg
@@ -110,58 +66,13 @@ public class Hallgato extends Karakter {
 	 */
 
 	public boolean vedekezes() {
-		Targyinventory eszkozkeszlet = new Targyinventory();
-		Szoba jelenlegi = new Szoba();
-		System.out.println("Hallgato_vedekezik\n");
-		System.out.println("Van Tvsz-e? (I/N)\n");
-		Scanner scanner = new Scanner(System.in);
-		String choice;
-		do {
-			choice = scanner.nextLine();
-			if (choice.equals("I")) {
-				Tvsz tvsz = new Tvsz();
-				tvsz.aktival(null);
-				System.out.println("A_hallgato_sikeresen_vedekezik\n");
-				tvsz.romlik();
-				System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
-				int left = scanner.nextInt();
-				if (left == 1) {
-					eszkozkeszlet.RemoveTargy(null);
-				}
-				scanner.close();
+		for (ITargy t: eszkozkeszlet.getTargyak()){
+			if(t.hasznal(this)) {
+				System.out.println("Hallgato sikeresen vedekezett\n");
 				return true;
-			} else if (choice.equals("N")) {//söröspohár
-				System.out.println("A_hallgato_nem_rendelkezik_tvsszel\n");
-				System.out.println("A hallgatonak van sorospohara? (I/N)\n");
-				String sors;
-				do{
-					sors = scanner.nextLine();
-					if (sors.equals("I")) {
-						Sorospohar sorsospohar = new Sorospohar();
-						sorsospohar.aktival(this);
-						System.out.println("A hallgato sikeresen vedekezik\n");
-						sorsospohar.romlik();
-						System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
-						int left = scanner.nextInt();
-						if (left == 1) {
-							eszkozkeszlet.RemoveTargy(null);
-						}
-						scanner.close();
-						return true;
-					} else if (sors.equals("N")) {
-						System.out.println("A hallgato nem rendelkezik sorospoharral\n");
-						System.out.println("A hallgato meghal\n");
-						scanner.close();
-						return false;
-					} else {
-						System.out.println("Nem ertelmezett valasz\n");
-					}
-				} while (!(sors.equals("I") || sors.equals("N")));
-			} else {
-				System.out.println("Nem ertelmezett valasz\n");
 			}
-		} while (!(choice.equals("I") || choice.equals("N")));
-	return false;
+		}
+		return false;
 	}
 
 	/*
@@ -169,30 +80,16 @@ public class Hallgato extends Karakter {
 	* A hallgato teleportalasahoz szukseges ket tranzisztor
 	* Ha ossze vannak kapcsolva a tranzisztorok, akkor a hallgato teleportal
 	 */
-	public void teleport(int hely) {
-		System.out.println("Hallgato teleportal\n");
-		Tranzisztor t1 = new Tranzisztor();
-		t1.getPar();
-		Tranzisztor t2 = new Tranzisztor();
-		System.out.println("A tranzisztorok ossze vannak kapcsolva? (I/N)\n");
-		Scanner scanner = new Scanner(System.in);
-		String choice;
-		do {
-			choice = scanner.nextLine();
-			if (choice.equals("I")) {
-				System.out.println("A tranzisztorok ossze vannak kapcsolva\n");
-				mozog(t2.getSzoba());
-				t1.kikapcsol();
-				t2.kikapcsol();
-
-			} else if (choice.equals("N")) {
-				System.out.println("A tranzisztorok nincsenek ossze kapcsolva\n");
-				System.out.println("A hallgato nem tud teleportalni\n");
-			} else {
-				System.out.println("Nem ertelmezett valasz\n");
-			}
-		} while (!(choice.equals("I") || choice.equals("N")));
-		scanner.close();
+	public void teleport(Szoba newSzoba) {
+		if(newSzoba.beenged()){
+			jelenlegi.kilep(this);
+			newSzoba.getBentlevok().add(this);
+			jelenlegi = newSzoba;
+			System.out.println("hallgato_teleportalva\n");
+		}
+		else {
+			System.out.println("hallgato_nem_teleportalhato\n");
+		}
 	}
 	/*
 	* A metodusban a hallgato tranzisztorok osszekapcsolasat valositjuk meg
@@ -200,18 +97,17 @@ public class Hallgato extends Karakter {
 	*
 	 */
 	public void osszekapcsol(int mit, int mivel) {
-		System.out.println("Transzisztorok osszekapcsolasa\n");
-		Tranzisztor t1 = new Tranzisztor();
-		boolean szabad1 = t1.canPair();
-		Tranzisztor t2 = new Tranzisztor();
-		boolean szabad2 = t2.canPair();
-		if (szabad1 && szabad2) {
+		Tranzisztor t1 = (Tranzisztor) eszkozkeszlet.getTargyak().get(mit);
+		Tranzisztor t2 = (Tranzisztor) eszkozkeszlet.getTargyak().get(mivel);
+		if(t1.canPair() && t2.canPair()) {
 			t1.setPar(t2);
 			t2.setPar(t1);
-			System.out.println("A tranzisztorok osszekapcsolva\n");
-		}else {
-			System.out.println("A tranzisztorok nem kapcsolhatoak ossze\n");
+			System.out.println("Tranzisztorok osszekapcsolva\n");
 		}
+		else {
+			System.out.println("Tranzisztorok nem kapcsolhatoak ossze\n");
+		}
+
 	}
 
 	/*
