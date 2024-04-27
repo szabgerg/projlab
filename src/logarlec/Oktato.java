@@ -32,71 +32,46 @@ public class Oktato extends Karakter {
 	 */
 	@Override
 	public void mozog(Szoba newSzoba) {
-		Szoba jelenlegi = new Szoba();
-		System.out.println("Oktato mozog\n");
-		if (newSzoba.beenged()) {
-			System.out.println("A szobaban van eleg hely\n");
+		if(Proto.getRandVal()<0) {//ha nincs igazi random akkor az oktató irányítható
+			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) return;
+
 			jelenlegi.kilep(this);
-			newSzoba.setBentlevok(null);
-			System.out.println("Sikeres mozgás\n");
-		} else {
-			System.out.println("A szoba tele, nincs hely\n");
+			newSzoba.getBentlevok().add(this);
+			jelenlegi = newSzoba;
+
+			if (newSzoba.getAktiv().getTargyak().isEmpty()) return;
+
+			for (ITargy t : newSzoba.getAktiv().getTargyak()) {
+				t.akcio(this);
+			}
+
+			if (bena) return;
+			lelekelvetel();
+		}else {//van random tehát az oktató egy "ai" lesz
+			double rand = Proto.getRandVal();
+			if(rand <0.5) return;
+			int randint = (int) (rand * 10);
+			if(randint > jelenlegi.getSzomszedok().size()){
+				randint = jelenlegi.getSzomszedok().size()-1;
+			}
+			newSzoba = jelenlegi.getSzomszedok().get(randint);
+
+			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) return;
+
+			jelenlegi.kilep(this);
+			newSzoba.getBentlevok().add(this);
+			jelenlegi = newSzoba;
+
+			if (newSzoba.getAktiv().getTargyak().isEmpty()) return;
+
+			for (ITargy t : newSzoba.getAktiv().getTargyak()) {
+				t.akcio(this);
+			}
+
+			if (bena) return;
+			lelekelvetel();
 		}
-		jelenlegi.getAktiv();
 
-		////////////GAZOS///////////////////////////////////////////
-		System.out.println("A szoba gazos? (I/N)\n");
-		Scanner scanner = new Scanner(System.in);
-		String choice;
-
-		do{
-			choice = scanner.nextLine();
-			if(choice.equals("I")) {
-				System.out.println("A szoba gazos\n");
-				mindentelejt();
-				System.out.println("Az oktato elejt mindent\n");
-			} else if(choice.equals("N")) {
-				System.out.println("A szoba nem gazos\n");
-			} else {
-				System.out.println("Nem ertelmezett valasz\n");
-			}
-		} while(!(choice.equals("I") || choice.equals("N")));
-
-		////////////RONGY///////////////////////////////////////////
-		System.out.println("Van a szobaban rongy? (I/N)\n");
-		String rongy;
-		do{
-			rongy = scanner.nextLine();
-			if(rongy.equals("I")) {
-				System.out.println("Az oktato megbenul\n");
-				setbena(true);
-				scanner.close();
-				return;
-			} else if(rongy.equals("N")) {
-				System.out.println("Az oktato nem benul meg\n");
-			} else {
-				System.out.println("Nem ertelmezett valasz\n");
-			}
-		} while(!(rongy.equals("I") || rongy.equals("N")));
-
-		////////////LELEKELVETEL/////////////////////////////////////
-		jelenlegi.getBentlevok();
-		System.out.println("Van a szobaban hallgató? (I/N)\n");
-		String hallgato;
-		do{
-			hallgato = scanner.nextLine();
-			if(hallgato.equals("I")) {
-				System.out.println("Az oktato elveszi a lelket a hallgatonak\n");
-				lelekelvetel();
-				scanner.close();
-				return;
-			} else if(hallgato.equals("N")) {
-				System.out.println("Nincs a szobaban hallgato\n");
-			} else {
-				System.out.println("Nem ertelmezett valasz\n");
-			}
-		} while(!(hallgato.equals("I") || hallgato.equals("N")));
-		scanner.close();
 	}
 	/*
 	 * Az oktato bena valtozojat allitja be
@@ -117,19 +92,10 @@ public class Oktato extends Karakter {
 	 * vege a jateknak
 	 */
 	void lelekelvetel() {
-		Szoba jelenlegi = new Szoba();
-		System.out.println("Oktato lelekelvetel\n");
-		jelenlegi.getBentlevok();
-		Hallgato hallgato = new Hallgato(new Szoba(), new Targyinventory());
-		boolean siker = hallgato.vedekezes();
-		if(siker) {
-			System.out.println("A hallgato megvedi magat\n");
-		} else {
-			System.out.println("A hallgato nem tudta megvedeni magat\n" +
-					"A hallgato mindent elejt és meghal\n");
-			hallgato.mindentelejt();
-			hallgato.setSzoba(null);
-
+		for (Karakter karakter : jelenlegi.getBentlevok()) {
+			if (karakter.vedekezes()) {
+				karakter.mindentelejt();
+			}
 		}
 	}
 
