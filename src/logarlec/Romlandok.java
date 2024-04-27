@@ -3,7 +3,7 @@ package logarlec;
 // A Romlandok osztály, amely implementálja az ITargy interfészt
 public class Romlandok implements ITargy{
     // Az élettartam változó, amely tárolja az objektum élettartamát
-    public int elettartam;
+    private int hatralevoido;
 
     // Konstruktor, amely létrehoz egy új Romlandok objektumot
     public Romlandok() {
@@ -12,7 +12,7 @@ public class Romlandok implements ITargy{
 
     // A romlik metódus, amely csökkenti az objektum élettartamát
     public void romlik() {
-        elettartam--;
+        hatralevoido--;
         System.out.println(", élettartama csökken 1-gyel");
     }
 

@@ -5,11 +5,16 @@ import java.util.Scanner;
 //megvalósítja az ITargy interfészt
 public class Tranzisztor implements ITargy{
 
+    private Tranzisztor par;
+    private Szoba szoba;
+
     /*
      * Tranzisztor konstruktor
      */
-    public Tranzisztor() {
+    public Tranzisztor(Tranzisztor t, Szoba s) {
         System.out.println("Tranzisztor létrehozva\n");
+        par = t;
+        szoba = s;
     }
 
     /*
@@ -18,7 +23,7 @@ public class Tranzisztor implements ITargy{
      */
     public Tranzisztor getPar(){
         System.out.println("Tranzisztor párja lekérdezve");
-        return new Tranzisztor();
+        return par;
     }
 
     /*
@@ -26,6 +31,7 @@ public class Tranzisztor implements ITargy{
      * @param t - a beállítandó tranzisztor
      */
     public void setPar(Tranzisztor t){
+        par = t;
         System.out.println("Tranzisztor pár beállítva");
     }
 
@@ -35,7 +41,7 @@ public class Tranzisztor implements ITargy{
      */
     public Szoba getSzoba(){
         System.out.println("Szoba lekérdezve");
-        return new Szoba();
+        return szoba;
     }
 
     /*
@@ -43,6 +49,7 @@ public class Tranzisztor implements ITargy{
      * @param s - a beállítandó szoba
      */
     public void setSzoba(Szoba s){
+        szoba = s;
         System.out.println("Szoba beállítva");
     }
 
@@ -50,21 +57,21 @@ public class Tranzisztor implements ITargy{
     * Tranzisztor aktiválása, a Szobában a tárgy bekerül az aktív tárgyak inventoryba
     */
     public void aktival(Karakter k) {
-        System.out.println("Tranzisztor aktiválva");
         k.jelenlegi.getAktiv().AddTargy(this);
+        System.out.println("Tranzisztor aktiválva");
     }
 
     /**
-     * Tranzisztor használata
+     * Tranzisztor ezeket nem tudja használni
      */
     public boolean hasznal(Karakter k){
         System.out.println("Tranzisztor használva");
-        return true;
+        return false;
     }
 
     public boolean szur(Karakter k){
         System.out.println("Tranzisztor szűrve");
-        return true;
+        return false;
     }
 
 
