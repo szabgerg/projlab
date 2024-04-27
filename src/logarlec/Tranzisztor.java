@@ -1,6 +1,6 @@
 package logarlec;
 
-import java.util.Scanner;
+import logarlec.Hallgato;
 
 //megvalósítja az ITargy interfészt
 public class Tranzisztor implements ITargy{
@@ -59,6 +59,11 @@ public class Tranzisztor implements ITargy{
     public void aktival(Karakter k) {
         k.jelenlegi.getAktiv().AddTargy(this);
         System.out.println("Tranzisztor aktiválva");
+        //ha a tranzisztor parja aktivalva van már, akkor aktiválásnál meghivodik a hallgato teleportálása
+        if(par != null && par.getSzoba().getAktiv().getTargyak().contains(par)){
+            //a hallgató a tranzisztor párjához teleportálódik
+            ((Hallgato)k).teleport(par.getSzoba());
+        }
     }
 
     /**
@@ -81,28 +86,15 @@ public class Tranzisztor implements ITargy{
      * @return boolean - párosítható-e a tranzisztor
      */
     public boolean canPair(){
-        System.out.println("A tranzisztorok össze vannak kapcsolva? (I/N)");
-        Scanner scanner = new Scanner(System.in);
-        String valasz = scanner.nextLine();
-        if(valasz.equals("N")){
-            System.out.println("Tranzisztor párosítható");
-            return true;
-        }
-        else if(valasz.equals("I")){
-            System.out.println("Tranzisztor nem párosítható");
-            return false;
-        }else{
-            System.out.println("Nem értelmezett válasz");
-            return false;
-        }
-        
+        System.out.println("A tranzisztor párosítható-e?");
+        return par == null; //ha a tranzisztor párja null, akkor párosítható
     }
 
     /*
      * Tranzisztor kikapcsolása, aktiv jelzés beállítása
      */
     public void kikapcsol(){
-        //boolean aktiv->false;
+        szoba.getAktiv().RemoveTargy(this);
         System.out.println("Tranzisztor kikapcsolva");
     }
 }
