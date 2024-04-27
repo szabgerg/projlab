@@ -7,7 +7,7 @@ public class Maszk extends Romlandok{
 
     // Konstruktor, amely létrehoz egy új Maszk objektumot
     public Maszk() {
-        System.out.print("Maszk létrehozva");
+        System.out.print("Maszk_letrehozva");
     }
 
     // Felülírja a Romlandok osztály aktival metódusát
@@ -15,10 +15,10 @@ public class Maszk extends Romlandok{
     public void aktival(Szoba s) {
         if (hamis) {
             romlik();
-            System.out.print("Maszk használva");
+            System.out.print("Maszk_hasznalva");
         }
         else {
-            System.out.println("A Maszk hamis");
+            System.out.println("A_Maszk_hamis");
         }
     }
 }

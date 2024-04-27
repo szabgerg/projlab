@@ -15,9 +15,9 @@ public class Hallgato extends Karakter {
 	 */
 	public Hallgato(Szoba szoba, Targyinventory inventory) {
 		super(szoba, inventory);
-		System.out.println("Hallgato letrehozasa\n");
-		System.out.println("Hallgato eszkozkeszlete letrehozva\n");
-		System.out.println("Hallgato szobaba teve\n");
+		System.out.println("Hallgato_letrehozasa\n");
+		System.out.println("Hallgato_eszkozkeszlete_letrehozva\n");
+		System.out.println("Hallgato_szobaba_teve\n");
 	}
 	/*
 	* Az hallgato mozgasat megvalosito metodus
@@ -29,12 +29,18 @@ public class Hallgato extends Karakter {
 	 */
 	@Override
 	public void mozog(Szoba newSzoba) {
-		if(!newSzoba.beenged()) return;
-
+		System.out.println("Hallgato_mozogni_probal");
+		if(!newSzoba.beenged()){
+			System.out.print("Nincs_hely");
+			System.out.print("Sikertelen_mozgas");
+			return;}
+		System.out.print("Van_hely");
 		jelenlegi.kilep(this);
 		newSzoba.getBentlevok().add(this);
+		System.out.println("Uj_szobaba_mozgas");
 		jelenlegi = newSzoba;
 
+		System.out.print("Sikeres_mozgas");
 		if(newSzoba.getAktiv().targyak.isEmpty()) return;
 
 
@@ -51,8 +57,8 @@ public class Hallgato extends Karakter {
 	 */
 	public void aktival(int hely) {
 		Szoba jelenlegi = new Szoba();
-		System.out.println("Hallgato aktival egy targyat\n");
-		System.out.println("A targyak amiket magadnal viselsz:\n" +
+		System.out.println("Hallgato_aktival_egy_targyat\n");
+		System.out.println("A_targyak_amiket_magadnal_viselsz:\n" +
 				"1. Tranzisztor\n" +
 				"2. Rongy\n" +
 				"3. Camambert\n" +
@@ -64,34 +70,34 @@ public class Hallgato extends Karakter {
 			choice = scanner.nextInt();
 			switch (choice) {
 				case 1:
-					System.out.println("Tranzisztor aktivalva\n");
+					System.out.println("Tranzisztor_aktivalva\n");
 					Tranzisztor tranzisztor = new Tranzisztor();
 					tranzisztor.aktival(jelenlegi);
 					jelenlegi.setBentiTargyak(null);
 					break;
 				case 2:
-					System.out.println("Rongy aktivalva\n");
+					System.out.println("Rongy_aktivalva\n");
 					Rongy rongy = new Rongy();
 					rongy.aktival(jelenlegi);
 					jelenlegi.setBentiTargyak(null);
 					break;
 				case 3:
-					System.out.println("Camambert aktivalva\n");
+					System.out.println("Camambert_aktivalva\n");
 					Camambert camambert = new Camambert();
 					camambert.aktival(jelenlegi);
 					jelenlegi.setBentiTargyak(null);
 					break;
 				case 4:
-					System.out.println("Logarlec aktivalva\n");
+					System.out.println("Logarlec_aktivalva\n");
 					Logarlec logarlec = new Logarlec();
 					logarlec.aktival(jelenlegi);
 					break;
 				default:
-					System.out.println("Nincs ilyen targy\n");
+					System.out.println("Nincs_ilyen_targy\n");
 					break;
 			}
 		} while (!((choice > 0) && (choice < 5)));
-		System.out.println("A kivalasztott targy aktivalva\n");
+		System.out.println("A_kivalasztott_targy_aktivalva\n");
 		scanner.close();
 	}
 	/*
@@ -106,7 +112,7 @@ public class Hallgato extends Karakter {
 	public boolean vedekezes() {
 		Targyinventory eszkozkeszlet = new Targyinventory();
 		Szoba jelenlegi = new Szoba();
-		System.out.println("Hallgato vedekezik\n");
+		System.out.println("Hallgato_vedekezik\n");
 		System.out.println("Van Tvsz-e? (I/N)\n");
 		Scanner scanner = new Scanner(System.in);
 		String choice;
@@ -115,7 +121,7 @@ public class Hallgato extends Karakter {
 			if (choice.equals("I")) {
 				Tvsz tvsz = new Tvsz();
 				tvsz.aktival(null);
-				System.out.println("A hallgato sikeresen vedekezik\n");
+				System.out.println("A_hallgato_sikeresen_vedekezik\n");
 				tvsz.romlik();
 				System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 				int left = scanner.nextInt();
@@ -125,7 +131,7 @@ public class Hallgato extends Karakter {
 				scanner.close();
 				return true;
 			} else if (choice.equals("N")) {//söröspohár
-				System.out.println("A hallgato nem rendelkezik tvsszel\n");
+				System.out.println("A_hallgato_nem_rendelkezik_tvsszel\n");
 				System.out.println("A hallgatonak van sorospohara? (I/N)\n");
 				String sors;
 				do{
@@ -133,7 +139,7 @@ public class Hallgato extends Karakter {
 					if (sors.equals("I")) {
 						Sorospohar sorsospohar = new Sorospohar();
 						sorsospohar.aktival(jelenlegi);
-						System.out.println("A hallgato sikeresen vedekezik\n");
+						System.out.println("A_hallgato_sikeresen_vedekezik\n");
 						sorsospohar.romlik();
 						System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 						int left = scanner.nextInt();

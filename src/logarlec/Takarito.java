@@ -9,6 +9,7 @@ public class Takarito extends Karakter {
 	/* Takarito ctor */
 	public Takarito(Szoba sz, Targyinventory inventory) {
 		super(sz, inventory);
+		System.out.println("Takarito_letrehozasa");
 	}
 
 	/* kiküld függvény, ha belép egy szobába
@@ -28,6 +29,7 @@ public class Takarito extends Karakter {
 			}
 		}
 		this.getSzoba().setLegutobbTakaritva(0);
+		System.out.println("Takarito_kikuldott");
     }
 
 	/* Szellőztet függvény,
@@ -41,5 +43,6 @@ public class Takarito extends Karakter {
 				this.getSzoba().getAktiv().RemoveTargy(t);
 			}
 		}
+		System.out.println("Takarito_szelloztet");
 	}
 }

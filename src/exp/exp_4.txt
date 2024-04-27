@@ -1,6 +1,7 @@
 Szoba_letrehozva
-Oktato_letrehozva
-Van_hely
-Regi_szobabol_kilep
-Uj_szobaba_mozgas
-Sikeres_mozgas
+Szoba_letrehozva
+Hallgato_letrehozva
+Hallgato_letrehozva
+Hallgato_mozogni_probal
+Nincs_hely
+Sikertelen_mozgas

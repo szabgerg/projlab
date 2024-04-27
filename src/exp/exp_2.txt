@@ -1,4 +1,6 @@
 Szoba_letrehozva
+Szoba_letrehozva
+Oktato_letrehozva
 Oktato_letrehozva
 Oktato_mozogni_probal
 Nincs_hely

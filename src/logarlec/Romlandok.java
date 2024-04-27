@@ -7,13 +7,13 @@ public class Romlandok implements ITargy{
 
     // Konstruktor, amely létrehoz egy új Romlandok objektumot
     public Romlandok() {
-        System.out.print("Romlandok létrehozva\n");
+        System.out.print("Romlandok_letrehozva\n");
     }
 
     // A romlik metódus, amely csökkenti az objektum élettartamát
     public void romlik() {
         elettartam--;
-        System.out.println(", élettartama csökken 1-gyel");
+        System.out.println(",_elettartama_csokken_1-gyel");
     }
 
     // Az aktival metódus, amit majd a leszármazottak valósítanak meg

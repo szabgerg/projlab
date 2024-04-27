@@ -21,6 +21,7 @@ public class Karakter {
 	 * @param inventory - a karakter eszközkeszlete
 	 */
 	public Karakter(Szoba szoba, Targyinventory inventory) {
+		System.out.println("Karakter_letrehozva");
 		jelenlegi = szoba;
 		eszkozkeszlet = inventory;
 	}
@@ -33,10 +34,14 @@ public class Karakter {
 	 */
 	public void mozog(Szoba newSzoba) {
 		if(newSzoba.beenged()){
-			jelenlegi.getBentlevok().remove(this);
+			jelenlegi.getBentlevok().remove(this);    
+			System.out.println("Regi_szobabol_kilep");
 			jelenlegi = newSzoba;
 			newSzoba.getBentlevok().add(this);
+			System.out.println("Uj_szobaba_mozgas");
+			System.out.println("Sikeres_mozgas");
 		}
+		System.out.println("Sikertelen_mozgas");
 	}
 
 	/*
@@ -47,6 +52,7 @@ public class Karakter {
 		if(eszkozkeszlet.targyak.size() < 5){
 			eszkozkeszlet.AddTargy(jelenlegi.getBentiTargyak().targyak.get(i));
 		}
+		System.out.println("Targy_felvetele");
 	}
 
 	/*
@@ -55,8 +61,10 @@ public class Karakter {
 	 * Amit letett, az a szobában lesz, mas karakterek felvehetik
 	 */
 	public void letesz(int i) {
+
 		jelenlegi.getBentiTargyak().AddTargy(eszkozkeszlet.targyak.get(i));
 		eszkozkeszlet.targyak.remove(i);
+		System.out.println("Targy_letevese");
 	}
 
 	/*
@@ -74,9 +82,11 @@ public class Karakter {
 			jelenlegi.getBentiTargyak().AddTargy(t);
 		}
 		eszkozkeszlet.targyak.clear();
+		System.out.println("Minden_targy_elejtve");
 	}
-	public void setBena(boolean bena) {
 
+	public void setBena(boolean bena) {
+		System.out.println("Uj_allapot=bena");
 	}
 
 	public boolean getBena() {
@@ -93,10 +103,12 @@ public class Karakter {
 	 * A karakter eszközkeszletét beállító metódus
 	 */
 	public void setEszkozkeszlet(Targyinventory eszkozok) {
+		System.out.println("Eszkozkeszlet_beallitasa");
 		eszkozkeszlet = eszkozok;
 	}
 
 	public boolean vedekezes() {
+		System.out.println("Vedekezes");
 		return true;
 	}
 

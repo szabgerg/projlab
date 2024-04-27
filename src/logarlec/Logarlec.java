@@ -9,7 +9,7 @@ public class Logarlec implements ITargy{
      * Logarlec konstruktor
      */
     public Logarlec() {
-        System.out.println("Logarlec létrehozva\n");
+        System.out.println("Logarlec_letrehozva\n");
     }
 
     /*
@@ -17,11 +17,11 @@ public class Logarlec implements ITargy{
     */
     public void aktival(Szoba s) {
         if (hamis) {
-            System.out.println("Logarlec aktiválva");
+            System.out.println("Logarlec_aktivalva");
             new Controller().endGame(); //A játék véget ér
         }
         else {
-            System.out.println("A Logarlec hamis");
+            System.out.println("A_Logarlec_hamis");
         }
     }
 }

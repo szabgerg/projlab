@@ -34,6 +34,7 @@ public class Szoba {
     }
 
     public Szoba(int bef, Targyinventory targyinventory){
+        System.out.println("Szoba_letrehozva");
         befogadokepesseg = bef;
         bentiTargyak = targyinventory;
         szomszedok = new ArrayList<Szoba>();
@@ -47,7 +48,7 @@ public class Szoba {
     */
     public Szoba(int bef, List<Szoba> szomsz, List<Karakter> benti, Targyinventory inventory, Targyinventory targyi, int tak) {
 
-        System.out.println("Szoba_letrehozasa");
+        System.out.println("Szoba_letrehozva");
 	    System.out.println("Szoba_inventoryja_feltoltve");
 	    System.out.println("Szobaba_karakterek_beteve");
        
@@ -64,8 +65,10 @@ public class Szoba {
      */
     public boolean beenged() {
         if (getBentlevok().size() >= befogadokepesseg){
+            System.out.println("Nincs_hely");
             return false;
         }
+        System.out.println("Van_hely");
         return true;
     }
     
@@ -81,7 +84,7 @@ public class Szoba {
      * @param k a bent lévő karakterek listája, beállítandó érték
      */
     public void setBentlevok(List<Karakter> k){
-		System.out.println("Bent levo karakterek beallitasa\n");
+		System.out.println("Bentlevo_karakterek_beallitasa\n");
         bentlevok = k;
     }
 
@@ -90,7 +93,7 @@ public class Szoba {
      * @param k: a kilépő karakter
      */
     public void kilep(Karakter k){
-        System.out.println("Kilepes a szobabol");
+        System.out.println("Kilepett_a_szobabol");
         bentlevok.remove(k);
     }
 

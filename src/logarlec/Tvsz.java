@@ -7,7 +7,7 @@ public class Tvsz extends Romlandok{
 
     // Konstruktor, amely létrehoz egy új Tvsz objektumot
     public Tvsz() {
-        System.out.print("TVSZ létrehozva\n");
+        System.out.print("TVSZ_letrehozva\n");
     }
     
     @Override
@@ -15,10 +15,10 @@ public class Tvsz extends Romlandok{
     public void aktival(Szoba s) {
         if (hamis) {
             romlik();
-            System.out.print("Tvsz használva");
+            System.out.print("Tvsz_hasznalva");
         }
         else {
-            System.out.println("A TVSZ hamis");
+            System.out.println("A_TVSZ_hamis");
         }
     }
 }
