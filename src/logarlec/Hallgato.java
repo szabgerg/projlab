@@ -72,25 +72,25 @@ public class Hallgato extends Karakter {
 				case 1:
 					System.out.println("Tranzisztor_aktivalva\n");
 					Tranzisztor tranzisztor = new Tranzisztor();
-					tranzisztor.aktival(jelenlegi);
+					tranzisztor.aktival(this);
 					jelenlegi.setBentiTargyak(null);
 					break;
 				case 2:
 					System.out.println("Rongy_aktivalva\n");
 					Rongy rongy = new Rongy();
-					rongy.aktival(jelenlegi);
+					rongy.aktival(this);
 					jelenlegi.setBentiTargyak(null);
 					break;
 				case 3:
 					System.out.println("Camambert_aktivalva\n");
 					Camambert camambert = new Camambert();
-					camambert.aktival(jelenlegi);
+					camambert.aktival(this);
 					jelenlegi.setBentiTargyak(null);
 					break;
 				case 4:
 					System.out.println("Logarlec_aktivalva\n");
 					Logarlec logarlec = new Logarlec();
-					logarlec.aktival(jelenlegi);
+					logarlec.aktival(this);
 					break;
 				default:
 					System.out.println("Nincs_ilyen_targy\n");
@@ -138,8 +138,13 @@ public class Hallgato extends Karakter {
 					sors = scanner.nextLine();
 					if (sors.equals("I")) {
 						Sorospohar sorsospohar = new Sorospohar();
+<<<<<<< HEAD
 						sorsospohar.aktival(jelenlegi);
 						System.out.println("A_hallgato_sikeresen_vedekezik\n");
+=======
+						sorsospohar.aktival(this);
+						System.out.println("A hallgato sikeresen vedekezik\n");
+>>>>>>> 9b670c0d5241fc367c90b4fb4fa6bb85efbeedca
 						sorsospohar.romlik();
 						System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 						int left = scanner.nextInt();

@@ -9,7 +9,7 @@ public class Rongy extends Romlandok{
 
     // Felülírja a Romlandok osztály aktival metódusát
     @Override
-    public void aktival(Szoba s){
+    public void aktival(Karakter k){
         System.out.println("Rongy aktivalva");
         //hozzadja a rongyot az aktiv inventoryhoz
         s.getAktiv().AddTargy(this);

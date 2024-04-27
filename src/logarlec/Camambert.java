@@ -13,7 +13,7 @@ public class Camambert implements ITargy{
     /*
     *A Camambert tárgy aktiválása, a Szobában a tárgy bekerül az aktív tárgyak inventoryba
     */
-    public void aktival(Szoba s) {
+    public void aktival(Karakter k) {
         System.out.println("Camambert aktiválva");
         s.getAktiv().AddTargy(this);
     }
