@@ -3,7 +3,7 @@ package logarlec;
 // A Maszk osztály, amely a Romlandok osztályból származik
 public class Maszk extends Romlandok{
     // Azt tárolja, hogy a tárgy hamis-e
-    public boolean hamis;
+    private boolean hamis;
 
     // Konstruktor, amely létrehoz egy új Maszk objektumot
     public Maszk() {

@@ -3,7 +3,7 @@ package logarlec;
 // A Tvsz osztály, amely a Romlandok osztályból származik
 public class Tvsz extends Romlandok{
     // Azt tárolja, hogy a tárgy hamis-e
-    public boolean hamis;
+    private boolean hamis;
 
     // Konstruktor, amely létrehoz egy új Tvsz objektumot
     public Tvsz() {

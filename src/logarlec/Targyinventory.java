@@ -9,7 +9,7 @@ public class Targyinventory {
     /*
      * Targyinventory konstruktor
      */
-    public List<ITargy> targyak;
+    private List<ITargy> targyak;
 
     public Targyinventory() {
         System.out.println("Targyinventory létrehozva\n");

@@ -3,7 +3,7 @@ package logarlec;
 //megvalósítja az ITargy interfészt
 public class Logarlec implements ITargy{
     // Azt tárolja, hogy a tárgy hamis-e
-    public boolean hamis;
+    private boolean hamis;
 
     /*
      * Logarlec konstruktor

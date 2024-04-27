@@ -41,7 +41,7 @@ public class Hallgato extends Karakter {
 		jelenlegi = newSzoba;
 
 		System.out.print("Sikeres_mozgas");
-		if(newSzoba.getAktiv().targyak.isEmpty()) return;
+		if(newSzoba.getAktiv().getTargyak().isEmpty()) return;
 
 
 	}
