@@ -396,7 +396,7 @@ public class Proto {
 	private static void teleport(String [] tasks) {
 		tesztParancsHossz(tasks, 3);
 		Hallgato h = parseHallgato(tasks[1]);
-		h.teleport(pareseInt(tasks[2]));
+		h.teleport(parseSzoba(tasks[2]));
 	}
 	//neighbours parancsot hajtja végre
 	private static void neighbours(String[] tasks) {
