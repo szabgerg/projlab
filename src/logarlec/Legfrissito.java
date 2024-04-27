@@ -18,8 +18,8 @@ public class Legfrissito implements ITargy{
         System.out.println("Legfrissito aktiválva");
 		
 		// Ha a Szoba gázos (van benne Camambert), akkor eltávolítja a Camambertet az aktivTargyak listából.
-        if (!s.getAktiv().getTargyak().isEmpty()){
-            s.getAktiv().RemoveTargy(s.getAktiv().getTargyak().get(0));
+        if (!k.getSzoba().getAktiv().getTargyak().isEmpty()){
+            k.getSzoba().getAktiv().RemoveTargy(k.getSzoba().getAktiv().getTargyak().get(0));
             System.out.println("Szoba gázossága megszűnt");
         }
 		// Ha a Szoba nem gázos (nincs benne Camambert), akkor nem történt változás.
@@ -27,4 +27,10 @@ public class Legfrissito implements ITargy{
             System.out.println("Nem gázos a szoba, nem történt változás");
         }
     }
+    //TODO: nem tudom melyik kell ide, melyik nem
+    @Override
+    public boolean hasznal(Karakter k) { return false;}
+    @Override
+    public boolean szur(Karakter k) { return false;}
+
 }

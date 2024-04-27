@@ -17,6 +17,7 @@ public class Logarlec implements ITargy{
     /*
     *A Logarlec tárgy aktiválása, a játék véget ér
     */
+    @Override
     public void aktival(Karakter k) {
         if (hamis) {
             System.out.println("Logarlec_aktivalva");
@@ -33,6 +34,7 @@ public class Logarlec implements ITargy{
      * @param k - a karakter, aki használja
      * @return - false, mivel a Logarlec nem használható
      */
+    @Override
     public boolean hasznal(Karakter k) { return false;}
 
     /*
@@ -40,5 +42,6 @@ public class Logarlec implements ITargy{
      * @param k - a karakter, aki használja
      * @return - false, mivel a Logarlec nem szűr
      */
+    @Override
     public boolean szur(Karakter k) { return false;}
 }

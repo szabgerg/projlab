@@ -12,7 +12,7 @@ public class Rongy extends Romlandok{
     public void aktival(Karakter k){
         System.out.println("Rongy aktivalva");
         //hozzadja a rongyot az aktiv inventoryhoz
-        s.getAktiv().AddTargy(this);
+        k.getSzoba().getAktiv().AddTargy(this);
 
         //TODO: szól a játékosnak, hogy a rongy aktiválódott
         //TODO: akcio() függvény

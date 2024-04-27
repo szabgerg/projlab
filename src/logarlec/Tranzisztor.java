@@ -61,6 +61,7 @@ public class Tranzisztor implements ITargy{
     /*
     * Tranzisztor aktiválása, a Szobában a tárgy bekerül az aktív tárgyak inventoryba
     */
+    @Override
     public void aktival(Karakter k) {
         k.jelenlegi.getAktiv().AddTargy(this);
         System.out.println("Tranzisztor aktiválva");
@@ -96,13 +97,8 @@ public class Tranzisztor implements ITargy{
     /**
      * Tranzisztor ezeket nem tudja használni
      */
-    public boolean hasznal(Karakter k){
-        System.out.println("Tranzisztor használva");
-        return false;
-    }
-
-    public boolean szur(Karakter k){
-        System.out.println("Tranzisztor szűrve");
-        return false;
-    }
+    @Override
+    public boolean hasznal(Karakter k){ return false;}
+    @Override
+    public boolean szur(Karakter k){ return false;}
 }
