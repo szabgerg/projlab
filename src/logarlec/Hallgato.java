@@ -138,13 +138,8 @@ public class Hallgato extends Karakter {
 					sors = scanner.nextLine();
 					if (sors.equals("I")) {
 						Sorospohar sorsospohar = new Sorospohar();
-<<<<<<< HEAD
-						sorsospohar.aktival(jelenlegi);
-						System.out.println("A_hallgato_sikeresen_vedekezik\n");
-=======
 						sorsospohar.aktival(this);
 						System.out.println("A hallgato sikeresen vedekezik\n");
->>>>>>> 9b670c0d5241fc367c90b4fb4fa6bb85efbeedca
 						sorsospohar.romlik();
 						System.out.println("Mennyi maradt meg a felhasznalasi idejebol? (n)\n");
 						int left = scanner.nextInt();
