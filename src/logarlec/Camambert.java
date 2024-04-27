@@ -17,4 +17,7 @@ public class Camambert implements ITargy{
         System.out.println("Camambert aktiválva");
         s.getAktiv().AddTargy(this);
     }
+
+    //TODO: szól a játékosnak, hogy a camambert aktiválódott
+    //TODO: akcio() függvény
 }

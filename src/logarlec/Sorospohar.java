@@ -10,6 +10,8 @@ public class Sorospohar extends Romlandok{
     // Felülírja a Romlandok osztály aktival metódusát
     @Override
     public void aktival(Szoba s) {
+        romlik();
         System.out.print("Sorospohár használva");
+        //TODO: megvalósítani: eldob egy tárgyat
     }
 }
