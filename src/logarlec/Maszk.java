@@ -3,22 +3,27 @@ package logarlec;
 // A Maszk osztály, amely a Romlandok osztályból származik
 public class Maszk extends Romlandok{
     // Azt tárolja, hogy a tárgy hamis-e
-    public boolean hamis = true;
+    public boolean hamis;
 
     // Konstruktor, amely létrehoz egy új Maszk objektumot
     public Maszk() {
+        if (Proto.getRandVal() < 5) {hamis = false;}
+        else {hamis = true;}
         System.out.print("Maszk létrehozva");
     }
 
     // Felülírja a Romlandok osztály aktival metódusát
     @Override
-    public void aktival(Szoba s) {
+    public boolean szur(Karakter k) { 
         if (hamis) {
-            romlik();
             System.out.print("Maszk használva");
+            romlik();
+            return true;
         }
         else {
             System.out.println("A Maszk hamis");
+            k.getEszkozkeszlet().RemoveTargy(this);
+            return false;
         }
     }
 }

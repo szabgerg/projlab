@@ -17,5 +17,7 @@ public class Romlandok implements ITargy{
     }
 
     // Az aktival metódus, amit majd a leszármazottak valósítanak meg
-    public void aktival(Szoba s) {}
+    public void aktival(Karakter k) {}
+    public boolean hasznal(Karakter k) {return false;}
+    public boolean szur(Karakter k) {return false;}
 }

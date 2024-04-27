@@ -9,9 +9,16 @@ public class Sorospohar extends Romlandok{
 
     // Felülírja a Romlandok osztály aktival metódusát
     @Override
-    public void aktival(Szoba s) {
+    public boolean hasznal(Karakter k) {
+        // A játékos eszközkészletéből egy véletlenszerűen kiválasztott tárgy eltávolítása
+        int targyakSzama = k.getEszkozkeszlet().getTargyak().size();
+        int randomIndex = (int) (Proto.getRandVal() * (targyakSzama + 1));
+        k.getEszkozkeszlet().getTargyak().remove(randomIndex);
+        // A tárgy használata
         romlik();
         System.out.print("Sorospohár használva");
-        //TODO: megvalósítani: eldob egy tárgyat
+        return true;
     }
 }
+
+

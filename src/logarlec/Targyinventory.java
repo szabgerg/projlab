@@ -15,6 +15,10 @@ public class Targyinventory {
         System.out.println("Targyinventory létrehozva\n");
     }
 
+    /*
+     * Targyinventory konstruktor
+     * @param targy - a tárgy, amelyet az inventory-hoz hozzáadunk
+     */
     public Targyinventory(ITargy targy) {
         targyak.add(targy);
         System.out.println("Targyinventory létrehozva tárggyal");
