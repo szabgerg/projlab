@@ -12,6 +12,7 @@ public class Karakter {
 	// Karakter protected attributumai
 	protected Targyinventory eszkozkeszlet;
 	protected Szoba jelenlegi;
+	protected boolean bena = false;
 	/*
 	 * Szoba amiben a karakter tartózkodik
 	 * Nem lehet null, amig a karakter a játékban van
@@ -42,9 +43,9 @@ public class Karakter {
 	 * A metódusban a karakter tárgyfelvételét valósítjuk meg
 	 * Ha a karakternek nincs helye a tárgyaknak, akkor nem tud felvenni
 	 */
-	public void felvesz(ITargy t) {
+	public void felvesz(int i) {
 		if(eszkozkeszlet.targyak.size() < 5){
-			eszkozkeszlet.AddTargy(t);
+			eszkozkeszlet.AddTargy(jelenlegi.getBentiTargyak().targyak.get(i));
 		}
 	}
 
@@ -53,9 +54,9 @@ public class Karakter {
 	 * Ha a karakternek nincs tárgya, akkor nem tud letenni
 	 * Amit letett, az a szobában lesz, mas karakterek felvehetik
 	 */
-	public void letesz(ITargy t) {
-		jelenlegi.getBentiTargyak().AddTargy(t);
-		eszkozkeszlet.RemoveTargy(t);
+	public void letesz(int i) {
+		jelenlegi.getBentiTargyak().AddTargy(eszkozkeszlet.targyak.get(i));
+		eszkozkeszlet.targyak.remove(i);
 	}
 
 	/*
@@ -71,6 +72,15 @@ public class Karakter {
 	public void mindentelejt() {
 		jelenlegi.setBentiTargyak(eszkozkeszlet);
 		eszkozkeszlet.targyak.clear();
+	}
+
+
+	public void setBena(boolean bena) {
+
+	}
+
+	public boolean getBena() {
+		return bena;
 	}
 
 	/*

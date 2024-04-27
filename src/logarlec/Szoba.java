@@ -64,7 +64,7 @@ public class Szoba {
      */
     public boolean beenged() {
         if (getBentlevok().size() >= befogadokepesseg){
-            return true;
+            return false;
         }
         return true;
     }
