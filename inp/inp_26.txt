@@ -1,0 +1,5 @@
+add sz 1 ma
+random 0
+add ha sz2
+move ha1 sz1
+pickup ha1 ma1

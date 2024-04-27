@@ -1,0 +1,4 @@
+add sz 1
+add ok sz1
+add ok sz2
+move ok1 sz2

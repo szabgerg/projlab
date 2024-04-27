@@ -1,0 +1,3 @@
+add sz 1 ma
+add ha sz1 ro le ca tv tr
+pickup ha1 ma1

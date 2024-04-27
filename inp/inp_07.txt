@@ -1,0 +1,4 @@
+#TODO
+add sz 1 ma
+add ha sz1 ro le ca tv 
+pickup ha1 ma1

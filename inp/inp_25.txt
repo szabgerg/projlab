@@ -1,0 +1,6 @@
+#TODO
+add sz 1
+add ha sz1 ca
+add ha sz2 ma
+activate ha1 ca1
+move ha2 sz1

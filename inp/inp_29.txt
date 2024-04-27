@@ -1,0 +1,5 @@
+#TODO
+add sz 2
+add ha sz1 ro
+add ok sz1
+activate h1 ro1S

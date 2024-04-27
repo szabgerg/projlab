@@ -1,0 +1,3 @@
+add sz 2
+add sz 2
+merge sz1 sz2

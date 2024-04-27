@@ -1,0 +1,4 @@
+add sz 1
+add ha sz1 tr tr tr
+pairing ha1 tr1 tr2
+pairing ha1 tr1 tr3

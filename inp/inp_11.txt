@@ -1,0 +1,5 @@
+add sz 1
+add ha sz1 tr tr
+pairing ha1 tr1 tr2
+activate ha1 tr1
+place ha1 tr1

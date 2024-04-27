@@ -1,0 +1,5 @@
+#TODO
+add sz 2 lo
+add ha sz1
+pickup ha1 lo1
+activate ha1 lo1
