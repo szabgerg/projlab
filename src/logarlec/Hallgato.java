@@ -29,47 +29,15 @@ public class Hallgato extends Karakter {
 	 */
 	@Override
 	public void mozog(Szoba newSzoba) {
-		System.out.println("Hallgato mozog\n");
-		Szoba jelenlegi = new Szoba();
-		boolean benegedett = newSzoba.beenged();
-		if (benegedett) {
-			System.out.println("A szobaban van eleg hely\n");
-			jelenlegi.kilep(this);
-			newSzoba.setBentlevok(null);
-			System.out.println("Sikeres mozgás\n\n");
-		} else {
-			System.out.println("A szoba tele, nincs hely\n");
-			return;
-		}
+		if(!newSzoba.beenged()) return;
 
-		newSzoba.getAktiv();
-		System.out.println("A szoba gazos? (I/N)\n");
-		Scanner scanner = new Scanner(System.in);
-		String cho = "";
-		do{
-			cho = scanner.nextLine();
-			if (cho.equals("I")) {
-				System.out.println("A szoba gazos\n");
-				System.out.println("Hallgatonak van maszkja? (I/N)\n");
-				String mask;
-				do {
-					mask = scanner.nextLine();
-					if (mask.equals("I")) {
-						System.out.println("A hallgato felhasznalja a maszkjat\n");
-					} else if (mask.equals("N")) {
-						System.out.println("A hallgato elejt mindent\n");
-						mindentelejt();
-					} else {
-						System.out.println("Nem ertelmezett valasz\n");
-					}
-				} while (!(mask.equals("I") || mask.equals("N")));
+		jelenlegi.kilep(this);
+		newSzoba.getBentlevok().add(this);
+		jelenlegi = newSzoba;
 
-			} else if (cho.equals("N")) {
-				System.out.println("A szoba nem gazos\n");
-			} else {
-				System.out.println("Nem ertelmezett valasz\n");
-			}
-		} while (!(cho.equals("I") || cho.equals("N")));
+		if(newSzoba.getAktiv().targyak.isEmpty()) return;
+
+
 	}
 	/*
 	* Az hallgato targyak aktivalasat megvalosito metodus
