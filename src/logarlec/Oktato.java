@@ -32,6 +32,7 @@ public class Oktato extends Karakter {
 	 */
 	@Override
 	public void mozog(Szoba newSzoba) {
+		if (bena) return;
 		if(Proto.getRandVal()<0) {//ha nincs igazi random akkor az oktató irányítható
 			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) return;
 
@@ -49,7 +50,11 @@ public class Oktato extends Karakter {
 			lelekelvetel();
 		}else {//van random tehát az oktató egy "ai" lesz
 			double rand = Proto.getRandVal();
-			if(rand <0.5) return;
+			if(rand <0.5) {
+				random_letesz();
+				random_felvesz();
+				return;
+			}
 			int randint = (int) (rand * 10);
 			if(randint > jelenlegi.getSzomszedok().size()){
 				randint = jelenlegi.getSzomszedok().size()-1;
@@ -70,6 +75,8 @@ public class Oktato extends Karakter {
 
 			if (bena) return;
 			lelekelvetel();
+			random_letesz();
+			random_felvesz();
 		}
 
 	}
@@ -81,8 +88,6 @@ public class Oktato extends Karakter {
 	void setbena(boolean b) {
 		bena = b;
 	}
-
-
 
 	/*
 	 * Az oktato lelekelvetel cselekedetet valositja meg
@@ -97,6 +102,28 @@ public class Oktato extends Karakter {
 				karakter.mindentelejt();
 			}
 		}
+	}
+
+	void random_felvesz() {
+		double rand = Proto.getRandVal();
+		if(rand < 0.5 || eszkozkeszlet.getTargyak().size() >= 5) return;
+		int randint = (int) (rand * 10);
+		if(randint > jelenlegi.getBentiTargyak().getTargyak().size()){
+			randint = jelenlegi.getBentiTargyak().getTargyak().size()-1;
+		}
+
+		felvesz(randint);
+	}
+
+	void random_letesz() {
+		double rand = Proto.getRandVal();
+		if(rand < 0.5) return;
+		int randint = (int) (rand * 10);
+		if(randint > eszkozkeszlet.getTargyak().size()){
+			randint = eszkozkeszlet.getTargyak().size()-1;
+		}
+		letesz(randint);
+
 	}
 
 }
