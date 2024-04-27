@@ -36,9 +36,9 @@ public class Hallgato extends Karakter {
 
 		if(newSzoba.getAktiv().getTargyak().isEmpty()) return;
 
-		/* Todo: mi van a szobában, erre reakció
-		 *
-		 */
+		for (ITargy t: newSzoba.getAktiv().getTargyak()){
+			t.akcio(this);
+		}
 
 
 	}
@@ -115,6 +115,7 @@ public class Hallgato extends Karakter {
 	* @param szoba - a beallitando szoba
 	 */
 	public void setSzoba(Szoba szoba) {
+		jelenlegi = szoba;
 		System.out.println("Hallgato szoba atallitva\n");
 	}
 }

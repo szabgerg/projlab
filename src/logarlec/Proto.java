@@ -137,7 +137,7 @@ public class Proto {
 	/*
 	* új objektumokat létrehozó függvények, a modell is ezeket használja, hogy a nyilvántartásban is benne legyenek
 	* */
-	private static Oktato newOktato(Szoba sz, Targyinventory inventory) {
+	public static Oktato newOktato(Szoba sz, Targyinventory inventory) {
 		Oktato o = new Oktato(sz, inventory);
 		List<Karakter> szb = sz.getBentlevok();
 		szb.add(o);
@@ -146,7 +146,7 @@ public class Proto {
 		return o;
 	}
 
-	private static Hallgato newHallgato(Szoba sz, Targyinventory inventory) {
+	public static Hallgato newHallgato(Szoba sz, Targyinventory inventory) {
 		Hallgato h = new Hallgato(sz, inventory);
 		List<Karakter> szb = sz.getBentlevok();
 		szb.add(h);
@@ -155,7 +155,7 @@ public class Proto {
 		return h;
 	}
 
-	private static Takarito newTakarito(Szoba sz, Targyinventory inventory) {
+	public static Takarito newTakarito(Szoba sz, Targyinventory inventory) {
 		Takarito t = new Takarito(sz, inventory);
 		List<Karakter> szb = sz.getBentlevok();
 		szb.add(t);

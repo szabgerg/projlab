@@ -7,7 +7,7 @@ public class Maszk extends Romlandok{
 
     // Konstruktor, amely létrehoz egy új Maszk objektumot
     public Maszk() {
-        if (Proto.getRandVal() < 5) {hamis = false;}
+        if (Proto.getRandVal() < 0.5) {hamis = false;}
         else {hamis = true;}
         System.out.print("Maszk létrehozva");
     }
