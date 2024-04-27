@@ -22,6 +22,8 @@ public class Karakter {
 	 * @param inventory - a karakter eszközkeszlete
 	 */
 	public Karakter(Szoba szoba, Targyinventory inventory) {
+		jelenlegi = szoba;
+		eszkozkeszlet = inventory;
 	}
 
 	/*
@@ -30,32 +32,20 @@ public class Karakter {
 	 * A metódusban a karakter mozgását valósítjuk meg
 	 *
 	 */
-	public void mozog(Szoba newSzoba) {}
+	public void mozog(Szoba newSzoba) {
+		if(newSzoba.beenged()){
+			jelenlegi = newSzoba;
+		}
+	}
 
 	/*
 	 * A metódusban a karakter tárgyfelvételét valósítjuk meg
 	 * Ha a karakternek nincs helye a tárgyaknak, akkor nem tud felvenni
 	 */
-	public void felvesz(int hely) {
-		Szoba jelenlegi = new Szoba();
-		Targyinventory eszkozkeszlet = new Targyinventory();
-		System.out.println("Targy felvetel\n");
-		System.out.println("Hany targy van mar a hallgato inventory-jaban? (n)\n");
-		Scanner scanner = new Scanner(System.in);
-		int pos = scanner.nextInt();
-		if (pos >= 5) {
-			System.out.println("Nincs tobb hely a hallgato inventory-jaban\n");
-			scanner.close();
-			return;
+	public void felvesz(ITargy t) {
+		if(eszkozkeszlet.targyak.size() < 5){
+			eszkozkeszlet.AddTargy(t);
 		}
-		System.out.println("Milyen targyat szeretnel felvenni?\n");
-		jelenlegi.getBentiTargyak();
-		scanner.nextInt();
-		eszkozkeszlet.AddTargy(null);
-		
-		System.out.println("A targy felvetele sikeres\n");
-		jelenlegi.setBentiTargyak(null);
-		scanner.close();
 	}
 
 	/*
@@ -63,38 +53,24 @@ public class Karakter {
 	 * Ha a karakternek nincs tárgya, akkor nem tud letenni
 	 * Amit letett, az a szobában lesz, mas karakterek felvehetik
 	 */
-	public void letesz(int hely) {
-		Szoba jelenlegi = new Szoba();
-		Targyinventory eszkozkeszlet = new Targyinventory();
-		System.out.println("Targy letetel\n" +
-				"Milyen targyat szeretnel letenni?\n");
-		System.out.println("A targyak amiket magadnal viselsz:\n" +
-				"1. Tvsz\n" +
-				"2. Söröspohár\n" +
-				"3. Rongy\n" +
-				"4. Camambert\n" +
-				"5. Maszk\n");
-		Scanner scanner = new Scanner(System.in);
-		scanner.nextInt();
-		eszkozkeszlet.RemoveTargy(null);
-		jelenlegi.setBentiTargyak(null);
-		scanner.close();
+	public void letesz(ITargy t) {
+		jelenlegi.getBentiTargyak().AddTargy(t);
+		eszkozkeszlet.RemoveTargy(t);
 	}
 
 	/*
 	 * A karakter melyik szobában tartózkodik
 	 */
 	public Szoba getSzoba() {
-		return null;
+		return jelenlegi;
 	}
 
 	/*
 	 * A karakter minden tárgyát eldobó metódus
 	 */
 	public void mindentelejt() {
-		Szoba jelenlegi = new Szoba();
-		System.out.println("Minden targy eldobva\n");
-		jelenlegi.setBentiTargyak(null);
+		jelenlegi.setBentiTargyak(eszkozkeszlet);
+		eszkozkeszlet.targyak.clear();
 	}
 
 	/*
@@ -109,14 +85,14 @@ public class Karakter {
 	 * A karakter eszközkeszletét visszaadó metódus
 	 */
 	public Targyinventory getEszkozkeszlet() {
-		return null;
+		return eszkozkeszlet;
 	}
 
 	/*
 	 * A karakter eszközkeszletét beállító metódus
 	 */
 	public void setEszkozkeszlet(Targyinventory eszkozok) {
-		System.out.println("Eszkozkeszlet beallitasa\n");
+		eszkozkeszlet = eszkozok;
 	}
 
 

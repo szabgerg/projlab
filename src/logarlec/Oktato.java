@@ -7,6 +7,7 @@ import java.util.Scanner;
  */
 
 public class Oktato extends Karakter {
+	private boolean bena;
 	/*
 	 * Oktato konstruktora
 	 *
@@ -104,7 +105,12 @@ public class Oktato extends Karakter {
 	 * @param b - az allitando ertek
 	 */
 	void setbena(boolean b) {
+		bena = b;
 		System.out.println("Oktato setbena\n");
+	}
+
+	boolean getBena(){
+		return bena;
 	}
 
 	/*

@@ -173,6 +173,10 @@ public class Szoba {
         this.szomszedok = u.szomszedok;
     }
 
+    public void setLegutobbTakaritva(int i){
+        legutobbTakaritva = i;
+    }
+
     /* Kivesz egy aktív tárgyak a szoba aktív tárgyai közül,
      * felhasználás aktív tárgy hatásidejének lejárásánál
      * @param r a lejárt aktív tárgy
