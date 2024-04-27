@@ -44,4 +44,6 @@ public class Logarlec implements ITargy{
      */
     @Override
     public boolean szur(Karakter k) { return false;}
+    @Override
+    public void akcio(Karakter k) {}
 }

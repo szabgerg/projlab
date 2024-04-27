@@ -22,7 +22,12 @@ public class Romlandok implements ITargy{
     }
 
     // Az aktival metódus, amit majd a leszármazottak valósítanak meg
+    @Override
     public void aktival(Karakter k) { /*override */ }
+    @Override
     public boolean hasznal(Karakter k) {return false;}
+    @Override
     public boolean szur(Karakter k) {return false;}
+    @Override
+    public void akcio(Karakter k) {}
 }

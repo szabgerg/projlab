@@ -32,5 +32,6 @@ public class Legfrissito implements ITargy{
     public boolean hasznal(Karakter k) { return false;}
     @Override
     public boolean szur(Karakter k) { return false;}
-
+    @Override
+    public void akcio(Karakter k) {}
 }
