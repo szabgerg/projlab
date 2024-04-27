@@ -105,5 +105,8 @@ public class Karakter {
 		eszkozkeszlet = eszkozok;
 	}
 
+	public boolean vedekezes() {
+		return true;
+	}
 
 }
