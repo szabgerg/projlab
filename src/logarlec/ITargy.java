@@ -4,13 +4,13 @@ public interface ITargy {
     /*
      * Az adott tárgy használatával a játékos meghívja ezt a függvényt.
      */
-    abstract public void aktival(Karakter k);
+    public abstract void aktival(Karakter k);
     /*
-     * Az adott tárgy használata védekezésre.
+     * Az adott tárgy használata védekezésre, más esetben false.
      */
-    abstract public boolean hasznal(Karakter k);
+    public abstract boolean hasznal(Karakter k);
     /*
-     * Az adott tárgy használata szűresre.
+     * Az adott tárgy használata szűresre, csak a maszk használja, minden más esetben false.
      */
-    abstract public boolean szur(Karakter k);
+    public abstract boolean szur(Karakter k);
 }

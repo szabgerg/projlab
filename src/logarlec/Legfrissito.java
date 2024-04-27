@@ -14,7 +14,7 @@ public class Legfrissito implements ITargy{
     // Az aktival metódus implementálása az ITargy interfészből.
     // Ez a metódus aktiválja a Legfrissitot a megadott Szobában.    
     @Override
-    public void aktival(Szoba s) {
+    public void aktival(Karakter k) {
         System.out.println("Legfrissito aktiválva");
 		
 		// Ha a Szoba gázos (van benne Camambert), akkor eltávolítja a Camambertet az aktivTargyak listából.

@@ -47,13 +47,27 @@ public class Tranzisztor implements ITargy{
     }
 
     /*
-    * Tranzisztor aktiválása, aktiv jelzés beállítása
+    * Tranzisztor aktiválása, a Szobában a tárgy bekerül az aktív tárgyak inventoryba
     */
-    public void aktival(Szoba s) {
-        //boolean aktiv->true;
+    public void aktival(Karakter k) {
         System.out.println("Tranzisztor aktiválva");
-        s.getAktiv().AddTargy(this);
+        k.jelenlegi.getAktiv().AddTargy(this);
     }
+
+    /**
+     * Tranzisztor használata
+     */
+    public boolean hasznal(Karakter k){
+        System.out.println("Tranzisztor használva");
+        return true;
+    }
+
+    public boolean szur(Karakter k){
+        System.out.println("Tranzisztor szűrve");
+        return true;
+    }
+
+
 
     /*
      * Tranzisztor párosíthatóságának ellenőrzése
