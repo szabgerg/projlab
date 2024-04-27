@@ -1,7 +1,5 @@
 package logarlec;
 
-import java.util.Scanner;
-
 /*
  * Karakter osztály ami a játékban szereplő karaktereket reprezentálja
  * A karaktereknek van egy szobájuk ahol tartózkodnak és egy eszközkeszletük
@@ -35,7 +33,9 @@ public class Karakter {
 	 */
 	public void mozog(Szoba newSzoba) {
 		if(newSzoba.beenged()){
+			jelenlegi.getBentlevok().remove(this);
 			jelenlegi = newSzoba;
+			newSzoba.getBentlevok().add(this);
 		}
 	}
 
@@ -70,11 +70,11 @@ public class Karakter {
 	 * A karakter minden tárgyát eldobó metódus
 	 */
 	public void mindentelejt() {
-		jelenlegi.setBentiTargyak(eszkozkeszlet);
+		for (ITargy t: jelenlegi.getBentiTargyak().targyak){
+			jelenlegi.getBentiTargyak().AddTargy(t);
+		}
 		eszkozkeszlet.targyak.clear();
 	}
-
-
 	public void setBena(boolean bena) {
 
 	}
@@ -82,15 +82,6 @@ public class Karakter {
 	public boolean getBena() {
 		return bena;
 	}
-
-	/*
-	 * Visszaadja a karakter azonosítóját
-	 * Kell ez egyaltalan?
-	 */
-	public Karakter getID() {
-		return null;
-	}
-
 	/*
 	 * A karakter eszközkeszletét visszaadó metódus
 	 */
@@ -108,5 +99,6 @@ public class Karakter {
 	public boolean vedekezes() {
 		return true;
 	}
+
 
 }

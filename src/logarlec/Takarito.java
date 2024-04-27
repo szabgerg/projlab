@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import javax.swing.text.html.HTMLDocument.Iterator;
-
 public class Takarito extends Karakter {
 	
 	/* Takarito ctor */
@@ -15,7 +13,7 @@ public class Takarito extends Karakter {
 
 	/* kiküld függvény, ha belép egy szobába
 	 * mindenkit (aki nem béna) egy másik
-	 * szobába küld
+	 * szobába küld, ha nem sikerül, bent hagyja
 	 */
 	public void kikuld() {
 		Szoba tempSzoba = this.getSzoba();
@@ -25,9 +23,8 @@ public class Takarito extends Karakter {
 		Szoba celSzoba = tempSzoba.getSzomszedok().get(szomszedIndex); // Véletlenszerűen kiválasztott szomszédos szoba
 			
 		for(Karakter k : kikuldendok){
-			if(!(((Oktato)k).getBena())){
+			if(!(k.bena)){
 				k.mozog(celSzoba);
-				this.getSzoba().getBentlevok().remove(k);
 			}
 		}
 		this.getSzoba().setLegutobbTakaritva(0);
