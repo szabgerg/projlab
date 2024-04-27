@@ -29,7 +29,6 @@ public class Hallgato extends Karakter {
 	public void mozog(Szoba newSzoba) {
 		if(!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) return;
 
-
 		jelenlegi.kilep(this);
 		newSzoba.getBentlevok().add(this);
 		jelenlegi = newSzoba;
@@ -39,7 +38,6 @@ public class Hallgato extends Karakter {
 		for (ITargy t: newSzoba.getAktiv().getTargyak()){
 			t.akcio(this);
 		}
-
 
 	}
 	/*
@@ -85,6 +83,9 @@ public class Hallgato extends Karakter {
 			jelenlegi.kilep(this);
 			newSzoba.getBentlevok().add(this);
 			jelenlegi = newSzoba;
+			for (ITargy t: newSzoba.getAktiv().getTargyak()){
+				t.akcio(this);
+			}
 			System.out.println("hallgato_teleportalva\n");
 		}
 		else {
