@@ -18,6 +18,9 @@ public class Tvsz extends Romlandok{
         if (hamis) {
             System.out.print("Tvsz használva");
             romlik();
+            if (getHatralevoIdo() == 0) {
+                k.getEszkozkeszlet().RemoveTargy(this);
+            }
             return true;
         }
         else {

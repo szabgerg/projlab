@@ -1,7 +1,7 @@
 package logarlec;
 
 //megvalósítja az ITargy interfészt
-public class Tranzisztor implements ITargy{
+public class Tranzisztor implements ITargy{ //expected 9,10,11,12
 
     private Tranzisztor par;
     private Szoba szoba;
@@ -97,8 +97,20 @@ public class Tranzisztor implements ITargy{
     /**
      * Tranzisztor ezeket nem tudja használni
      */
+
+    /*
+     * Tranzisztor használata
+     * @param k - a karakter, aki használja
+     * @return - false, mivel a tranzisztor nem használható
+     */
     @Override
     public boolean hasznal(Karakter k){ return false;}
+
+    /*
+     * Tranzisztor szűrése
+     * @param k - a karakter, aki használja
+     * @return - false, mivel a tranzisztor nem szűr
+     */
     @Override
     public boolean szur(Karakter k){ return false;}
 }

@@ -18,6 +18,10 @@ public class Maszk extends Romlandok{
         if (hamis) {
             System.out.print("Maszk használva");
             romlik();
+            //ha a romlik hatására a tárgy hatralevo ideje 0, akkor a tárgy eltávolításra kerül az eszközkészletből
+            if (getHatralevoIdo() == 0) {
+                k.getEszkozkeszlet().RemoveTargy(this);
+            }
             return true;
         }
         else {

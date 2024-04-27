@@ -10,6 +10,11 @@ public class Romlandok implements ITargy{
         System.out.print("Romlandok_letrehozva\n");
     }
 
+    // A hatralevoido getter metódus
+    public int getHatralevoIdo() {
+        return hatralevoido;
+    }
+
     // A romlik metódus, amely csökkenti az objektum élettartamát
     public void romlik() {
         hatralevoido--;

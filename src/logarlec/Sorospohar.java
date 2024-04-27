@@ -17,6 +17,9 @@ public class Sorospohar extends Romlandok{
         // A tárgy használata
         romlik();
         System.out.print("Sorospohár használva");
+        if (getHatralevoIdo() == 0) {
+            k.getEszkozkeszlet().RemoveTargy(this);
+        }
         return true;
     }
 }
