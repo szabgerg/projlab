@@ -14,7 +14,14 @@ public class Rongy extends Romlandok{
         //hozzadja a rongyot az aktiv inventoryhoz
         k.getSzoba().getAktiv().AddTargy(this);
 
-        //TODO: szól a játékosnak, hogy a rongy aktiválódott
-        //TODO: akcio() függvény
+        //beallitja a karaktert benanak
+        for (Karakter karakter : k.getSzoba().getBentlevok()) {
+            karakter.setBena(true);
+        }
+    }
+
+    // Ha egy oktató egy szobába lép, ahol rogy van, akkor az oktató bena lesz
+    public void akcio(Karakter k){
+        k.setBena(true);
     }
 }
