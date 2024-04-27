@@ -12,13 +12,8 @@ public class Romlandok implements ITargy{
 
     // A romlik metódus, amely csökkenti az objektum élettartamát
     public void romlik() {
-<<<<<<< HEAD
-        elettartam--;
-        System.out.println(",_elettartama_csokken_1-gyel");
-=======
         hatralevoido--;
         System.out.println(", élettartama csökken 1-gyel");
->>>>>>> 9b670c0d5241fc367c90b4fb4fa6bb85efbeedca
     }
 
     // Az aktival metódus, amit majd a leszármazottak valósítanak meg

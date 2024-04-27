@@ -9,8 +9,8 @@ public class Targyinventory {
     /*
      * Targyinventory konstruktor
      */
-    //private List<ITargy> targyak;
     public List<ITargy> targyak;
+
     public Targyinventory() {
         System.out.println("Targyinventory létrehozva\n");
     }
@@ -21,7 +21,7 @@ public class Targyinventory {
      */
     public Targyinventory(ITargy targy) {
         targyak.add(targy);
-        System.out.println("Targyinventory_letrehozva_targgyal");
+        System.out.println("Targyinventory létrehozva tárggyal");
     }
     
     /*
@@ -30,7 +30,7 @@ public class Targyinventory {
      */
     public void AddTargy(ITargy targy) {
         targyak.add(targy);
-        System.out.println("Targy_hozzaadasa_az_inventory-hoz");
+        System.out.println("Tárgy hozzáadása az inventory-hoz");
     }
 
     /*
@@ -39,7 +39,7 @@ public class Targyinventory {
      */
     public void RemoveTargy(ITargy targy) {
         targyak.remove(targy);
-        System.out.println("Targy_eltavolitasa_az_inventory-bol");
+        System.out.println("Tárgy eltávolítása az inventory-ból");
     }
 
     /*

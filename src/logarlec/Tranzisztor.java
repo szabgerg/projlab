@@ -1,7 +1,5 @@
 package logarlec;
 
-import logarlec.Hallgato;
-
 //megvalósítja az ITargy interfészt
 public class Tranzisztor implements ITargy{
 
@@ -10,6 +8,13 @@ public class Tranzisztor implements ITargy{
 
     /*
      * Tranzisztor konstruktor
+     */
+    public Tranzisztor() {
+        System.out.println("Tranzisztor létrehozva\n");
+    }
+
+    /*
+     * Tranzisztor paraméteres konstruktor
      */
     public Tranzisztor(Tranzisztor t, Szoba s) {
         System.out.println("Tranzisztor létrehozva\n");
@@ -63,23 +68,12 @@ public class Tranzisztor implements ITargy{
         if(par != null && par.getSzoba().getAktiv().getTargyak().contains(par)){
             //a hallgató a tranzisztor párjához teleportálódik
             ((Hallgato)k).teleport(par.getSzoba());
+            this.kikapcsol();
+            par.kikapcsol();
+            par.setPar(null);
+            this.setPar(null);
         }
     }
-
-    /**
-     * Tranzisztor ezeket nem tudja használni
-     */
-    public boolean hasznal(Karakter k){
-        System.out.println("Tranzisztor használva");
-        return false;
-    }
-
-    public boolean szur(Karakter k){
-        System.out.println("Tranzisztor szűrve");
-        return false;
-    }
-
-
 
     /*
      * Tranzisztor párosíthatóságának ellenőrzése
@@ -96,5 +90,19 @@ public class Tranzisztor implements ITargy{
     public void kikapcsol(){
         szoba.getAktiv().RemoveTargy(this);
         System.out.println("Tranzisztor kikapcsolva");
+    }
+
+
+    /**
+     * Tranzisztor ezeket nem tudja használni
+     */
+    public boolean hasznal(Karakter k){
+        System.out.println("Tranzisztor használva");
+        return false;
+    }
+
+    public boolean szur(Karakter k){
+        System.out.println("Tranzisztor szűrve");
+        return false;
     }
 }
