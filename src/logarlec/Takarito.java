@@ -38,7 +38,7 @@ public class Takarito extends Karakter {
 	public void szellozet(){
 		Szoba tempSzoba = this.getSzoba();
 		Targyinventory ti = tempSzoba.getAktiv();
-		for(ITargy t: ti.targyak){
+		for(ITargy t: ti.getTargyak()){
 			if(t instanceof Camambert){
 				this.getSzoba().getAktiv().RemoveTargy(t);
 			}

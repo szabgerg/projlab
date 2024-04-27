@@ -49,8 +49,8 @@ public class Karakter {
 	 * Ha a karakternek nincs helye a tárgyaknak, akkor nem tud felvenni
 	 */
 	public void felvesz(int i) {
-		if(eszkozkeszlet.targyak.size() < 5){
-			eszkozkeszlet.AddTargy(jelenlegi.getBentiTargyak().targyak.get(i));
+		if(eszkozkeszlet.getTargyak().size() < 5){
+			eszkozkeszlet.AddTargy(jelenlegi.getBentiTargyak().getTargyak().get(i));
 		}
 		System.out.println("Targy_felvetele");
 	}
@@ -62,8 +62,8 @@ public class Karakter {
 	 */
 	public void letesz(int i) {
 
-		jelenlegi.getBentiTargyak().AddTargy(eszkozkeszlet.targyak.get(i));
-		eszkozkeszlet.targyak.remove(i);
+		jelenlegi.getBentiTargyak().AddTargy(eszkozkeszlet.getTargyak().get(i));
+		eszkozkeszlet.getTargyak().remove(i);
 		System.out.println("Targy_letevese");
 	}
 
@@ -78,10 +78,10 @@ public class Karakter {
 	 * A karakter minden tárgyát eldobó metódus
 	 */
 	public void mindentelejt() {
-		for (ITargy t: jelenlegi.getBentiTargyak().targyak){
+		for (ITargy t: jelenlegi.getBentiTargyak().getTargyak()){
 			jelenlegi.getBentiTargyak().AddTargy(t);
 		}
-		eszkozkeszlet.targyak.clear();
+		eszkozkeszlet.getTargyak().clear();
 		System.out.println("Minden_targy_elejtve");
 	}
 

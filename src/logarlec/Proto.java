@@ -289,21 +289,21 @@ public class Proto {
 		switch (tipus) {
 			case "ok":
 				Oktato o = parseOktato(tasks[2]);
-				if(o.getEszkozkeszlet().targyak.size() >= 5) throw new IllegalArgumentException("Az oktató eszközkészlete tele van");
+				if(o.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("Az oktató eszközkészlete tele van");
 				i = o.getEszkozkeszlet();
 				i.AddTargy(parseTargy(tasks[3]));
 				o.setEszkozkeszlet(i);
 				break;
 			case "ha":
 				Hallgato h = parseHallgato(tasks[2]);
-				if(h.getEszkozkeszlet().targyak.size() >= 5) throw new IllegalArgumentException("A hallgató eszközkészlete tele van");
+				if(h.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A hallgató eszközkészlete tele van");
 				i = h.getEszkozkeszlet();
 				i.AddTargy(parseTargy(tasks[3]));
 				h.setEszkozkeszlet(i);
 				break;
 			case "ta":
 				Takarito t = parseTakarito(tasks[2]);
-				if(t.getEszkozkeszlet().targyak.size() >= 5) throw new IllegalArgumentException("A takarító eszközkészlete tele van");
+				if(t.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A takarító eszközkészlete tele van");
 				i = t.getEszkozkeszlet();
 				i.AddTargy(parseTargy(tasks[3]));
 				t.setEszkozkeszlet(i);
