@@ -8,13 +8,13 @@ public class Proto {
 	//tárolja, hogy érkezett-e exit parancs
 	private static boolean exit = false;
 	//tárolja az oktatókat
-	private static List<Oktato> oktatok;
+	private static List<Oktato> oktatok = new ArrayList<>();
 	//tárolja a hallgatókat
-	private static List<Hallgato> hallgatok;
+	private static List<Hallgato> hallgatok = new ArrayList<>();
 	//tárolja a takarítókat
-	private static List<Takarito> takaritok;
+	private static List<Takarito> takaritok = new ArrayList<>();
 	//tárolja a szobákat
-	private static List<Szoba> szobak;
+	private static List<Szoba> szobak = new ArrayList<>();
 	//ha -1 akkor igazi random, ha 0-1 közötti érték akkor az lesz a random érték
 	//ha kisebb mint 0,5 akkor false, ha nagyobb akkor true
 	//ha int kell akkor meg kell szorozni 10-zel
@@ -165,7 +165,7 @@ public class Proto {
 	}
 
 	private static Szoba newSzoba(Targyinventory inventory, int befogadokepesseg) {
-		Szoba sz = new Szoba( befogadokepesseg, inventory);
+		Szoba sz = new Szoba(befogadokepesseg, inventory);
 		szobak.add(sz);
 		return sz;
 	}
