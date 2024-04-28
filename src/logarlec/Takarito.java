@@ -11,6 +11,52 @@ public class Takarito extends Karakter {
 		super(sz, inventory);
 		System.out.println("Takarito_letrehozva");
 	}
+	/*TAkarito mozgasa, letesz, felvesz tragyakat és kiküld embereket a szobákból*/
+	public void mozog(Szoba newSzoba){
+		if(Proto.getRandVal() < 0){
+			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)){
+				System.out.println("Takarito_sikertelen_mozgas");
+				return;
+			}
+			jelenlegi.kilep(this);
+			jelenlegi.setLegutobbTakaritva(0);
+			newSzoba.getBentlevok().add(this);
+			System.out.println("Takarito_hozzaadva_uj_szobahoz");
+			jelenlegi = newSzoba;
+			System.out.println("Takarito_sikeres_mozgas");
+
+			szellozet();
+			kikuld();
+		}else {
+			double rand = Proto.getRandVal();
+			if(rand < 0.5) {
+				System.out.println("Takarito_nem_megy");
+				random_letesz();
+				random_felvesz();
+				return;
+			}
+			int randint = (int) (rand * 10);
+			if(randint > jelenlegi.getSzomszedok().size()){
+				randint = jelenlegi.getSzomszedok().size()-1;
+			}
+			newSzoba = jelenlegi.getSzomszedok().get(randint);
+			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) {
+				System.out.println("Takarito_sikertelen_mozgas");
+				random_letesz();
+				random_felvesz();
+				return;
+			}
+			jelenlegi.kilep(this);
+			jelenlegi.setLegutobbTakaritva(0);
+			newSzoba.getBentlevok().add(this);
+			jelenlegi = newSzoba;
+			System.out.println("Takarito_sikeres_mozgas");
+
+			szellozet();
+			kikuld();
+
+		}
+	}
 
 	/* kiküld függvény, ha belép egy szobába
 	 * mindenkit (aki nem béna) egy másik
@@ -44,5 +90,30 @@ public class Takarito extends Karakter {
 			}
 		}
 		System.out.println("Takarito_szelloztet");
+	}
+
+	//ha valódi játék van, akkor az takarito "ai", ez felel a random tárgy felvételért
+	void random_felvesz() {
+		double rand = Proto.getRandVal();
+		if(rand < 0.5 || eszkozkeszlet.getTargyak().size() >= 5) return;
+		int randint = (int) (rand * 10);
+		if(randint > jelenlegi.getBentiTargyak().getTargyak().size()){
+			randint = jelenlegi.getBentiTargyak().getTargyak().size()-1;
+		}
+
+		felvesz(randint);
+		System.out.println("Takarito_felvett_egy_itemet");
+	}
+	//ha valódi játék van, akkor az takarito "ai", ez felel a random tárgy letevésért
+	void random_letesz() {
+		double rand = Proto.getRandVal();
+		if(rand < 0.5) return;
+		int randint = (int) (rand * 10);
+		if(randint > eszkozkeszlet.getTargyak().size()){
+			randint = eszkozkeszlet.getTargyak().size()-1;
+		}
+		letesz(randint);
+		System.out.println("Takarito_letett_egy_itemet");
+
 	}
 }

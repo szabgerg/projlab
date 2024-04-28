@@ -46,10 +46,10 @@ public class Oktato extends Karakter {
 
 			jelenlegi = newSzoba;
 			System.out.println("Oktato_sikeres_mozgas");
-			if (newSzoba.getAktiv().getTargyak().isEmpty()) return;
-
-			for (ITargy t : newSzoba.getAktiv().getTargyak()) {
-				t.akcio(this);
+			if (!newSzoba.getAktiv().getTargyak().isEmpty()) {
+				for (ITargy t : newSzoba.getAktiv().getTargyak()) {
+					t.akcio(this);
+				}
 			}
 
 			if (bena) return;
@@ -80,12 +80,10 @@ public class Oktato extends Karakter {
 			jelenlegi = newSzoba;
 			System.out.println("Oktato_sikeres_mozgas");
 
-			if (newSzoba.getAktiv().getTargyak().isEmpty()){
-				System.out.println("Oktatonal_nincs_targy");
-			return;}
-
-			for (ITargy t : newSzoba.getAktiv().getTargyak()) {
-				t.akcio(this);
+			if (!newSzoba.getAktiv().getTargyak().isEmpty()) {
+				for (ITargy t : newSzoba.getAktiv().getTargyak()) {
+					t.akcio(this);
+				}
 			}
 
 			if (bena) return;
