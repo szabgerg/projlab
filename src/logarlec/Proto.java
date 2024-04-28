@@ -285,22 +285,28 @@ public class Proto {
 	private static void give(String[] tasks) {
 		tesztParancsHossz(tasks, 3);
 		String tipus = tasks[1].substring(0, 2); // Az első két karaktert az azonosító
-		Targyinventory i;
+		Targyinventory inventory = new Targyinventory();
 		switch (tipus) {
 			case "ok":
 				Oktato o = parseOktato(tasks[1]);
 				if(o.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("Az oktató eszközkészlete tele van");
-				o.getEszkozkeszlet().AddTargy(parseTargy(tasks[2]));
+				inventory = o.getEszkozkeszlet();
+				inventory.AddTargy(parseTargy(tasks[2]));
+				o.setEszkozkeszlet(inventory);
 				break;
 			case "ha":
 				Hallgato h = parseHallgato(tasks[1]);
 				if(h.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A hallgató eszközkészlete tele van");
-				h.getEszkozkeszlet().AddTargy(parseTargy(tasks[2]));
+				inventory = h.getEszkozkeszlet();
+				inventory.AddTargy(parseTargy(tasks[2]));
+				h.setEszkozkeszlet(inventory);
 				break;
 			case "ta":
 				Takarito t = parseTakarito(tasks[1]);
 				if(t.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A takarító eszközkészlete tele van");
-				t.getEszkozkeszlet().AddTargy(parseTargy(tasks[2]));
+				inventory = t.getEszkozkeszlet();
+				inventory.AddTargy(parseTargy(tasks[2]));
+				t.setEszkozkeszlet(inventory);
 				break;
 			case "sz":
 				Szoba sz = parseSzoba(tasks[1]);
@@ -312,19 +318,19 @@ public class Proto {
 	//move parancsot hajtja végre
 	private static void move(String[] tasks){
 		tesztParancsHossz(tasks, 3);
-		String tipus = tasks[1];
+		String tipus = tasks[1].substring(0, 2);
 		Szoba sz = parseSzoba(tasks[2]);
 		switch (tipus) {
 			case "ok":
-				Oktato o = parseOktato(tasks[3]);
+				Oktato o = parseOktato(tasks[1]);
 				o.mozog(sz);
 				break;
 			case "ha":
-				Hallgato h = parseHallgato(tasks[3]);
+				Hallgato h = parseHallgato(tasks[1]);
 				h.mozog(sz);
 				break;
 			case "ta":
-				Takarito t = parseTakarito(tasks[3]);
+				Takarito t = parseTakarito(tasks[1]);
 				t.mozog(sz);
 				break;
 		}
@@ -332,19 +338,19 @@ public class Proto {
 	//place parancsot hajtja végre
 	private static void place(String[] tasks){
 		tesztParancsHossz(tasks, 3);
-		String tipus = tasks[1];
-		int mit = pareseInt(tasks[3]);
+		String tipus = tasks[1].substring(0, 2);
+		int mit = pareseInt(tasks[2]);
 		switch (tipus) {
 			case "ok":
-				Oktato o = parseOktato(tasks[2]);
+				Oktato o = parseOktato(tasks[1]);
 				o.letesz(mit);
 				break;
 			case "ha":
-				Hallgato h = parseHallgato(tasks[2]);
+				Hallgato h = parseHallgato(tasks[1]);
 				h.letesz(mit);
 				break;
 			case "ta":
-				Takarito t = parseTakarito(tasks[2]);
+				Takarito t = parseTakarito(tasks[1]);
 				t.letesz(mit);
 				break;
 		}
@@ -352,19 +358,19 @@ public class Proto {
 	//pickup parancsot hajtja végre
 	private static void pickup(String[] tasks){
 		tesztParancsHossz(tasks, 3);
-		String tipus = tasks[1];
-		int mit = pareseInt(tasks[3]);
+		String tipus = tasks[1].substring(0, 2);
+		int mit = pareseInt(tasks[2]);
 		switch (tipus) {
 			case "ok":
-				Oktato o = parseOktato(tasks[2]);
+				Oktato o = parseOktato(tasks[1]);
 				o.felvesz(mit);
 				break;
 			case "ha":
-				Hallgato h = parseHallgato(tasks[2]);
+				Hallgato h = parseHallgato(tasks[1]);
 				h.felvesz(mit);
 				break;
 			case "ta":
-				Takarito t = parseTakarito(tasks[2]);
+				Takarito t = parseTakarito(tasks[1]);
 				t.felvesz(mit);
 				break;
 		}
@@ -372,10 +378,10 @@ public class Proto {
 	//activate parancsot hajtja végre
 	private static void activate(String[] tasks) {
 		tesztParancsHossz(tasks, 3);
-		String tipus = tasks[1];
-		int mit = pareseInt(tasks[3]);
+		String tipus = tasks[1].substring(0, 2);
+		int mit = pareseInt(tasks[2]);
 		if (!tipus.equals("ha")) throw new IllegalArgumentException("Csak hallgató tudja aktiválni a tárgyakat");
-		Hallgato h = parseHallgato(tasks[2]);
+		Hallgato h = parseHallgato(tasks[1]);
 		h.aktival(mit);
 	}
 	//pairing parancsot hajtja végre
