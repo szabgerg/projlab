@@ -53,8 +53,11 @@ public class Karakter {
 	public void felvesz(int i) {
 		if(eszkozkeszlet.getTargyak().size() < 5){
 			eszkozkeszlet.AddTargy(jelenlegi.getBentiTargyak().getTargyak().get(i));
+			System.out.println("Targy_felvetele");
 		}
-		System.out.println("Targy_felvetele");
+		else {
+			System.out.println("Nincs_hely_Targy_felvetele_sikertelen");
+		}
 	}
 
 	/*
