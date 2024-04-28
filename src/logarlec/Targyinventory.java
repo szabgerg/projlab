@@ -30,7 +30,7 @@ public class Targyinventory {
      */
     public void AddTargy(ITargy targy) {
         targyak.add(targy);
-        System.out.println("_targy_hozzaadasa_az_inventoryhoz");
+        System.out.println("Targy_hozzaadasa_az_inventoryhoz");
     }
 
     /*

@@ -1,0 +1,9 @@
+Szoba_letrehozva
+Szoba_letrehozva
+Hallgato_letrehozva
+Ro_letrehozva
+Targyinventory_letrehozva_targgyal
+Oktato_letrehozva
+Ro_aktivalva
+AktivTargyak_beallitva
+Oktato_megbenult

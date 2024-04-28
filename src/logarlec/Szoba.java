@@ -84,7 +84,7 @@ public class Szoba {
      * @param k a bent lévő karakterek listája, beállítandó érték
      */
     public void setBentlevok(List<Karakter> k){
-		System.out.println("Bentlevo_karakterek_beallitasa\n");
+		System.out.println("Bentlevo_karakterek_beallitasa");
         bentlevok = k;
     }
 
@@ -102,7 +102,7 @@ public class Szoba {
      * @return Targyinventory
      */
     public Targyinventory getBentiTargyak(){
-		System.out.println("A_szobaban_talalhato_targyak:\n");
+		System.out.println("A_szobaban_talalhato_targyak:");
         return bentiTargyak;
     }
 
@@ -110,7 +110,7 @@ public class Szoba {
      * @param t a tárgyak listája, a beállítandó érték
      */
     public void setBentiTargyak(Targyinventory t){
-		System.out.println("Szoba_targyainak_beallitasa\n");
+		System.out.println("Szoba_targyainak_beallitasa");
         bentiTargyak = t;
     }
 

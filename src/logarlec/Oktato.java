@@ -102,7 +102,7 @@ public class Oktato extends Karakter {
 	 */
 	void setbena(boolean b) {
 		bena = b;
-		System.out.println("Oktato_bena_allitva");
+		System.out.println("Oktato_megbenult");
 	}
 
 	/*
