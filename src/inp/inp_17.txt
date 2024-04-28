@@ -1,6 +1,5 @@
-#TODO
 add sz 2
-add ha sz1 tv
+give ha sz1 tv
 add ok sz1 
 move ok1 sz1
-activate ha1 tv1
+activate ha1 0

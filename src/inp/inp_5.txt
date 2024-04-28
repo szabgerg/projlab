@@ -1,3 +1,4 @@
 add sz 1
+add sz 1
 add ta sz1
 move ta1 sz2

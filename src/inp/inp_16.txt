@@ -1,3 +1,3 @@
 add sz 1
-add ha sz1 ma
-activate ha1 ma1
+give ha sz1 ma
+activate ha1 0
