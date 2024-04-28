@@ -52,8 +52,10 @@ public class Karakter {
 	 */
 	public void felvesz(int i) {
 		if(eszkozkeszlet.getTargyak().size() < 5){
-			eszkozkeszlet.AddTargy(jelenlegi.getBentiTargyak().getTargyak().get(i));
-			System.out.println("Targy_felvetele");
+			ITargy t = jelenlegi.getBentiTargyak().getTargyak().get(i);
+			eszkozkeszlet.AddTargy(t);
+			jelenlegi.getBentiTargyak().RemoveTargy(t);
+			System.out.println("Targy_felveve");
 		}
 		else {
 			System.out.println("Nincs_hely_Targy_felvetele_sikertelen");
@@ -68,8 +70,8 @@ public class Karakter {
 	public void letesz(int i) {
 
 		jelenlegi.getBentiTargyak().AddTargy(eszkozkeszlet.getTargyak().get(i));
-		eszkozkeszlet.getTargyak().remove(i);
-		System.out.println("Targy_letevese");
+		eszkozkeszlet.RemoveTargy(eszkozkeszlet.getTargyak().get(i));
+		System.out.println("Targy_leteve");
 	}
 
 	/*

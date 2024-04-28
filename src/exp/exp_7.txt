@@ -25,4 +25,5 @@ Karakter_letrehozva
 Hallgato_letrehozva
 Bentlevo_karakterek_beallitasa
 Targy_hozzaadasa_az_inventoryhoz
-Targy_felvetele
+Targy_eltavolitasa_az_inventorybol
+Targy_felveve

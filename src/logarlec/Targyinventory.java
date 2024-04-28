@@ -40,7 +40,7 @@ public class Targyinventory {
      */
     public void RemoveTargy(ITargy targy) {
         targyak.remove(targy);
-        System.out.println("_targy_eltavolitasa_az_inventorybol");
+        System.out.println("Targy_eltavolitasa_az_inventorybol");
     }
 
     /*
