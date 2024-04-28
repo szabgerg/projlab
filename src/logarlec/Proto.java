@@ -199,7 +199,7 @@ public class Proto {
 				break;
 			case "ha":
 				if (tasks.length > 8) throw new IllegalArgumentException("Túl sok paraméter");
-				if (tasks.length > 2) {
+				if (tasks.length > 3) {
 					for (int i = 2; i < tasks.length; i++) {
 						inventory.AddTargy(parseTargy(tasks[i]));
 					}
