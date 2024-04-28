@@ -41,7 +41,9 @@ public class Karakter {
 			System.out.println("Uj_szobaba_mozgas");
 			System.out.println("Sikeres_mozgas");
 		}
-		System.out.println("Sikertelen_mozgas");
+		else{
+			System.out.println("Sikertelen_mozgas");
+		}
 	}
 
 	/*
