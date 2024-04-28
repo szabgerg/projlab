@@ -17,9 +17,12 @@ import java.util.Set;
  */
 public class Controller {
 
+	//játékosok száma
 	private int jatekosok;
-	HashMap<Integer, Karakter> karakterMap = new HashMap<>();
-	List<Szoba> collectedSzobak = new ArrayList<>();
+	//soron lévő játékos sorszáma 1-től indexelve
+	private int aktualisJatekos;
+	private HashMap<Integer, Karakter> karakterMap = new HashMap<>();
+	private List<Szoba> collectedSzobak = new ArrayList<>();
 	private Set<Szoba> visitedSzobak = new HashSet<>();
 	
 
@@ -27,7 +30,7 @@ public class Controller {
 	 * Kontruktor, ami létrehoz egy logarlec.Controller-t
 	 */
 	public Controller() {
-		System.out.println("logarlec.Controller letrehozva");
+		System.out.println("logarlec.Controller_letrehozva");
 	}
 
 	/*
@@ -138,37 +141,13 @@ public class Controller {
 	}
 
 	/*
-	 * Követkzeő játékos kiválasztása
+	 * Következő játékos kiválasztása
 	 */
 	public void nextPlayer() {
-		System.out.println("Van még élő hallgató? (I/N)\n");
-		Scanner scanner = new Scanner(System.in);
-		String choice;
-		do {
-			choice = scanner.nextLine();
-			if (choice.equals("I")) {
-				System.out.println("Az aktuális játékos befejezte a körét? (I/N)\n");
-				do{
-				choice = scanner.nextLine();
-					if (choice.equals("I")) {
-						System.out.println("A sor a következő játákoson van!\n");
-
-					} else if (choice.equals("N")) {
-						System.out.println("Folytassa a körét!\n");
-					} else {
-						System.out.println("Érvénytelen válasz\n");
-					}
-				} while (!(choice.equals("I") || choice.equals("N")));
-			} else if (choice.equals("N")) {
-				System.out.println("Az oktatók nyertek\n");
-				this.endGame();
-			} else {
-				System.out.println("Érvénytelen válasz\n");
-			}
-		} while (!(choice.equals("I") || choice.equals("N")));
-
-		scanner.close();
-
+		aktualisJatekos++;
+		if(aktualisJatekos > jatekosok){
+			aktualisJatekos = 1;
+		}
 	}
 
 	/*
