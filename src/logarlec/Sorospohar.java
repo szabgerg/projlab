@@ -4,7 +4,7 @@ package logarlec;
 public class Sorospohar extends Romlandok{
     // Konstruktor, amely létrehoz egy új Sorospohar objektumot
     public Sorospohar() {
-        System.out.print("Sorospohár létrehozva\n");
+        System.out.print("Sorospohar_letrehozva\n");
     }
 
     // Felülírja a Romlandok osztály aktival metódusát
@@ -16,7 +16,7 @@ public class Sorospohar extends Romlandok{
         k.getEszkozkeszlet().getTargyak().remove(randomIndex);
         // A tárgy használata
         romlik();
-        System.out.print("Sorospohár használva");
+        System.out.print("Sorospohar_hasznalva\n");
         if (getHatralevoIdo() == 0) {
             k.getEszkozkeszlet().RemoveTargy(this);
         }

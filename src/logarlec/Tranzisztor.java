@@ -10,14 +10,14 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
      * Tranzisztor konstruktor
      */
     public Tranzisztor() {
-        System.out.println("Tranzisztor létrehozva\n");
+        System.out.println("Tr_letrehozva\n");
     }
 
     /*
      * Tranzisztor paraméteres konstruktor
      */
     public Tranzisztor(Tranzisztor t, Szoba s) {
-        System.out.println("Tranzisztor létrehozva\n");
+        System.out.println("Tr_letrehozva\n");
         par = t;
         szoba = s;
     }
@@ -27,7 +27,6 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
      * @return Tranzisztor - a tranzisztor párja
      */
     public Tranzisztor getPar(){
-        System.out.println("Tranzisztor párja lekérdezve");
         return par;
     }
 
@@ -37,7 +36,7 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
      */
     public void setPar(Tranzisztor t){
         par = t;
-        System.out.println("Tranzisztor pár beállítva");
+        System.out.println("Tr_par_beallitva\n");
     }
 
     /*
@@ -45,7 +44,6 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
      * @return int - a tranzisztor szobája
      */
     public Szoba getSzoba(){
-        System.out.println("Szoba lekérdezve");
         return szoba;
     }
 
@@ -55,7 +53,7 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
      */
     public void setSzoba(Szoba s){
         szoba = s;
-        System.out.println("Szoba beállítva");
+        System.out.println("Szoba_beallitva\n");
     }
 
     /*
@@ -64,7 +62,7 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
     @Override
     public void aktival(Karakter k) {
         k.jelenlegi.getAktiv().AddTargy(this);
-        System.out.println("Tranzisztor aktiválva");
+        System.out.println("Tr_aktivalva\n");
         //ha a tranzisztor parja aktivalva van már, akkor aktiválásnál meghivodik a hallgato teleportálása
         if(par != null && par.getSzoba().getAktiv().getTargyak().contains(par)){
             //a hallgató a tranzisztor párjához teleportálódik
@@ -81,8 +79,11 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
      * @return boolean - párosítható-e a tranzisztor
      */
     public boolean canPair(){
-        System.out.println("A tranzisztor párosítható-e?");
-        return par == null; //ha a tranzisztor párja null, akkor párosítható
+        if(par != null){
+            System.out.println("Tr_nem_parosithato\n");
+            return false;
+        }
+        return true;
     }
 
     /*
@@ -90,7 +91,7 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
      */
     public void kikapcsol(){
         szoba.getAktiv().RemoveTargy(this);
-        System.out.println("Tranzisztor kikapcsolva");
+        System.out.println("Tr_kikapcsolva\n");
     }
 
 

@@ -4,13 +4,13 @@ package logarlec;
 public class Rongy extends Romlandok{
     // Konstruktor, amely létrehoz egy új Rongy objektumot
     public Rongy() {
-        System.out.print("Rongy létrehozva\n");
+        System.out.print("Rongy_letrehozva\n");
     }
 
     // Felülírja a Romlandok osztály aktival metódusát
     @Override
     public void aktival(Karakter k){
-        System.out.println("Rongy aktivalva");
+        System.out.println("Rongy_aktivalva\n");
         //hozzadja a rongyot az aktiv inventoryhoz
         k.getSzoba().getAktiv().AddTargy(this);
 
@@ -23,5 +23,6 @@ public class Rongy extends Romlandok{
     // Ha egy oktató egy szobába lép, ahol rogy van, akkor az oktató bena lesz
     public void akcio(Karakter k){
         k.setBena(true);
+        System.out.println("Rongy_akcio\n");
     }
 }
