@@ -122,7 +122,8 @@ public class Oktato extends Karakter {
 				karakter.mindentelejt();
 				System.out.println("Sikeres_lelekelvetel");
 			}
-			System.out.println("Sikertelen_lelekelvetel");
+			else{System.out.println("Sikertelen_lelekelvetel");
+		}
 		}
 	}
 	//ha valódi játék van, akkor az oktató "ai", ez felel a random tárgy felvételért
