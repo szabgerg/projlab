@@ -27,12 +27,14 @@ public class Hallgato extends Karakter {
 	 */
 	@Override
 	public void mozog(Szoba newSzoba) {
-		if(!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) return;
-
+		if(!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) {
+			System.out.println("Hallgato_sikertelen_mozgas\n");
+			return;
+		}
 		jelenlegi.kilep(this);
 		newSzoba.getBentlevok().add(this);
 		jelenlegi = newSzoba;
-
+		System.out.println("Hallgato_sikeres_mozgas\n");
 		if(newSzoba.getAktiv().getTargyak().isEmpty()) return;
 
 		for (ITargy t: newSzoba.getAktiv().getTargyak()){
@@ -49,10 +51,12 @@ public class Hallgato extends Karakter {
 	* 2. Rongy
 	* 3. Camambert
 	* 4. Logarlec
+	* 5. Legfrissito
 	 */
 	public void aktival(int hely) {
 		ITargy t = eszkozkeszlet.getTargyak().get(hely);
 		t.aktival(this);
+		System.out.println("Hallgato_targy_aktivalva\n");
 	}
 	/*
 	* A metodusban a hallgato lelekelvetel elleni vedelmet valositjuk meg
@@ -70,6 +74,7 @@ public class Hallgato extends Karakter {
 				return true;
 			}
 		}
+		System.out.println("Hallgato_meghalt\n");
 		return false;
 	}
 

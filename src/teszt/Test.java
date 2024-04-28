@@ -118,10 +118,11 @@ public class Test {
 		ArrayList<String> exps = new ArrayList<>();
 		ArrayList<String> outs = new ArrayList<>();
 		while (exp.hasNextLine()) {
-			exps.add(exp.nextLine());
+			exps.add((exp.nextLine()).toLowerCase());
+
 		}
 		while (out.hasNextLine()) {
-			outs.add(out.nextLine());
+			outs.add((out.nextLine()).toLowerCase());
 		}
 		//check if exp contains out
 		for (String s : outs) {
