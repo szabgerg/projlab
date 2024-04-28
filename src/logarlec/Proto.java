@@ -288,30 +288,30 @@ public class Proto {
 		Targyinventory i;
 		switch (tipus) {
 			case "ok":
-				Oktato o = parseOktato(tasks[2]);
+				Oktato o = parseOktato(tasks[1]);
 				if(o.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("Az oktató eszközkészlete tele van");
 				i = o.getEszkozkeszlet();
-				i.AddTargy(parseTargy(tasks[3]));
+				i.AddTargy(parseTargy(tasks[2]));
 				o.setEszkozkeszlet(i);
 				break;
 			case "ha":
-				Hallgato h = parseHallgato(tasks[2]);
+				Hallgato h = parseHallgato(tasks[1]);
 				if(h.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A hallgató eszközkészlete tele van");
 				i = h.getEszkozkeszlet();
-				i.AddTargy(parseTargy(tasks[3]));
+				i.AddTargy(parseTargy(tasks[2]));
 				h.setEszkozkeszlet(i);
 				break;
 			case "ta":
-				Takarito t = parseTakarito(tasks[2]);
+				Takarito t = parseTakarito(tasks[1]);
 				if(t.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A takarító eszközkészlete tele van");
 				i = t.getEszkozkeszlet();
-				i.AddTargy(parseTargy(tasks[3]));
+				i.AddTargy(parseTargy(tasks[2]));
 				t.setEszkozkeszlet(i);
 				break;
 			case "sz":
-				Szoba sz = parseSzoba(tasks[2]);
+				Szoba sz = parseSzoba(tasks[1]);
 				i = sz.getBentiTargyak();
-				i.AddTargy(parseTargy(tasks[3]));
+				i.AddTargy(parseTargy(tasks[2]));
 				sz.setBentiTargyak(i);
 				break;
 
