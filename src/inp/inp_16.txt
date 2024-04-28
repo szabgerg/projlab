@@ -1,3 +1,4 @@
 add sz 1
-give ha sz1 ma
+random 0.4
+add ha sz1 lo
 activate ha1 0
