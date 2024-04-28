@@ -102,7 +102,6 @@ public class Szoba {
      * @return Targyinventory
      */
     public Targyinventory getBentiTargyak(){
-		System.out.println("A_szobaban_talalhato_targyak:");
         return bentiTargyak;
     }
 
