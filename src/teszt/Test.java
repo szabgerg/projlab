@@ -13,8 +13,8 @@ public class Test {
 	int tesztszam; //az összes teszt számát tárolja
 	int hanyadik; //a lefuttandó teszt számát tárolja, ha 0 akkor az összes tesztet lefuttatja
 	String filename; //a proto jar file nevét tárolja
-	ArrayList<Process> processes;
-	String resultfilename;
+	ArrayList<Process> processes; //a lefuttatott processzeket tárolja
+	String resultfilename;//a result file nevét tárolja
 
 	/*konstruktor beállítja mennyi teszt van, hogy mi a neve a jar-nak és melyik tesztet kell lefuttatni*/
 	public Test(int tesztszam, String fname ,String[] args) {

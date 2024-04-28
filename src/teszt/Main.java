@@ -1,8 +1,8 @@
 package teszt;
 
 public class Main {
-	static int TESZTEKSZAMA = 29;
-	static String JARFILENAME = "log.jar";
+	static int TESZTEKSZAMA = 29; //a tesztek össz számát tárolja
+	static String JARFILENAME = "log.jar"; //a jar file nevét tárolja, ami az üzleti logikából lett generálva
 
 	public static void main(String[] args) {
 		if(args.length == 0 || args.length == 1) {
