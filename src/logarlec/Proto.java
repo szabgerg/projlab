@@ -129,6 +129,7 @@ public class Proto {
 			case "ca" -> new Camambert();
 			case "ma" -> new Maszk();
 			case "le" -> new Legfrissito();
+			case "lo" -> new Logarlec();
 			default -> throw new IllegalArgumentException(s + "\t nem létező tárgy");
 		};
 
