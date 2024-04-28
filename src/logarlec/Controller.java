@@ -1,8 +1,11 @@
 package logarlec;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 /*
  * Kontroller osztály, a játékban azokat a metódusokat valósítja meg,
@@ -13,6 +16,12 @@ import java.util.Scanner;
  * játék zárását is ez az osztály kezeli.
  */
 public class Controller {
+
+	private int jatekosok;
+	HashMap<Integer, Karakter> karakterMap = new HashMap<>();
+	List<Szoba> collectedSzobak = new ArrayList<>();
+	private Set<Szoba> visitedSzobak = new HashSet<>();
+	
 
 	/*
 	 * Kontruktor, ami létrehoz egy logarlec.Controller-t
@@ -30,9 +39,9 @@ public class Controller {
 	 */
 	public void init() {
 		Szoba szoba_A = new Szoba();    // Szoba konstruktorában: Szoba létrehozva + Szoba neve
-		System.out.println("szoba_A létrehozva");
+		//System.out.println("szoba_A létrehozva");
 		Szoba szoba_B = new Szoba();
-		System.out.println("szoba_B létrehozva");
+		//System.out.println("szoba_B létrehozva");
 
 		List<Szoba> szobaLista1 = new ArrayList<>();
 		List<Szoba> szobaLista2 = new ArrayList<>();
@@ -43,19 +52,14 @@ public class Controller {
 		szoba_A.setSzomszedok(szobaLista2);
 		szoba_B.setSzomszedok(szobaLista1);
 
-		//System.out.println("Két szoba inicializálása megtörtént");
-
 		Hallgato hallgato = new Hallgato(null, null);
 		Oktato oktato = new Oktato(null, null);
-
-		//System.out.println("Két karakter sikeresen létrehozva");
 
 		Targyinventory t1 = new Targyinventory();
 		Targyinventory t2 = new Targyinventory();
 		Targyinventory t3 = new Targyinventory();
 		Targyinventory t4 = new Targyinventory();
 
-		//System.out.println("Négy tárgygyűjtemény létrehozva");
 		Logarlec logarlec = new Logarlec();
 		t1.AddTargy(logarlec);
 
@@ -77,52 +81,60 @@ public class Controller {
 		Sorospohar sor = new Sorospohar();
 		t3.AddTargy(sor);
 
-		//System.out.println("Minden tárgyból egy létrehozva és gyűjteményhez adva");
-
 		szoba_A.setBentiTargyak(t1);
 		szoba_B.setBentiTargyak(t2);
 		hallgato.setEszkozkeszlet(t3);
 		oktato.setEszkozkeszlet(t4);
 
+		System.out.println("logarlec.Controller_inicializalas");
 	}
+
+	public List<Szoba> szobakatOsszegyujt(Szoba startSzoba) {
+        // Ellenőrizzük, hogy a kiinduló szoba nem lett-e már látogatva
+        if (!visitedSzobak.contains(startSzoba)) {
+            // Ha még nem, akkor hozzáadjuk a látogatott szobákhoz
+            visitedSzobak.add(startSzoba);
+            // Hozzáadjuk a kiinduló szobát az összegyűjtött szobákhoz
+            collectedSzobak.add(startSzoba);
+
+            // Szomszédok lekérése
+            List<Szoba> neighbors = startSzoba.getSzomszedok();
+
+            // Minden szomszédra rekurzívan meghívjuk a collectAllRooms metódust
+            for (Szoba neighbor : neighbors) {
+                szobakatOsszegyujt(neighbor);
+            }
+        }
+        // Visszatérünk az összegyűjtött szobák listájával
+        return collectedSzobak;
+    }
+
 
 	/*
 	 * Végrehajtja a rongy élettartamának csökkentését körönként, ha
 	 * a hátralevő idejük 1-el való csökkentése már 0-nak felel meg, akkor
 	 * az 1-el való értékcsökkenés után el is tűnik az aktív tárgyak listájából, azaz megszűnik
 	 */
-	public void nextRound() {
-		System.out.println("Következő kör kezdete\n");
+	public void nextRound(Szoba szoba) {
+		System.out.println("Kovetkezo_kor_kezdete");
+		szobakatOsszegyujt(szoba);
 
-		System.out.println("Van Rongy a tárgyak között? (I/N)");
-		Scanner scanner = new Scanner(System.in);
-		String choice;
-		do {
-			choice = scanner.nextLine();
-			if (choice.equals("I")) {
-				Rongy r = new Rongy();
-				Szoba s = new Szoba();
-				s.getAktiv();
-				System.out.println("Mennyi a rongy élettartama? (n)");
-				int left = scanner.nextInt();
-				if (left > 1) {
-					r.romlik();
-					return;
-				} else if (left == 1) {
-					r.romlik();
-					s.removeAktiv(r);
-					System.out.println("A Rongy teljesen megszáradt, törlődik.");
-					return;
+		// Végigmegyünk az összes szobán
+		for (Szoba s : collectedSzobak) {
+			Targyinventory aktivTargyak = s.getAktiv();
+	
+			// Ellenőrizzük az aktív tárgyakat
+			for (ITargy targy : aktivTargyak.getTargyak()) {
+				// Ha a tárgynak van romlik() függvénye, meghívjuk
+				if (targy instanceof Romlandok) {
+					Romlandok rom = (Romlandok)targy;
+					rom.romlik();
+					if(rom.getHatralevoIdo() == 0){
+						aktivTargyak.getTargyak().remove(targy);
+					}
 				}
-			} else if (choice.equals("N")) {
-				System.out.println("Nincs rongy a szobában, ami száradjon.");
-			} else {
-				System.out.println("Érvénytelen válasz\n");
 			}
-		} while (!(choice.equals("I") || choice.equals("N")));
-
-		scanner.close();
-
+		}
 	}
 
 	/*
@@ -165,6 +177,6 @@ public class Controller {
 	 * 2. oktatók mindegyik hallgatónak elvették a lelkét
 	 */
 	public void endGame() {
-		System.out.println("Játék vége\n");
+		System.out.println("Jatek_vege");
 	}
 }
