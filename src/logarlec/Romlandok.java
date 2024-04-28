@@ -7,7 +7,7 @@ public class Romlandok implements ITargy{
 
     // Konstruktor, amely létrehoz egy új Romlandok objektumot
     public Romlandok() {
-        System.out.print("Romlandok_letrehozva\n");
+        System.out.print("Romlandok_letrehozva");
     }
 
     // A hatralevoido getter metódus
@@ -18,7 +18,7 @@ public class Romlandok implements ITargy{
     // A romlik metódus, amely csökkenti az objektum élettartamát
     public void romlik() {
         hatralevoido--;
-        System.out.println("_hatralevoido_csokken\n");
+        System.out.println("_hatralevoido_csokken");
     }
 
     // Az aktival metódus, amit majd a leszármazottak valósítanak meg

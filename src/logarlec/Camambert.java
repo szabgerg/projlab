@@ -7,7 +7,7 @@ public class Camambert implements ITargy{
      * Camambert konstruktor
      */
     public Camambert() {
-        System.out.println("Ca_letrehozva\n");
+        System.out.println("Ca_letrehozva");
     }
 
     /*
@@ -15,7 +15,7 @@ public class Camambert implements ITargy{
     */
     @Override
     public void aktival(Karakter k) {
-        System.out.println("Ca_aktivalva\n");
+        System.out.println("Ca_aktivalva");
         k.getSzoba().getAktiv().AddTargy(this);
         // A karakterek elejtenek mindent, az oktatók benák lesznek
         for (Karakter karakter : k.getSzoba().getBentlevok()) {
@@ -31,7 +31,7 @@ public class Camambert implements ITargy{
 
     // Ha egy karakter egy szobába lép, ahol camambert van, akkor a karakter elejt mindent és az oktató bena lesz
     public void akcio(Karakter k){
-        System.out.println("Ca_akcio\n");
+        System.out.println("Ca_akcio");
         k.setBena(true);
         // Ha a karakter nem tud védekezni, akkor elejti az összes tárgyát
         for (ITargy targy : k.getEszkozkeszlet().getTargyak()) {

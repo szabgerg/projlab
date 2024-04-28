@@ -8,22 +8,22 @@ public class Legfrissito implements ITargy{
 
     // A Legfrissito konstruktora, ami kiírja a konzolra, hogy a Legfrissito létrejött.
     public Legfrissito() {
-        System.out.println("Le_letrehozva\n");
+        System.out.println("Le_letrehozva");
     }
 
     // Az aktival metódus implementálása az ITargy interfészből.
     // Ez a metódus aktiválja a Legfrissitot a megadott Szobában.    
     @Override
     public void aktival(Karakter k) {
-        System.out.println("Le_aktivalva\n");
+        System.out.println("Le_aktivalva");
 		// Ha a Szoba gázos (van benne Camambert), akkor eltávolítja a Camambertet az aktivTargyak listából.
         if (!k.getSzoba().getAktiv().getTargyak().isEmpty()){
             k.getSzoba().getAktiv().RemoveTargy(k.getSzoba().getAktiv().getTargyak().get(0));
-            System.out.println("Szoba_gazossaga_megszunt\n");
+            System.out.println("Szoba_gazossaga_megszunt");
         }
 		// Ha a Szoba nem gázos (nincs benne Camambert), akkor nem történt változás.
         else{
-            System.out.println("Nem_gazos_szoba\n");
+            System.out.println("Nem_gazos_szoba");
         }
     }
     /*
