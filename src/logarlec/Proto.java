@@ -183,7 +183,7 @@ public class Proto {
 	}
 	//az add parancsot hajtja végre
 	private static void add(String[] tasks) {
-		if (tasks.length < 2) throw new IllegalArgumentException("Túl kevés paraméter");
+		if (tasks.length < 3) throw new IllegalArgumentException("Túl kevés paraméter");
 
 		String tipus = tasks[1];
 		Targyinventory inventory = new Targyinventory();
