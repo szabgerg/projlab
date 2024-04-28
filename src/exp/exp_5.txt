@@ -1,5 +1,6 @@
 Szoba_letrehozva
-Oktato_letrehozva
+Szoba_letrehozva
+Takarito_letrehozva
 Van_hely
 Regi_szobabol_kilep
 Uj_szobaba_mozgas

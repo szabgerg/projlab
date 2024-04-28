@@ -9,7 +9,7 @@ public class Takarito extends Karakter {
 	/* Takarito ctor */
 	public Takarito(Szoba sz, Targyinventory inventory) {
 		super(sz, inventory);
-		System.out.println("Takarito_letrehozva\n");
+		System.out.println("Takarito_letrehozva");
 	}
 
 	/* kiküld függvény, ha belép egy szobába
