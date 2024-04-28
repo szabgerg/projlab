@@ -191,7 +191,7 @@ public class Proto {
 			case "ok":
 				if (tasks.length > 8) throw new IllegalArgumentException("Túl sok paraméter");
 				if (tasks.length > 2) {
-					for (int i = 2; i < tasks.length; i++) {
+					for (int i = 3; i < tasks.length; i++) {
 						inventory.AddTargy(parseTargy(tasks[i]));
 					}
 				}
@@ -200,7 +200,7 @@ public class Proto {
 			case "ha":
 				if (tasks.length > 8) throw new IllegalArgumentException("Túl sok paraméter");
 				if (tasks.length > 3) {
-					for (int i = 2; i < tasks.length; i++) {
+					for (int i = 3; i < tasks.length; i++) {
 						inventory.AddTargy(parseTargy(tasks[i]));
 					}
 				}
@@ -209,7 +209,7 @@ public class Proto {
 			case "ta":
 				if (tasks.length > 8) throw new IllegalArgumentException("Túl sok paraméter");
 				if (tasks.length > 2) {
-					for (int i = 2; i < tasks.length; i++) {
+					for (int i = 3; i < tasks.length; i++) {
 						inventory.AddTargy(parseTargy(tasks[i]));
 					}
 				}
