@@ -4,13 +4,13 @@ package logarlec;
 public class Sorospohar extends Romlandok{
     // Konstruktor, amely létrehoz egy új Sorospohar objektumot
     public Sorospohar() {
-        System.out.print("So_letrehozva");
+        System.out.println("So_letrehozva");
     }
 
     // Felülírja a Romlandok osztály aktival metódusát
     @Override
     public boolean hasznal(Karakter k) {
-        System.out.print("So_hasznalva");
+        System.out.println("So_hasznalva");
         // A játékos eszközkészletéből egy véletlenszerűen kiválasztott tárgy eltávolítása
         int targyakSzama = k.getEszkozkeszlet().getTargyak().size();
         int randomIndex = (int) (Proto.getRandVal() * (targyakSzama + 1));

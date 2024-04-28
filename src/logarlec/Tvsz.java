@@ -9,15 +9,15 @@ public class Tvsz extends Romlandok{
     public Tvsz() {
         if (Proto.getRandVal() < 5) {hamis = false;}
         else {hamis = true;}
-        System.out.print("Tv_letrehozva");
+        System.out.println("Tv_letrehozva");
     }
     
     @Override
     // Felülírja a Romlandok osztály aktival metódusát
     public boolean hasznal(Karakter k) {
         if (hamis) {
-            System.out.print("Tv_hasznalva");
-            System.out.print("Tv");
+            System.out.println("Tv_hasznalva");
+            System.out.println("Tv");
             romlik();//_hatralevoido_csokken
             if (getHatralevoIdo() == 0) {
                 k.getEszkozkeszlet().RemoveTargy(this);

@@ -9,15 +9,15 @@ public class Maszk extends Romlandok{
     public Maszk() {
         if (Proto.getRandVal() < 0.5) {hamis = false;}
         else {hamis = true;}
-        System.out.print("Ma_letrehozva");
+        System.out.println("Ma_letrehozva");
     }
 
     // Felülírja a Romlandok osztály szűr metódusát
     @Override
     public boolean szur(Karakter k) { 
         if (hamis) {
-            System.out.print("Ma_szur");
-            System.out.print("Ma");
+            System.out.println("Ma_szur");
+            System.out.println("Ma");
             romlik(); //_hatralevoido_csokken
             //ha a romlik hatására a tárgy hatralevo ideje 0, akkor a tárgy eltávolításra kerül az eszközkészletből
             if (getHatralevoIdo() == 0) {

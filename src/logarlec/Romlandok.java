@@ -7,7 +7,7 @@ public class Romlandok implements ITargy{
 
     // Konstruktor, amely létrehoz egy új Romlandok objektumot
     public Romlandok() {
-        System.out.print("Romlandok_letrehozva");
+        System.out.println("Romlandok_letrehozva");
     }
 
     // A hatralevoido getter metódus
