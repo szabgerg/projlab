@@ -45,6 +45,9 @@ public class Oktato extends Karakter {
 			System.out.println("Oktato_hozzaadva_uj_szobahoz");
 
 			jelenlegi = newSzoba;
+			if(jelenlegi.getLegutobbTakaritva() != -1) {
+				jelenlegi.setLegutobbTakaritva(jelenlegi.getLegutobbTakaritva()+1);
+			}
 			System.out.println("Oktato_sikeres_mozgas");
 			if (!newSzoba.getAktiv().getTargyak().isEmpty()) {
 				for (ITargy t : newSzoba.getAktiv().getTargyak()) {
@@ -69,6 +72,9 @@ public class Oktato extends Karakter {
 				randint = jelenlegi.getSzomszedok().size()-1;
 			}
 			newSzoba = jelenlegi.getSzomszedok().get(randint);
+			if(jelenlegi.getLegutobbTakaritva() != -1) {
+				jelenlegi.setLegutobbTakaritva(jelenlegi.getLegutobbTakaritva()+1);
+			}
 
 			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) {
 				System.out.println("Oktato_sikertelen_mozgas");

@@ -19,7 +19,7 @@ public class Szoba {
     private Targyinventory bentiTargyak;
     private Targyinventory aktivTargyak;
     //-1 ha még nem volt takarítva
-    private int legutobbTakaritva;
+    private int legutobbTakaritva = -1;
 
     /* Szoba default konstruktora
     */
@@ -222,5 +222,9 @@ public class Szoba {
      */
     public Szoba getSzobaProperties(){
         return this;
+    }
+
+    public int getLegutobbTakaritva(){
+        return legutobbTakaritva;
     }
 }

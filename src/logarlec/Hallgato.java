@@ -34,6 +34,9 @@ public class Hallgato extends Karakter {
 		jelenlegi.kilep(this);
 		newSzoba.getBentlevok().add(this);
 		jelenlegi = newSzoba;
+		if(jelenlegi.getLegutobbTakaritva() != -1) {
+			jelenlegi.setLegutobbTakaritva(jelenlegi.getLegutobbTakaritva()+1);
+		}
 		System.out.println("Hallgato_sikeres_mozgas");
 		if(newSzoba.getAktiv().getTargyak().isEmpty()) return;
 
