@@ -121,7 +121,7 @@ public class Proto {
 	}
 
 	private static ITargy parseTargy(String s) {
-		if (s.length() < 3) throw new IllegalArgumentException(s + "\t túl rövid név egy objektumnak");
+		if (s.length() < 2) throw new IllegalArgumentException(s + "\t túl rövid név egy objektumnak");
 		return switch (s.substring(0, 2)) {
 			case "tv" -> new Tvsz();
 			case "so" -> new Sorospohar();
@@ -290,29 +290,21 @@ public class Proto {
 			case "ok":
 				Oktato o = parseOktato(tasks[1]);
 				if(o.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("Az oktató eszközkészlete tele van");
-				i = o.getEszkozkeszlet();
-				i.AddTargy(parseTargy(tasks[2]));
-				o.setEszkozkeszlet(i);
+				o.getEszkozkeszlet().AddTargy(parseTargy(tasks[2]));
 				break;
 			case "ha":
 				Hallgato h = parseHallgato(tasks[1]);
 				if(h.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A hallgató eszközkészlete tele van");
-				i = h.getEszkozkeszlet();
-				i.AddTargy(parseTargy(tasks[2]));
-				h.setEszkozkeszlet(i);
+				h.getEszkozkeszlet().AddTargy(parseTargy(tasks[2]));
 				break;
 			case "ta":
 				Takarito t = parseTakarito(tasks[1]);
 				if(t.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A takarító eszközkészlete tele van");
-				i = t.getEszkozkeszlet();
-				i.AddTargy(parseTargy(tasks[2]));
-				t.setEszkozkeszlet(i);
+				t.getEszkozkeszlet().AddTargy(parseTargy(tasks[2]));
 				break;
 			case "sz":
 				Szoba sz = parseSzoba(tasks[1]);
-				i = sz.getBentiTargyak();
-				i.AddTargy(parseTargy(tasks[2]));
-				sz.setBentiTargyak(i);
+				sz.getBentiTargyak().AddTargy(parseTargy(tasks[2]));
 				break;
 
 		}
