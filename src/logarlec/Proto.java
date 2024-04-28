@@ -46,7 +46,6 @@ public class Proto {
 		parancsok.put("pickup", Proto::pickup);
 		parancsok.put("activate", Proto::activate);
 		parancsok.put("pairing", Proto::pairing);
-		parancsok.put("teleport", Proto::teleport);
 		parancsok.put("neighbours", Proto::neighbours);
 		parancsok.put("merge", Proto::merge);
 		parancsok.put("split", Proto::split);
@@ -285,28 +284,21 @@ public class Proto {
 	private static void give(String[] tasks) {
 		tesztParancsHossz(tasks, 3);
 		String tipus = tasks[1].substring(0, 2); // Az első két karaktert az azonosító
-		Targyinventory inventory = new Targyinventory();
 		switch (tipus) {
 			case "ok":
 				Oktato o = parseOktato(tasks[1]);
 				if(o.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("Az oktató eszközkészlete tele van");
-				inventory = o.getEszkozkeszlet();
-				inventory.AddTargy(parseTargy(tasks[2]));
-				o.setEszkozkeszlet(inventory);
+				o.getEszkozkeszlet().AddTargy(parseTargy(tasks[2]));
 				break;
 			case "ha":
 				Hallgato h = parseHallgato(tasks[1]);
 				if(h.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A hallgató eszközkészlete tele van");
-				inventory = h.getEszkozkeszlet();
-				inventory.AddTargy(parseTargy(tasks[2]));
-				h.setEszkozkeszlet(inventory);
+				h.getEszkozkeszlet().AddTargy(parseTargy(tasks[2]));
 				break;
 			case "ta":
 				Takarito t = parseTakarito(tasks[1]);
 				if(t.getEszkozkeszlet().getTargyak().size() >= 5) throw new IllegalArgumentException("A takarító eszközkészlete tele van");
-				inventory = t.getEszkozkeszlet();
-				inventory.AddTargy(parseTargy(tasks[2]));
-				t.setEszkozkeszlet(inventory);
+				t.getEszkozkeszlet().AddTargy(parseTargy(tasks[2]));
 				break;
 			case "sz":
 				Szoba sz = parseSzoba(tasks[1]);
