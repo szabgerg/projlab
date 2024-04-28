@@ -66,7 +66,7 @@ public class Hallgato extends Karakter {
 	public boolean vedekezes() {
 		for (ITargy t: eszkozkeszlet.getTargyak()){
 			if(t.hasznal(this)) {
-				System.out.println("Hallgato sikeresen vedekezett\n");
+				System.out.println("Hallgato_sikeresen_vedekezett\n");
 				return true;
 			}
 		}
@@ -103,10 +103,10 @@ public class Hallgato extends Karakter {
 		if(t1.canPair() && t2.canPair()) {
 			t1.setPar(t2);
 			t2.setPar(t1);
-			System.out.println("Tranzisztorok osszekapcsolva\n");
+			System.out.println("Tranzisztorok_osszekapcsolva\n");
 		}
 		else {
-			System.out.println("Tranzisztorok nem kapcsolhatoak ossze\n");
+			System.out.println("Tranzisztorok_nem_kapcsolhatoak_ossze\n");
 		}
 
 	}
