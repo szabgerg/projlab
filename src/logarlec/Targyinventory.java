@@ -1,5 +1,6 @@
 package logarlec;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -9,7 +10,7 @@ public class Targyinventory {
     /*
      * Targyinventory konstruktor
      */
-    private List<ITargy> targyak;
+    private List<ITargy> targyak = new ArrayList<>();
 
     public Targyinventory() {
         System.out.println("Targyinventory_letrehozva");
