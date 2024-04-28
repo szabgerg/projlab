@@ -11,7 +11,7 @@ public class Logarlec implements ITargy{
     public Logarlec() {
         if (Proto.getRandVal() < 5) {hamis = false;}
         else {hamis = true;}
-        System.out.println("Logarlec_letrehozva\n");
+        System.out.println("Lo_letrehozva\n");
     }
 
     /*
@@ -20,11 +20,11 @@ public class Logarlec implements ITargy{
     @Override
     public void aktival(Karakter k) {
         if (hamis) {
-            System.out.println("Logarlec_aktivalva\n");
+            System.out.println("Lo_aktivalva\n");
             new Controller().endGame(); //A játék véget ér
         }
         else {
-            System.out.println("Logarlec_hamis\n");
+            System.out.println("Lo_hamis\n");
             k.getEszkozkeszlet().RemoveTargy(this);
         }
     }
@@ -44,6 +44,11 @@ public class Logarlec implements ITargy{
      */
     @Override
     public boolean szur(Karakter k) { return false;}
+
+    /*
+     * A Logarlec tárgy akciója
+     * @param k - a karakter, aki használja
+     */
     @Override
     public void akcio(Karakter k) {}
 }

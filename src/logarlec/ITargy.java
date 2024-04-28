@@ -13,5 +13,9 @@ public interface ITargy {
      * Az adott tárgy használata szűresre, csak a maszk használja, minden más esetben false.
      */
     public abstract boolean szur(Karakter k);
+
+    /*
+     * Az adott tárgy akciója, ...
+     */
     public abstract void akcio(Karakter k);
 }

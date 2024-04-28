@@ -17,7 +17,8 @@ public class Tvsz extends Romlandok{
     public boolean hasznal(Karakter k) {
         if (hamis) {
             System.out.print("Tv_hasznalva\n");
-            romlik();
+            System.out.print("Tv\n");
+            romlik();//_hatralevoido_csokken
             if (getHatralevoIdo() == 0) {
                 k.getEszkozkeszlet().RemoveTargy(this);
             }
