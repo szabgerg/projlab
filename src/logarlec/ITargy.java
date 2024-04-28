@@ -18,4 +18,6 @@ public interface ITargy {
      * Az adott tárgy akciója, ...
      */
     public abstract void akcio(Karakter k);
+
+    public abstract void gaztalanit(Szoba szoba);
 }

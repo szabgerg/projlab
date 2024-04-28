@@ -30,4 +30,6 @@ public class Romlandok implements ITargy{
     public boolean szur(Karakter k) {return false;}
     @Override
     public void akcio(Karakter k) {/*override */}
+    @Override
+    public void gaztalanit(Szoba szoba) {/*override */}
 }

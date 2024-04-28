@@ -51,4 +51,9 @@ public class Logarlec implements ITargy{
      */
     @Override
     public void akcio(Karakter k) {}
+    /*
+     * A Logarlec tárgy gaztalanítása
+     * @param szoba - a szoba, ahol a tárgy gaztalanításra kerül
+     */
+    public void gaztalanit(Szoba szoba){}
 }

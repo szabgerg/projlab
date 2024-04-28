@@ -28,6 +28,10 @@ public class Camambert implements ITargy{
             }
         }
     }
+    //a legfrissítővel eltávolítják a camambertet, a szoba nem lesz gázos
+    public void gaztalanit(Szoba szoba){
+        szoba.getAktiv().RemoveTargy(this);
+    }
 
     // Ha egy karakter egy szobába lép, ahol camambert van, akkor a karakter elejt mindent és az oktató bena lesz
     public void akcio(Karakter k){
