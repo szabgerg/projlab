@@ -16,7 +16,7 @@ public class Test {
 	ArrayList<Process> processes;
 	String resultfilename;
 
-
+	/*konstruktor beállítja mennyi teszt van, hogy mi a neve a jar-nak és melyik tesztet kell lefuttatni*/
 	public Test(int tesztszam, String fname ,String[] args) {
 		this.tesztszam = tesztszam;
 		this.filename = fname;
@@ -28,7 +28,7 @@ public class Test {
 			throw new NumberFormatException("Nem számot adott meg");
 		}
 	}
-
+	/*a teszteket futtatja le*/
 	public void run() {
 		new File("logs").mkdir();
 		if (hanyadik < 0 || hanyadik > tesztszam) {
@@ -66,7 +66,9 @@ public class Test {
 		}
 		System.out.println("A tesztek lefutottak");
 	}
-
+	/* összehasonlítja az exp és out fájlokat
+	* generál az eredménnyel egy result filet
+	*  */
 	private void compare_exp_out() throws FileNotFoundException, IOException {
 		new File("result").mkdir();
 		this.resultfilename = "result/result" + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy_MM_dd_HH_mm_ss")) + ".txt";
@@ -112,7 +114,9 @@ public class Test {
 		}
 		fw.close();
 	}
-
+	/* összehasonlítja az exp és out fájlokat
+	* ez a függvény visszaadja, hogy az exp tartalmazza-e az outot
+	* */
 	private String constaincheck(Scanner exp, Scanner out) {
 		//read exp and out in a string list
 		ArrayList<String> exps = new ArrayList<>();
@@ -132,7 +136,7 @@ public class Test {
 		}
 		return "PASSED";
 	}
-
+	/*futtatja a proto jar-t*/
 	private void runProto(int i) {
 		String testinput = "inp/inp_" + i + ".txt";
 		String testoutput = "logs/out_" + i + ".txt";
