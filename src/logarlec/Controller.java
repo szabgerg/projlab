@@ -128,13 +128,9 @@ public class Controller {
 	
 			// Ellenőrizzük az aktív tárgyakat
 			for (ITargy targy : aktivTargyak.getTargyak()) {
-				// Ha a tárgynak van romlik() függvénye, meghívjuk
-				if (targy instanceof Romlandok) {
-					Romlandok rom = (Romlandok)targy;
-					rom.romlik();
-					if(rom.getHatralevoIdo() == 0){
-						aktivTargyak.getTargyak().remove(targy);
-					}
+				// Ha a tárgynak 0 az élettartama, akkor eltávolítjuk az aktív tárgyak listából
+				if (targy.romlik() == 0) {
+					aktivTargyak.RemoveTargy(targy);
 				}
 			}
 		}

@@ -61,4 +61,11 @@ public class Camambert implements ITargy{
      */
     @Override
     public boolean szur(Karakter k) { return false;}
+
+    /*
+     * A Camambert tárgy romlik
+     * @return -1, mivel a Camambert nem romlik
+     */
+    @Override
+    public int romlik() {return -1;}
 }

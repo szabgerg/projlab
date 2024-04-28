@@ -118,4 +118,6 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
     public void akcio(Karakter k) {}
     @Override
     public boolean gaztalanit(Szoba szoba) {return false;}
+    @Override
+    public int romlik() {return -1;}
 }

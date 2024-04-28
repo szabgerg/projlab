@@ -20,4 +20,6 @@ public interface ITargy {
     public abstract void akcio(Karakter k);
 
     public abstract boolean gaztalanit(Szoba szoba);
+
+    public abstract int romlik();
 }

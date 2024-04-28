@@ -56,4 +56,10 @@ public class Legfrissito implements ITargy{
      * @param szoba - a szoba, ahol a tárgy gaztalanításra kerül
      */
     public boolean gaztalanit(Szoba szoba) {return false;}
+    /*
+     * A Legfrissito tárgy romlása
+     * @return -1, mivel a Legfrissito nem romlik
+     */
+    @Override
+    public int romlik() {return -1;}
 }
