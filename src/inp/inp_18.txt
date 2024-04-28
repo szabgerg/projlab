@@ -1,5 +1,5 @@
 add sz 2
-add ha sz1 so
+give ha sz1 so
 add ok sz1 
 move ok1 sz1
-activate ha1 so
+activate ha1 0

@@ -1,6 +1,5 @@
-#TODO
 add sz 1
 add ha sz1 ca ro le
-activate ha1 ca1
-activate ha1 ro1
-activate ha1 le1
+activate ha1 0
+activate ha1 1
+activate ha1 2

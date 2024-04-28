@@ -1,8 +1,8 @@
 add sz 1
-add ha sz1 tr tr
+give ha sz1 tr tr
 pairing ha1 tr1 tr2
-activate ha1 tr1
-place ha1 tr1
+activate ha1 0 
+place ha1 0
 move ha1 sz2
-activate ha1 tr2
+activate ha1 1
 teleport ha1 tr1
