@@ -32,12 +32,21 @@ public class Oktato extends Karakter {
 	 */
 	@Override
 	public void mozog(Szoba newSzoba) {
-		if (bena) return;
+		if (bena){
+			System.out.println("Oktato_bena");
+			return;
+		}
+		
+		
 		if(Proto.getRandVal()<0) {//ha nincs igazi random akkor az oktató irányítható
-			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) return;
+			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)){
+				System.out.println("Oktato_nem_tud_belepni_az_uj_szobaba");
+				return;}
 
 			jelenlegi.kilep(this);
 			newSzoba.getBentlevok().add(this);
+			System.out.println("Oktato_hozzaadva_uj_szobahoz");
+
 			jelenlegi = newSzoba;
 
 			if (newSzoba.getAktiv().getTargyak().isEmpty()) return;
@@ -61,19 +70,30 @@ public class Oktato extends Karakter {
 			}
 			newSzoba = jelenlegi.getSzomszedok().get(randint);
 
-			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) return;
+			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) {
+				System.out.println("Oktato_nem_tud_atmozogni");
+				return;
+			}
+			
 
 			jelenlegi.kilep(this);
 			newSzoba.getBentlevok().add(this);
 			jelenlegi = newSzoba;
 
-			if (newSzoba.getAktiv().getTargyak().isEmpty()) return;
+			if (newSzoba.getAktiv().getTargyak().isEmpty()){
+				System.out.println("Oktatonal_nincs_targy\n");
+			return;}
 
 			for (ITargy t : newSzoba.getAktiv().getTargyak()) {
 				t.akcio(this);
+				System.out.println("Oktato_akciot_hajt_vegre\n");
 			}
 
-			if (bena) return;
+			if (bena){
+				System.out.println("Oktato_bena\n");
+				return;
+			}
+			
 			lelekelvetel();
 			random_letesz();
 			random_felvesz();
@@ -87,6 +107,7 @@ public class Oktato extends Karakter {
 	 */
 	void setbena(boolean b) {
 		bena = b;
+		System.out.println("Oktato_bena_lett");
 	}
 
 	/*
@@ -102,6 +123,7 @@ public class Oktato extends Karakter {
 				karakter.mindentelejt();
 			}
 		}
+		System.out.println("Oktato_elvette_a_lelket/lelkeket");
 	}
 
 	void random_felvesz() {
@@ -113,6 +135,7 @@ public class Oktato extends Karakter {
 		}
 
 		felvesz(randint);
+		System.out.println("Oktato_felvesz_egy_random_targyat");
 	}
 
 	void random_letesz() {
@@ -123,6 +146,7 @@ public class Oktato extends Karakter {
 			randint = eszkozkeszlet.getTargyak().size()-1;
 		}
 		letesz(randint);
+		System.out.println("Oktato_letett_egy_random_targyat");
 
 	}
 

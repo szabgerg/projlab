@@ -93,8 +93,9 @@ public class Szoba {
      * @param k: a kilépő karakter
      */
     public void kilep(Karakter k){
-        System.out.println("Kilepett_a_szobabol");
+        
         bentlevok.remove(k);
+        System.out.println("Kilepett_a_szobabol");
     }
 
     /* Visszatér a szobában található tárgyak listájával
