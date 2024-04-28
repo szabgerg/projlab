@@ -15,7 +15,7 @@ public class Hallgato extends Karakter {
 	 */
 	public Hallgato(Szoba szoba, Targyinventory inventory) {
 		super(szoba, inventory);
-		System.out.println("Hallgato_letrehozva\n");
+		System.out.println("Hallgato_letrehozva");
 	}
 	/*
 	* Az hallgato mozgasat megvalosito metodus
@@ -28,13 +28,13 @@ public class Hallgato extends Karakter {
 	@Override
 	public void mozog(Szoba newSzoba) {
 		if(!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) {
-			System.out.println("Hallgato_sikertelen_mozgas\n");
+			System.out.println("Hallgato_sikertelen_mozgas");
 			return;
 		}
 		jelenlegi.kilep(this);
 		newSzoba.getBentlevok().add(this);
 		jelenlegi = newSzoba;
-		System.out.println("Hallgato_sikeres_mozgas\n");
+		System.out.println("Hallgato_sikeres_mozgas");
 		if(newSzoba.getAktiv().getTargyak().isEmpty()) return;
 
 		for (ITargy t: newSzoba.getAktiv().getTargyak()){
@@ -56,7 +56,7 @@ public class Hallgato extends Karakter {
 	public void aktival(int hely) {
 		ITargy t = eszkozkeszlet.getTargyak().get(hely);
 		t.aktival(this);
-		System.out.println("Hallgato_targy_aktivalva\n");
+		System.out.println("Hallgato_targy_aktivalva");
 	}
 	/*
 	* A metodusban a hallgato lelekelvetel elleni vedelmet valositjuk meg
@@ -70,11 +70,11 @@ public class Hallgato extends Karakter {
 	public boolean vedekezes() {
 		for (ITargy t: eszkozkeszlet.getTargyak()){
 			if(t.hasznal(this)) {
-				System.out.println("Hallgato_sikeresen_vedekezett\n");
+				System.out.println("Hallgato_sikeresen_vedekezett");
 				return true;
 			}
 		}
-		System.out.println("Hallgato_meghalt\n");
+		System.out.println("Hallgato_meghalt");
 		return false;
 	}
 
@@ -91,10 +91,10 @@ public class Hallgato extends Karakter {
 			for (ITargy t: newSzoba.getAktiv().getTargyak()){
 				t.akcio(this);
 			}
-			System.out.println("hallgato_teleportalva\n");
+			System.out.println("hallgato_teleportalva");
 		}
 		else {
-			System.out.println("hallgato_nem_teleportalhato\n");
+			System.out.println("hallgato_nem_teleportalhato");
 		}
 	}
 	/*
@@ -108,10 +108,10 @@ public class Hallgato extends Karakter {
 		if(t1.canPair() && t2.canPair()) {
 			t1.setPar(t2);
 			t2.setPar(t1);
-			System.out.println("Tranzisztorok_osszekapcsolva\n");
+			System.out.println("Tranzisztorok_osszekapcsolva");
 		}
 		else {
-			System.out.println("Tranzisztorok_nem_kapcsolhatoak_ossze\n");
+			System.out.println("Tranzisztorok_nem_kapcsolhatoak_ossze");
 		}
 
 	}
@@ -122,6 +122,6 @@ public class Hallgato extends Karakter {
 	 */
 	public void setSzoba(Szoba szoba) {
 		jelenlegi = szoba;
-		System.out.println("Hallgato szoba atallitva\n");
+		System.out.println("Hallgato szoba atallitva");
 	}
 }

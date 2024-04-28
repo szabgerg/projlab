@@ -81,7 +81,7 @@ public class Oktato extends Karakter {
 			System.out.println("Oktato_sikeres_mozgas");
 
 			if (newSzoba.getAktiv().getTargyak().isEmpty()){
-				System.out.println("Oktatonal_nincs_targy\n");
+				System.out.println("Oktatonal_nincs_targy");
 			return;}
 
 			for (ITargy t : newSzoba.getAktiv().getTargyak()) {

@@ -126,7 +126,7 @@ public class Szoba {
      * @param s a szomszédok listája
      */
     public void setSzomszedok(List<Szoba> s){
-		System.out.println("Szoba_szomszedainak_beallitasa\n");
+		System.out.println("Szoba_szomszedainak_beallitasa");
         this.szomszedok = s;
     }
 
@@ -143,7 +143,7 @@ public class Szoba {
      * @param targy az aktív tárgyak listája
      */
     public void setAktiv(Targyinventory targy){
-		System.out.println("Aktiv_targyak_beallitasa\n");
+		System.out.println("Aktiv_targyak_beallitasa");
         aktivTargyak = targy;
     }
 
@@ -151,7 +151,7 @@ public class Szoba {
      * @param d a beállítandó érték
      */
     public void setBefogadokepesseg(int d){
-		System.out.println("Befogadokepesseg_beallitasa\n");
+		System.out.println("Befogadokepesseg_beallitasa");
         befogadokepesseg = d;
     }
 
@@ -168,7 +168,7 @@ public class Szoba {
      * @param u az új szoba attribútumaival rendelkező Szoba
      */
     public void setUj(Szoba u){
-		System.out.println("Szoba_attibutumainak_beallitasa\n");
+		System.out.println("Szoba_attibutumainak_beallitasa");
         this.aktivTargyak = u.aktivTargyak;
         this.befogadokepesseg = u.befogadokepesseg;
         this.bentiTargyak = u.bentiTargyak;
