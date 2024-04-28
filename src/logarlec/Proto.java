@@ -390,12 +390,8 @@ public class Proto {
 		Hallgato h = parseHallgato(tasks[1]);
 		h.osszekapcsol(pareseInt(tasks[2]), pareseInt(tasks[3]));
 	}
-	//teleport parancsot hajtja végre
-	private static void teleport(String [] tasks) {
-		tesztParancsHossz(tasks, 3);
-		Hallgato h = parseHallgato(tasks[1]);
-		h.teleport(parseSzoba(tasks[2]));
-	}
+
+
 	//neighbours parancsot hajtja végre
 	private static void neighbours(String[] tasks) {
 		tesztParancsHossz(tasks, 4);
