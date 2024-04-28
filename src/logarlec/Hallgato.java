@@ -15,7 +15,7 @@ public class Hallgato extends Karakter {
 	 */
 	public Hallgato(Szoba szoba, Targyinventory inventory) {
 		super(szoba, inventory);
-
+		System.out.println("Hallgato_letrehozva\n");
 	}
 	/*
 	* Az hallgato mozgasat megvalosito metodus

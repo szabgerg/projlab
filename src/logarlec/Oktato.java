@@ -15,9 +15,7 @@ public class Oktato extends Karakter {
 	 */
 	public Oktato(Szoba szoba, Targyinventory inventory) {
 		super(szoba, inventory);
-		System.out.println("Oktato letrehozasa\n");
-		System.out.println("Oktato eszkozkeszlete letrehozva\n");
-		System.out.println("Oktato szobaba teve\n");
+		System.out.println("Oktato_letrehozva");
 	}
 	/*
 	 * Az oktato mozgasat megvalosito metodus
@@ -33,6 +31,7 @@ public class Oktato extends Karakter {
 	@Override
 	public void mozog(Szoba newSzoba) {
 		if (bena){
+<<<<<<< HEAD
 			System.out.println("Oktato_bena");
 			return;
 		}
@@ -42,13 +41,23 @@ public class Oktato extends Karakter {
 			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)){
 				System.out.println("Oktato_nem_tud_belepni_az_uj_szobaba");
 				return;}
+=======
+			System.out.println("Oktato_sikertelen_mozgas");
+			return;
+		}
+		if(Proto.getRandVal()<0) {//ha nincs igazi random akkor az oktató irányítható
+			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)){
+				System.out.println("Oktato_sikertelen_mozgas");
+				return;
+			}
+>>>>>>> 78892c57c0f6560379248ff2646b92b65443a243
 
 			jelenlegi.kilep(this);
 			newSzoba.getBentlevok().add(this);
 			System.out.println("Oktato_hozzaadva_uj_szobahoz");
 
 			jelenlegi = newSzoba;
-
+			System.out.println("Oktato_sikeres_mozgas");
 			if (newSzoba.getAktiv().getTargyak().isEmpty()) return;
 
 			for (ITargy t : newSzoba.getAktiv().getTargyak()) {
@@ -60,10 +69,13 @@ public class Oktato extends Karakter {
 		}else {//van random tehát az oktató egy "ai" lesz
 			double rand = Proto.getRandVal();
 			if(rand <0.5) {
+				System.out.println("Oktato_nem_megy");
+				lelekelvetel();
 				random_letesz();
 				random_felvesz();
 				return;
 			}
+
 			int randint = (int) (rand * 10);
 			if(randint > jelenlegi.getSzomszedok().size()){
 				randint = jelenlegi.getSzomszedok().size()-1;
@@ -71,14 +83,21 @@ public class Oktato extends Karakter {
 			newSzoba = jelenlegi.getSzomszedok().get(randint);
 
 			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)) {
+<<<<<<< HEAD
 				System.out.println("Oktato_nem_tud_atmozogni");
 				return;
 			}
 			
+=======
+				System.out.println("Oktato_sikertelen_mozgas");
+				return;
+			}
+>>>>>>> 78892c57c0f6560379248ff2646b92b65443a243
 
 			jelenlegi.kilep(this);
 			newSzoba.getBentlevok().add(this);
 			jelenlegi = newSzoba;
+			System.out.println("Oktato_sikeres_mozgas");
 
 			if (newSzoba.getAktiv().getTargyak().isEmpty()){
 				System.out.println("Oktatonal_nincs_targy\n");
@@ -107,7 +126,11 @@ public class Oktato extends Karakter {
 	 */
 	void setbena(boolean b) {
 		bena = b;
+<<<<<<< HEAD
 		System.out.println("Oktato_bena_lett");
+=======
+		System.out.println("Oktato_bena_allitva");
+>>>>>>> 78892c57c0f6560379248ff2646b92b65443a243
 	}
 
 	/*
@@ -121,11 +144,13 @@ public class Oktato extends Karakter {
 		for (Karakter karakter : jelenlegi.getBentlevok()) {
 			if (karakter.vedekezes()) {
 				karakter.mindentelejt();
+				System.out.println("Sikeres_lelekelvetel");
 			}
+			System.out.println("Sikertelen_lelekelvetel");
 		}
 		System.out.println("Oktato_elvette_a_lelket/lelkeket");
 	}
-
+	//ha valódi játék van, akkor az oktató "ai", ez felel a random tárgy felvételért
 	void random_felvesz() {
 		double rand = Proto.getRandVal();
 		if(rand < 0.5 || eszkozkeszlet.getTargyak().size() >= 5) return;
@@ -135,9 +160,13 @@ public class Oktato extends Karakter {
 		}
 
 		felvesz(randint);
+<<<<<<< HEAD
 		System.out.println("Oktato_felvesz_egy_random_targyat");
+=======
+		System.out.println("Oktato_felvesz");
+>>>>>>> 78892c57c0f6560379248ff2646b92b65443a243
 	}
-
+	//ha valódi játék van, akkor az oktató "ai", ez felel a random tárgy letevésért
 	void random_letesz() {
 		double rand = Proto.getRandVal();
 		if(rand < 0.5) return;
@@ -145,6 +174,7 @@ public class Oktato extends Karakter {
 		if(randint > eszkozkeszlet.getTargyak().size()){
 			randint = eszkozkeszlet.getTargyak().size()-1;
 		}
+		System.out.println("Oktato_letesz");
 		letesz(randint);
 		System.out.println("Oktato_letett_egy_random_targyat");
 
