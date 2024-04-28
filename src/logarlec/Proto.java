@@ -251,6 +251,7 @@ public class Proto {
 		hallgatok.clear();
 		takaritok.clear();
 		szobak.clear();
+		randVal = -1;
 	}
 	//load parancsot hajtja végre
 	private static void load(String[] tasks){
