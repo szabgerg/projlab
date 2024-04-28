@@ -55,5 +55,5 @@ public class Logarlec implements ITargy{
      * A Logarlec tárgy gaztalanítása
      * @param szoba - a szoba, ahol a tárgy gaztalanításra kerül
      */
-    public void gaztalanit(Szoba szoba){}
+    public boolean gaztalanit(Szoba szoba) {return false;}
 }

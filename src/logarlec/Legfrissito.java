@@ -17,14 +17,15 @@ public class Legfrissito implements ITargy{
     public void aktival(Karakter k) {
         System.out.println("Le_aktivalva");
 		// Ha a Szoba gázos (van benne Camambert), akkor eltávolítja a Camambertet az aktivTargyak listából.
-        if (!k.getSzoba().getAktiv().getTargyak().isEmpty()){
-            for (ITargy t : k.getSzoba().getAktiv().getTargyak()) {
-                t.gaztalanit(k.getSzoba());
+        boolean gazos = false;
+        for (ITargy t : k.getSzoba().getAktiv().getTargyak()) {
+            if (t.gaztalanit(k.getSzoba())) {
+                gazos = true;
+                System.out.println("Szoba_gazossaga_megszunt");
             }
-            System.out.println("Szoba_gazossaga_megszunt");
         }
-		// Ha a Szoba nem gázos (nincs benne Camambert), akkor nem történt változás.
-        else{
+        // Ha a Szoba nem gázos (nincs benne Camambert), akkor nem történt változás.
+        if (!gazos){
             System.out.println("Nem_gazos_szoba");
         }
     }
@@ -54,5 +55,5 @@ public class Legfrissito implements ITargy{
      * A Legfrissito tárgy gaztalanítása
      * @param szoba - a szoba, ahol a tárgy gaztalanításra kerül
      */
-    public void gaztalanit(Szoba szoba){}
+    public boolean gaztalanit(Szoba szoba) {return false;}
 }

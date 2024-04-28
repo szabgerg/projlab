@@ -19,5 +19,5 @@ public interface ITargy {
      */
     public abstract void akcio(Karakter k);
 
-    public abstract void gaztalanit(Szoba szoba);
+    public abstract boolean gaztalanit(Szoba szoba);
 }
