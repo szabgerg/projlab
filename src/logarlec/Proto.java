@@ -284,7 +284,7 @@ public class Proto {
 	//give parancsot hajtja végre
 	private static void give(String[] tasks) {
 		tesztParancsHossz(tasks, 3);
-		String tipus = tasks[1];
+		String tipus = tasks[1].substring(0, 2); // Az első két karaktert az azonosító
 		Targyinventory i;
 		switch (tipus) {
 			case "ok":
