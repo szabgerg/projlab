@@ -61,10 +61,15 @@ public class Tranzisztor implements ITargy{ //expected 9,10,11,12
     */
     @Override
     public void aktival(Karakter k) {
+        if(par == null){
+            System.out.println("Tr_nincs_par");
+            return;
+        }
+        this.setSzoba(k.jelenlegi);
         k.jelenlegi.getAktiv().AddTargy(this);
         System.out.println("Tr_aktivalva");
         //ha a tranzisztor parja aktivalva van már, akkor aktiválásnál meghivodik a hallgato teleportálása
-        if(par != null && par.getSzoba().getAktiv().getTargyak().contains(par)){
+        if(par.getSzoba()!= null && par.getSzoba().getAktiv().getTargyak().contains(par)){
             //a hallgató a tranzisztor párjához teleportálódik
             ((Hallgato)k).teleport(par.getSzoba());
             this.kikapcsol();

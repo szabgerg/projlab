@@ -122,6 +122,6 @@ public class Hallgato extends Karakter {
 	 */
 	public void setSzoba(Szoba szoba) {
 		jelenlegi = szoba;
-		System.out.println("Hallgato szoba atallitva");
+		System.out.println("Hallgato_szoba_atallitva");
 	}
 }
