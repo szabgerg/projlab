@@ -93,7 +93,7 @@ public class Test {
 					System.out.println("Nem található az alábbi sorszámú fájl: " + i);
 				}
 			}
-			fw.write("\n" + passed + " tesztből " + tesztszam + " sikeres\n");
+			fw.write("\n" + tesztszam + " tesztből " + passed + " sikeres\n");
 		} else {
 			fw.write("Test " + hanyadik + " ");
 			try {
