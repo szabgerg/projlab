@@ -19,7 +19,7 @@ public class Legfrissito implements ITargy{
 		// Ha a Szoba gázos (van benne Camambert), akkor eltávolítja a Camambertet az aktivTargyak listából.
         boolean gazos = false;
         for (ITargy t : k.getSzoba().getAktiv().getTargyak()) {
-            if (t.gaztalanit(k.getSzoba())) {
+            if (t != null || t.gaztalanit(k.getSzoba())) {
                 gazos = true;
                 System.out.println("Szoba_gazossaga_megszunt");
             }
