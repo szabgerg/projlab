@@ -17,7 +17,6 @@ public class Sorospohar extends Romlandok{
         int randomIndex = (int) (Proto.getRandVal() * (targyakSzama + 1));
         k.getEszkozkeszlet().getTargyak().remove(randomIndex);
         // A tárgy használata
-        System.out.println("So");
         romlik();//_hatralevoido_csokken
         if (getHatralevoIdo() == 0) {
             k.getEszkozkeszlet().RemoveTargy(this);

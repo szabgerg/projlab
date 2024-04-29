@@ -18,5 +18,10 @@ Targyinventory_letrehozva
 Karakter_letrehozva
 Oktato_letrehozva
 Bentlevo_karakterek_beallitasa
---------------------------------
-
+Van_hely
+Kilepett_a_szobabol
+Oktato_sikeres_mozgas
+Tv_hasznalva
+Hatralevoido_csokken
+Hallgato_sikeresen_vedekezett
+Sikertelen_lelekelvetel

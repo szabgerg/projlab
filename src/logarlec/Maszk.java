@@ -18,7 +18,6 @@ public class Maszk extends Romlandok{
     public boolean szur(Karakter k) { 
         if (hamis) {
             System.out.println("Ma_szur");
-            System.out.println("Ma");
             romlik(); //_hatralevoido_csokken
             //ha a romlik hatására a tárgy hatralevo ideje 0, akkor a tárgy eltávolításra kerül az eszközkészletből
             if (getHatralevoIdo() == 0) {
