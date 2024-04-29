@@ -2,4 +2,5 @@ add sz 3
 add ha sz1
 add ok sz1
 add ta sz2
-move ta1 sz2
+random ...
+move ta1 sz1
