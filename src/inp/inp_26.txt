@@ -1,7 +1,11 @@
-add sz 1
+add sz 3
 give sz1 ma
-add sz 1
-random 0
+add ta sz2
 add ha sz2
+add ha sz2
+random 0.8
+move ta1 sz1
+random 0.1
 move ha1 sz1
-pickup ha1 0
+move ha2 sz1
+pickup ha2 0
