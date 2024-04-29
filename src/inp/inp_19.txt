@@ -1,2 +1,2 @@
-add sz 2
+add sz 1
 split sz1
