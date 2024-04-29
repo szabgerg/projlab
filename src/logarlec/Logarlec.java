@@ -9,7 +9,7 @@ public class Logarlec implements ITargy{
      * Logarlec konstruktor
      */
     public Logarlec() {
-        if (Proto.getRandVal() < 5) {hamis = false;}
+        if (Proto.getRandVal() < 0.5) {hamis = false;}
         else {hamis = true;}
         System.out.println("Lo_letrehozva");
     }
