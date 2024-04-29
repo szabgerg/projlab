@@ -104,7 +104,8 @@ public class Oktato extends Karakter {
 	 * Ha az oktato bena, akkor az oktato nem tud mozogni es cselekdni
 	 * @param b - az allitando ertek
 	 */
-	void setbena(boolean b) {
+	@Override
+	public void setBena(boolean b) {
 		bena = b;
 		System.out.println("Oktato_megbenult");
 	}

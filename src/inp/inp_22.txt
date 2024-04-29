@@ -1,5 +1,6 @@
 add sz 1
-add ha sz1 ca ro le
+random 0.8
+add ha sz1 ca ro le ma
 activate ha1 0
-activate ha1 1
-activate ha1 2
+activate ha1 0
+activate ha1 0

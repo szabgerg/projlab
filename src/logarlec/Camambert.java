@@ -17,15 +17,21 @@ public class Camambert implements ITargy{
     public void aktival(Karakter k) {
         System.out.println("Ca_aktivalva");
         k.getSzoba().getAktiv().AddTargy(this);
+        k.getEszkozkeszlet().RemoveTargy(this);
         // A karakterek elejtenek mindent, az oktatók benák lesznek
         for (Karakter karakter : k.getSzoba().getBentlevok()) {
             karakter.setBena(true);
             // Ha a karakter nem tud védekezni, akkor elejti az összes tárgyát
+            boolean vanvedekezes = false;
             for (ITargy targy : karakter.getEszkozkeszlet().getTargyak()) {
-                if (!targy.szur(karakter)) {
-                    karakter.mindentelejt();
+                if (targy.szur(karakter)) {
+                    vanvedekezes = true;
                 }
             }
+            if (!vanvedekezes) {
+                karakter.mindentelejt();
+            }
+
         }
     }
     //a legfrissítővel eltávolítják a camambertet, a szoba nem lesz gázos
@@ -39,10 +45,14 @@ public class Camambert implements ITargy{
         System.out.println("Ca_akcio");
         k.setBena(true);
         // Ha a karakter nem tud védekezni, akkor elejti az összes tárgyát
+        boolean vanvedekezes = false;
         for (ITargy targy : k.getEszkozkeszlet().getTargyak()) {
-            if (!targy.szur(k)) {
-                k.mindentelejt();
+            if (targy.szur(k)) {
+                vanvedekezes = true;
             }
+        }
+        if (!vanvedekezes) {
+            k.mindentelejt();
         }
     }
 

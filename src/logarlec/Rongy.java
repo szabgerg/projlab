@@ -14,6 +14,7 @@ public class Rongy extends Romlandok{
         System.out.println("Ro_aktivalva");
         //hozzadja a rongyot az aktiv inventoryhoz
         k.getSzoba().getAktiv().AddTargy(this);
+        k.getEszkozkeszlet().RemoveTargy(this);
 
         //beallitja a karaktert benanak
         for (Karakter karakter : k.getSzoba().getBentlevok()) {

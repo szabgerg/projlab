@@ -101,9 +101,7 @@ public class Karakter {
 		System.out.println("Minden_targy_elejtve");
 	}
 
-	public void setBena(boolean bena) {
-		System.out.println("Uj_allapot=bena");
-	}
+	public void setBena(boolean bena) {}
 
 	public boolean getBena() {
 		return bena;
