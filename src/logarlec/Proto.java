@@ -26,10 +26,6 @@ public class Proto {
 		ertelmezo(System.in);
 	}
 
-	public static void logger(String s) {//logolás, ha fut teszt akkor a teszt számával jelölt out-ba, különben a run_log.txt-be
-		System.out.println(s);
-	}
-
 
 	//parancsok mapje, hibákat dob, ha nem jó a parancs
 	private static Map<String, Consumer<String[]>> parancsok;
@@ -61,6 +57,7 @@ public class Proto {
 	//feldolgozza az is-ben jövő parancsokat, rekurzívan hívhatja magát a load miatt
 	private static void ertelmezo(InputStream is) {
 		Scanner sc = new Scanner(is);
+
 		while (!exit && sc.hasNextLine()) {
 			String[] tasks = sc.nextLine().split(" ");
 			if (tasks.length == 1 && tasks[0].isEmpty()) continue;
@@ -134,6 +131,8 @@ public class Proto {
 		};
 
 	}
+
+
 	/*
 	* új objektumokat létrehozó függvények, a modell is ezeket használja, hogy a nyilvántartásban is benne legyenek
 	* */

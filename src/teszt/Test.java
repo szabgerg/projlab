@@ -129,8 +129,8 @@ public class Test {
 			outs.add((out.nextLine()).toLowerCase());
 		}
 		//check if exp contains out
-		for (String s : outs) {
-			if (!exps.contains(s)) {
+		for (String s : exps) {
+			if (!outs.contains(s)) {
 				return s;
 			}
 		}
@@ -143,7 +143,7 @@ public class Test {
 
 		try {
 			Runtime rt = Runtime.getRuntime();
-			Process p = rt.exec(new String[]{"cmd", "/c", "java","-jar", filename, "<", testinput, ">", testoutput});
+			Process p = rt.exec(new String[]{"cmd.exe", "/c", "java","-jar", filename, "<", testinput, ">", testoutput});
 			this.processes.add(p);
 		}catch (IOException e) {
 			System.out.println("Nem sikerült a fájlt megnyitni");

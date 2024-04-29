@@ -14,6 +14,7 @@ public class Targyinventory {
 
     public Targyinventory() {
         System.out.println("Targyinventory_letrehozva");
+
     }
 
     /*
