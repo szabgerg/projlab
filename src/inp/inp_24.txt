@@ -1,5 +1,5 @@
-add sz 1
-give ha sz1 ca
-add ha sz2
+add sz 2
+add ha sz1 ca
+add ha sz2 lo
 activate ha1 0
 move ha2 sz1
