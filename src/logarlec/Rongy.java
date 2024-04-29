@@ -4,6 +4,7 @@ package logarlec;
 public class Rongy extends Romlandok{
     // Konstruktor, amely létrehoz egy új Rongy objektumot
     public Rongy() {
+        super(3);
         System.out.println("Ro_letrehozva");
     }
 

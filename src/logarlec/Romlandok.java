@@ -6,7 +6,8 @@ public class Romlandok implements ITargy{
     private int hatralevoido;
 
     // Konstruktor, amely létrehoz egy új Romlandok objektumot
-    public Romlandok() {
+    public Romlandok(int hatralevoido) {
+        this.hatralevoido = hatralevoido;
         System.out.println("Romlandok_letrehozva");
     }
 

@@ -4,6 +4,7 @@ package logarlec;
 public class Sorospohar extends Romlandok{
     // Konstruktor, amely létrehoz egy új Sorospohar objektumot
     public Sorospohar() {
+        super(3);
         System.out.println("So_letrehozva");
     }
 

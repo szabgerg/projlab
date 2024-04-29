@@ -7,6 +7,7 @@ public class Tvsz extends Romlandok{
 
     // Konstruktor, amely létrehoz egy új Tvsz objektumot
     public Tvsz() {
+        super(3);
         if (Proto.getRandVal() < 5) {hamis = false;}
         else {hamis = true;}
         System.out.println("Tv_letrehozva");
