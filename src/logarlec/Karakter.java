@@ -33,6 +33,10 @@ public class Karakter {
 	 *
 	 */
 	public void mozog(Szoba newSzoba) {
+		if (newSzoba == jelenlegi) {
+			System.out.println("Sikertelen_mozgas_azonos_szobaba");
+			return;
+		}
 		if(newSzoba.beenged()){
 			jelenlegi.getBentlevok().remove(this);    
 			System.out.println("Regi_szobabol_kilep");

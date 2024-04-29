@@ -61,7 +61,7 @@ public class Oktato extends Karakter {
 			double rand = Proto.getRandVal();
 			if(rand <0.5) {
 				System.out.println("Oktato_nem_megy");
-				lelekelvetel();
+				//lelekelvetel();
 				random_letesz();
 				random_felvesz();
 				return;
@@ -118,8 +118,10 @@ public class Oktato extends Karakter {
 	 */
 	void lelekelvetel() {
 		for (Karakter karakter : jelenlegi.getBentlevok()) {
-			if (karakter.vedekezes()) {
+			if (karakter == this) continue;
+			if (!karakter.vedekezes()) {
 				karakter.mindentelejt();
+				jelenlegi.getBentlevok().remove(karakter);
 				System.out.println("Sikeres_lelekelvetel");
 			}
 			else{System.out.println("Sikertelen_lelekelvetel");
@@ -129,7 +131,7 @@ public class Oktato extends Karakter {
 	//ha valódi játék van, akkor az oktató "ai", ez felel a random tárgy felvételért
 	void random_felvesz() {
 		double rand = Proto.getRandVal();
-		if(rand < 0.5 || eszkozkeszlet.getTargyak().size() >= 5) return;
+		if(rand < 0.5 || eszkozkeszlet.getTargyak().size() >= 5 || jelenlegi.getBentiTargyak().getTargyak().isEmpty()) return;
 		int randint = (int) (rand * 10);
 		if(randint > jelenlegi.getBentiTargyak().getTargyak().size()){
 			randint = jelenlegi.getBentiTargyak().getTargyak().size()-1;
@@ -141,7 +143,7 @@ public class Oktato extends Karakter {
 	//ha valódi játék van, akkor az oktató "ai", ez felel a random tárgy letevésért
 	void random_letesz() {
 		double rand = Proto.getRandVal();
-		if(rand < 0.5) return;
+		if(rand < 0.5 || eszkozkeszlet.getTargyak().isEmpty()) return;
 		int randint = (int) (rand * 10);
 		if(randint > eszkozkeszlet.getTargyak().size()){
 			randint = eszkozkeszlet.getTargyak().size()-1;
