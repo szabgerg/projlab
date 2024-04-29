@@ -1,5 +1,4 @@
 add sz 2
-add sz 2
-give ha sz1 ro
+add ha sz1 ro
 add ok sz1
 activate ha1 0
