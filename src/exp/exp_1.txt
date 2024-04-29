@@ -20,4 +20,3 @@ Bentlevo_karakterek_beallitasa
 Van_hely
 Kilepett_a_szobabol
 Oktato_sikeres_mozgas
-Oktatonal_nincs_targy
