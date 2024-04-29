@@ -20,6 +20,5 @@ Oktato_letrehozva
 Bentlevo_karakterek_beallitasa
 Ro_aktivalva
 Targy_hozzaadasa_az_inventoryhoz
-Uj_allapot=bena
-Uj_allapot=bena
+Oktato_megbenult
 Hallgato_targy_aktivalva
