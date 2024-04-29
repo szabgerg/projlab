@@ -122,11 +122,11 @@ public class Test {
 		ArrayList<String> exps = new ArrayList<>();
 		ArrayList<String> outs = new ArrayList<>();
 		while (exp.hasNextLine()) {
-			exps.add((exp.nextLine()).toLowerCase());
+			exps.add((exp.nextLine().strip()).toLowerCase());
 
 		}
 		while (out.hasNextLine()) {
-			outs.add((out.nextLine()).toLowerCase());
+			outs.add((out.nextLine().strip()).toLowerCase());
 		}
 		//check if exp contains out
 		for (String s : exps) {
