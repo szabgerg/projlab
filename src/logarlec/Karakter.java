@@ -94,11 +94,15 @@ public class Karakter {
 	 * A karakter minden tárgyát eldobó metódus
 	 */
 	public void mindentelejt() {
-		for (ITargy t: jelenlegi.getBentiTargyak().getTargyak()){
+		boolean elejt = !eszkozkeszlet.getTargyak().isEmpty();
+		for (ITargy t: eszkozkeszlet.getTargyak()){
 			jelenlegi.getBentiTargyak().AddTargy(t);
 		}
 		eszkozkeszlet.getTargyak().clear();
-		System.out.println("Minden_targy_elejtve");
+		if (elejt) {
+			System.err.println("Eszkozkeszlet_kiuritve");
+			System.out.println("Minden_targy_elejtve");
+		}
 	}
 
 	public void setBena(boolean bena) {}
