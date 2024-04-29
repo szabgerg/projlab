@@ -22,4 +22,4 @@ Karakter_letrehozva
 Takarito_letrehozva
 Bentlevo_karakterek_beallitasa
 Nincs_hely
-Sikertelen_mozgas
+Takarito_sikertelen_mozgas

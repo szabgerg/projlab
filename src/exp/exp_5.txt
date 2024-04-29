@@ -18,6 +18,6 @@ Karakter_letrehozva
 Takarito_letrehozva
 Bentlevo_karakterek_beallitasa
 Van_hely
-Regi_szobabol_kilep
-Uj_szobaba_mozgas
-Sikeres_mozgas
+Kilepett_a_szobabol
+Takarito_hozzaadva_uj_szobahoz
+Takarito_sikeres_mozgas

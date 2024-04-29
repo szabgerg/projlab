@@ -23,4 +23,4 @@ Targy_hozzaadasa_az_inventoryhoz
 Tr_aktivalva
 Hallgato_targy_aktivalva
 Targy_hozzaadasa_az_inventoryhoz
-Targy_letevese
+Targy_leteve
