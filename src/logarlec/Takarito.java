@@ -70,6 +70,7 @@ public class Takarito extends Karakter {
 		Szoba celSzoba = tempSzoba.getSzomszedok().get(szomszedIndex); // Véletlenszerűen kiválasztott szomszédos szoba
 			
 		for(Karakter k : kikuldendok){
+			if (k == this) continue;
 			if(!(k.bena)){
 				k.mozog(celSzoba);
 			}
@@ -95,7 +96,7 @@ public class Takarito extends Karakter {
 	//ha valódi játék van, akkor az takarito "ai", ez felel a random tárgy felvételért
 	void random_felvesz() {
 		double rand = Proto.getRandVal();
-		if(rand < 0.5 || eszkozkeszlet.getTargyak().size() >= 5) return;
+		if(rand < 0.5 || eszkozkeszlet.getTargyak().size() >= 5 || jelenlegi.getBentiTargyak().getTargyak().isEmpty()) return;
 		int randint = (int) (rand * 10);
 		if(randint > jelenlegi.getBentiTargyak().getTargyak().size()){
 			randint = jelenlegi.getBentiTargyak().getTargyak().size()-1;
@@ -107,7 +108,7 @@ public class Takarito extends Karakter {
 	//ha valódi játék van, akkor az takarito "ai", ez felel a random tárgy letevésért
 	void random_letesz() {
 		double rand = Proto.getRandVal();
-		if(rand < 0.5) return;
+		if(rand < 0.5 || eszkozkeszlet.getTargyak().isEmpty()) return;
 		int randint = (int) (rand * 10);
 		if(randint > eszkozkeszlet.getTargyak().size()){
 			randint = eszkozkeszlet.getTargyak().size()-1;
