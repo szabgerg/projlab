@@ -1,6 +1,6 @@
+random 0.4
 add sz 1
 give sz1 lo
 add ha sz1
 pickup ha1 0
-random 0.4
 activate ha1 0

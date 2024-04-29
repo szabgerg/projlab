@@ -100,7 +100,7 @@ public class Karakter {
 		}
 		eszkozkeszlet.getTargyak().clear();
 		if (elejt) {
-			System.err.println("Eszkozkeszlet_kiuritve");
+			System.out.println("Eszkozkeszlet_kiuritve");
 
 		}
 		System.out.println("Minden_targy_elejtve");
