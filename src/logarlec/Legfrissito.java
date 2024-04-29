@@ -28,6 +28,7 @@ public class Legfrissito implements ITargy{
         if (!gazos){
             System.out.println("Nem_gazos_szoba");
         }
+        k.getEszkozkeszlet().RemoveTargy(this);
     }
     /*
      * A Legfrissito tárgy használata
