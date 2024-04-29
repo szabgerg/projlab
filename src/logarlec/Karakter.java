@@ -101,8 +101,9 @@ public class Karakter {
 		eszkozkeszlet.getTargyak().clear();
 		if (elejt) {
 			System.err.println("Eszkozkeszlet_kiuritve");
-			System.out.println("Minden_targy_elejtve");
+
 		}
+		System.out.println("Minden_targy_elejtve");
 	}
 
 	public void setBena(boolean bena) {}
