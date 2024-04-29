@@ -23,6 +23,7 @@ Bentlevo_karakterek_beallitasa
 Ca_aktivalva
 Targy_hozzaadasa_az_inventoryhoz
 Targy_eltavolitasa_az_inventorybol
+Minden_targy_elejtve
 Hallgato_targy_aktivalva
 Van_hely
 Kilepett_a_szobabol

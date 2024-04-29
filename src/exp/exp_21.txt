@@ -21,6 +21,7 @@ Takarito_letrehozva
 Bentlevo_karakterek_beallitasa
 Van_hely
 Kilepett_a_szobabol
+Takarito_hozzaadva_uj_szobahoz
 Takarito_sikeres_mozgas
 Takarito_szelloztet
 Van_hely
@@ -28,6 +29,7 @@ Kilepett_a_szobabol
 Hallgato_sikeres_mozgas
 Van_hely
 Kilepett_a_szobabol
+Oktato_hozzaadva_uj_szobahoz
 Oktato_sikeres_mozgas
 Hallgato_meghalt
 Minden_targy_elejtve
