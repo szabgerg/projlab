@@ -8,18 +8,11 @@ Targyinventory_letrehozva
 Szoba_szomszedainak_beallitasa
 Szoba_szomszedainak_beallitasa
 Targyinventory_letrehozva
-Targyinventory_letrehozva
-Szoba_letrehozva
-Targyinventory_letrehozva
-Szoba_szomszedainak_beallitasa
-Szoba_szomszedainak_beallitasa
-Targyinventory_letrehozva
 Ca_letrehozva
 Targy_hozzaadasa_az_inventoryhoz
-Karakter_letrehozva
-Hallgato_letrehozva
-Bentlevo_karakterek_beallitasa
-Targyinventory_letrehozva
+Romlandok_letrehozva
+Ma_letrehozva
+Targy_hozzaadasa_az_inventoryhoz
 Le_letrehozva
 Targy_hozzaadasa_az_inventoryhoz
 Karakter_letrehozva
@@ -27,7 +20,11 @@ Hallgato_letrehozva
 Bentlevo_karakterek_beallitasa
 Ca_aktivalva
 Targy_hozzaadasa_az_inventoryhoz
-Uj_allapot=bena
-Minden_targy_elejtve
---------------------------------
-Érvénytelen parancs: null
+Targy_eltavolitasa_az_inventorybol
+Ma_szur
+Hatralevoido_csokken
+Hallgato_targy_aktivalva
+Le_aktivalva
+Szoba_gazossaga_megszunt
+Targy_eltavolitasa_az_inventorybol
+Hallgato_targy_aktivalva

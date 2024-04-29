@@ -1,7 +1,5 @@
-add sz 2
-add sz 2
-add ha sz1 ca
-add ha sz2 le
+add sz 1
+random 0.8
+add ha sz1 ca ma le
 activate ha1 0
-move ha2 sz1
-activate ha2 0
+activate ha1 1
