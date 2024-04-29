@@ -1,6 +1,12 @@
+Targyinventory_letrehozva
+Targyinventory_letrehozva
 Szoba_letrehozva
-Oktato_letrehozva
-Van_hely
-Regi_szobabol_kilep
-Uj_szobaba_mozgas
-Sikeres_mozgas
+Targyinventory_letrehozva
+Targyinventory_letrehozva
+Szoba_letrehozva
+Targyinventory_letrehozva
+Szoba_szomszedainak_beallitasa
+Szoba_szomszedainak_beallitasa
+Szoba_egyesules
+Szoba_attibutumainak_beallitasa
+Szoba_2_megsemmisul
