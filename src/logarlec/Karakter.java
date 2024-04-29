@@ -120,7 +120,7 @@ public class Karakter {
 	}
 
 	public boolean vedekezes() {
-		System.out.println("Vedekezes");
+		System.out.println("Vedekezesi_kiserlet");
 		return true;
 	}
 
