@@ -34,7 +34,7 @@ public class Oktato extends Karakter {
 			System.out.println("Oktato_sikertelen_mozgas");
 			return;
 		}
-		if(Proto.getRandVal()<0) {//ha nincs igazi random akkor az oktató irányítható
+		if(Proto.getRandVal()>0) {//ha nincs igazi random akkor az oktató irányítható
 			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)){
 				System.out.println("Oktato_sikertelen_mozgas");
 				return;
