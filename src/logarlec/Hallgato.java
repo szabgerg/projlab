@@ -7,6 +7,7 @@ import java.util.Scanner;
 * A Hallgato osztalyban a hallgato mozgasat, vedelmet, teleportalasat, es targyak aktivalasat valositjuk meg
  */
 public class Hallgato extends Karakter {
+
 	/*
 	* Hallgato konstruktora
 	* @param szoba - a szoba, ahol a hallgato tartozkodik

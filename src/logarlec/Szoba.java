@@ -12,6 +12,7 @@ import java.util.List;
  * különböző tulajdonságokkal rendelkezhetnek
  */
 public class Szoba {
+
     // Szoba privat attributumai
     private int befogadokepesseg;
     private List<Szoba> szomszedok;

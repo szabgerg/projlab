@@ -2,6 +2,7 @@ package logarlec;
 
 // A Rongy osztály, amely a Romlandok osztályból származik
 public class Rongy extends Romlandok{
+
     // Konstruktor, amely létrehoz egy új Rongy objektumot
     public Rongy() {
         super(3);

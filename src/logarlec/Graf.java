@@ -1,11 +1,11 @@
 package logarlec;
 
 public class Graf {
-    private Karakter character;
-    public Karakter getCharacter(){return character;}
+    private Karakter karakter;
+    public Karakter getKarakter(){return karakter;}
     void main(String[] args) {}
-    void addCharacter(Karakter who){}
-    void deleteCharacters(){}
+    void addKarakter(Karakter who){}
+    void deleteKarakterek(){}
     private void gotoNextPlayer(){}
     private void showGUI(){}
 }

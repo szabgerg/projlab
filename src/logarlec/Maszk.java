@@ -2,6 +2,7 @@ package logarlec;
 
 // A Maszk osztály, amely a Romlandok osztályból származik
 public class Maszk extends Romlandok{
+
     // Azt tárolja, hogy a tárgy hamis-e
     private boolean hamis;
 

@@ -2,6 +2,7 @@ package logarlec;
 
 // A Sorospohar osztály, amely a Romlandok osztályból származik
 public class Sorospohar extends Romlandok{
+
     // Konstruktor, amely létrehoz egy új Sorospohar objektumot
     public Sorospohar() {
         super(3);
