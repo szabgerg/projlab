@@ -54,8 +54,14 @@ public class Proto {
 			return randVal;
 		}
 	}
+
+	public static Szoba getRandSzoba() {
+		if (szobak.isEmpty()) throw new RuntimeException("Nincs szoba");
+		return szobak.get(rand.nextInt(szobak.size()));
+	}
+
 	//feldolgozza az is-ben jövő parancsokat, rekurzívan hívhatja magát a load miatt
-	private static void ertelmezo(InputStream is) {
+	protected static void ertelmezo(InputStream is) {
 		Scanner sc = new Scanner(is);
 
 		while (!exit && sc.hasNextLine()) {
@@ -119,18 +125,84 @@ public class Proto {
 	private static ITargy parseTargy(String s) {
 		if (s.length() < 2) throw new IllegalArgumentException(s + "\t túl rövid név egy objektumnak");
 		return switch (s.substring(0, 2)) {
-			case "tv" -> new Tvsz();
-			case "so" -> new Sorospohar();
-			case "tr" -> new Tranzisztor();
-			case "ro" -> new Rongy();
-			case "ca" -> new Camambert();
-			case "ma" -> new Maszk();
-			case "le" -> new Legfrissito();
-			case "lo" -> new Logarlec();
+			case "tv" -> newTvsz();
+			case "so" -> newSorospohar();
+			case "tr" -> newTranzisztor();
+			case "ro" -> newRongy();
+			case "ca" -> newCamambert();
+			case "ma" -> newMaszk();
+			case "le" -> newLegfrissito();
+			case "lo" -> newLogarlec();
 			default -> throw new IllegalArgumentException(s + "\t nem létező tárgy");
 		};
 
 	}
+
+	public static Tvsz newTvsz() {
+		Tvsz t = new Tvsz();
+		TvszView tv = new TvszView();
+		tv.setModel(t);
+		GraphicMap.getMap().addDrawable(tv);
+		return t;
+	}
+
+	public static Sorospohar newSorospohar() {
+		Sorospohar s = new Sorospohar();
+		SorospoharView sv = new SorospoharView();
+		sv.setModel(s);
+		GraphicMap.getMap().addDrawable(sv);
+		return s;
+	}
+
+	public static Tranzisztor newTranzisztor() {
+		Tranzisztor t = new Tranzisztor();
+		TranzisztorView tv = new TranzisztorView();
+		tv.setModel(t);
+		GraphicMap.getMap().addDrawable(tv);
+		return t;
+	}
+
+	public static Rongy newRongy() {
+		Rongy r = new Rongy();
+		RongyView rv = new RongyView();
+		rv.setModel(r);
+		GraphicMap.getMap().addDrawable(rv);
+		return r;
+	}
+
+	public static Camambert newCamambert() {
+		Camambert c = new Camambert();
+		CamambertView cv = new CamambertView();
+		cv.setModel(c);
+		GraphicMap.getMap().addDrawable(cv);
+		return c;
+	}
+
+	public static Maszk newMaszk() {
+		Maszk m = new Maszk();
+		MaszkView mv = new MaszkView();
+		mv.setModel(m);
+		GraphicMap.getMap().addDrawable(mv);
+		return m;
+	}
+
+	public static Legfrissito newLegfrissito() {
+		Legfrissito l = new Legfrissito();
+		LegfrissitoView lv = new LegfrissitoView();
+		lv.setModel(l);
+		GraphicMap.getMap().addDrawable(lv);
+		return l;
+	}
+
+	public static Logarlec newLogarlec() {
+		Logarlec l = new Logarlec();
+		LogarlecView lv = new LogarlecView();
+		lv.setModel(l);
+		GraphicMap.getMap().addDrawable(lv);
+		return l;
+	}
+
+
 
 
 	/*
@@ -138,33 +210,48 @@ public class Proto {
 	* */
 	public static Oktato newOktato(Szoba sz, Targyinventory inventory) {
 		Oktato o = new Oktato(sz, inventory);
+		OktatoView ov = new OktatoView();
 		List<Karakter> szb = sz.getBentlevok();
 		szb.add(o);
 		sz.setBentlevok(szb);
+		ov.setModel(o);
+		Graf.addAI(ov);
+		GraphicMap.getMap().addDrawable(ov);
 		oktatok.add(o);
 		return o;
 	}
 
 	public static Hallgato newHallgato(Szoba sz, Targyinventory inventory) {
 		Hallgato h = new Hallgato(sz, inventory);
+		HallgatoView hv = new HallgatoView();
 		List<Karakter> szb = sz.getBentlevok();
 		szb.add(h);
 		sz.setBentlevok(szb);
+		hv.setModel(h);
+		Graf.addHallgato(hv);
+		GraphicMap.getMap().addDrawable(hv);
 		hallgatok.add(h);
 		return h;
 	}
 
 	public static Takarito newTakarito(Szoba sz, Targyinventory inventory) {
 		Takarito t = new Takarito(sz, inventory);
+		TakaritoView tv = new TakaritoView();
 		List<Karakter> szb = sz.getBentlevok();
 		szb.add(t);
 		sz.setBentlevok(szb);
+		tv.setModel(t);
+		Graf.addAI(tv);
+		GraphicMap.getMap().addDrawable(tv);
 		takaritok.add(t);
 		return t;
 	}
 
 	private static Szoba newSzoba(Targyinventory inventory, int befogadokepesseg) {
 		Szoba sz = new Szoba(befogadokepesseg, inventory);
+		SzobaView sv = new SzobaView();
+		sv.setModel(sz);
+		GraphicMap.getMap().addDrawable(sv);
 		szobak.add(sz);
 		return sz;
 	}

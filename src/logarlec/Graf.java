@@ -1,20 +1,24 @@
 package logarlec;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Graf {
-	private static List<Karakter> hallgatok = new LinkedList<>();
-	private static List<Karakter> ai = new LinkedList<>();
+	private static List<KarakterView> hallgatok = new LinkedList<>();
+	private static List<KarakterView> ai = new LinkedList<>();
 	private static int krktIdx = 0; //a következő karakter indexe
 
-	public static void addHallgato(Karakter k) {
+	public static void addHallgato(KarakterView k) {
 		if (hallgatok == null)
-			k.getView().setSoros(true);
+			k.setSoros(true);
 		hallgatok.add(k);
 	}
 
-	public static void addAI(Karakter k) {
+	public static void addAI(KarakterView k) {
 		ai.add(k);
 	}
 
@@ -28,7 +32,7 @@ public class Graf {
 		return !hallgatok.isEmpty();
 	}
 
-	public static Karakter getAktKarakter() {
+	public static KarakterView getAktKarakter() {
 		if (krktIdx >= hallgatok.size())
 			krktIdx = 0;
 		return hallgatok.get(krktIdx++);
@@ -36,18 +40,49 @@ public class Graf {
 
 	public static void nextKarakter() {
 		if (!vanHallgato()) return;
-		getAktKarakter().getView().setSoros(false);
+		getAktKarakter().setSoros(false);
 		krktIdx++;
 		if (krktIdx >= hallgatok.size()){
 			krktIdx = 0;
-			for (Karakter k : ai)
-				k.mozog(null);
+			for (KarakterView k : ai)
+				k.getModel().mozog(null);
 		}
-		getAktKarakter().getView().setSoros(true);
+		getAktKarakter().setSoros(true);
 	}
 
-	void main(String[] args) {
+	public static void main(String[] args) {
 		GraphicMap.getMap().clearDrawable();
+
+		try {
+			new Fomenu();
+		}catch (IOException e) {
+			System.out.println("Hiba a főmenü betöltésekor" + e.getMessage());
+		}
+
+		try {
+			FileInputStream fis = new FileInputStream("src/logarlec/terkep.txt");
+			SwingUtilities.invokeLater(() -> Proto.ertelmezo(fis));
+		}catch (IOException e) {
+			System.out.println("Hiba a térkép betöltésekor" + e.getMessage());
+		}
+	}
+
+	public static void startGameUi(){
+		JFrame frame = new JFrame("Labirintus");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(1280, 720);
+		frame.setResizable(false);
+		Container panel = frame.getContentPane();
+		panel.add(GraphicMap.getMap());
+		frame.setVisible(true);
+		GraphicMap.getMap().grabFocus();
+
+		InputManager inp = new InputManager();
+		GraphicMap.getMap().addKeyListener(inp);
+
+		new Timer(17, (e) -> panel.repaint()).start();
+		new Timer(5000, (e) -> nextKarakter()).start();
+
 	}
 
 }

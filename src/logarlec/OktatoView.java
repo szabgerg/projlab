@@ -2,7 +2,7 @@ package logarlec;
 
 import java.awt.*;
 
-public class OktatoView implements Drawable{
+public class OktatoView extends KarakterView{
     private Oktato model;
     private Coordinates cd;
 

@@ -2,7 +2,7 @@ package logarlec;
 
 import java.awt.*;
 
-public class TakaritoView implements Drawable{
+public class TakaritoView extends KarakterView{
     private Takarito model;
     private Coordinates cd;
 

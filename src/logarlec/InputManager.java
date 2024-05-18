@@ -1,8 +1,9 @@
 package logarlec;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class InputManager {
+public class InputManager implements KeyListener {
     private String[] layout;
 
     public String[] getLayout() {

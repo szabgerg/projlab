@@ -2,7 +2,7 @@ package logarlec;
 
 import java.awt.*;
 
-public class HallgatoView implements Drawable{
+public class HallgatoView extends KarakterView{
     private Hallgato model;
     private Coordinates cd;
 
