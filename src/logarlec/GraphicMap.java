@@ -8,7 +8,7 @@ public class GraphicMap {
     private List<Drawable> drawableList;
     protected void paint(Graphics g){}
     public void clearDrawable(){}
-    public GraphicMap getMap(){
+    public static GraphicMap getMap(){
         return new GraphicMap();
     }
 }
