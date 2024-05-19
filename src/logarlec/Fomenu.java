@@ -35,7 +35,7 @@ public class Fomenu {
 		jp.add(title, gbc);
 
 		// Kép betöltése és középre helyezése
-		JLabel imageLabel = new JLabel(new ImageIcon(ImageIO.read(new File("src/bme_logo.png"))));
+		JLabel imageLabel = new JLabel(new ImageIcon(ImageIO.read(new File("kepek/bme_logo.png"))));
 		gbc.gridy++;
 		gbc.insets = new Insets(20, 0, 20, 0); // Margó a kép körül
 		jp.add(imageLabel, gbc);
