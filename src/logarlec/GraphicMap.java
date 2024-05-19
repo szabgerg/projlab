@@ -6,10 +6,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GraphicMap extends JPanel {
-    private List<Drawable> drawableList;
+    private List<Drawable> drawableList = new ArrayList<>();
     
-    public void paint(Graphics g){}
-    public void clearDrawable(){}
+    @Override
+    public void paintComponent(Graphics g){
+        super.paintComponent(g);
+        for(Drawable drawable : drawableList){
+            drawable.draw(g);
+        }
+    }
+    public void clearDrawable(){
+        drawableList.clear();
+        repaint();
+    }
     public static GraphicMap getMap(){
         return new GraphicMap();
     }
