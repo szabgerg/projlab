@@ -59,9 +59,12 @@ public class Graf {
 			System.out.println("Hiba a főmenü betöltésekor" + e.getMessage());
 		}
 
+
+		//valamennyire szálbiztos
 		try {
 			FileInputStream fis = new FileInputStream("src/assets/terkep.txt");
 			SwingUtilities.invokeLater(() -> Proto.ertelmezo(fis));
+			//proto bezárja a fájlt
 		}catch (IOException e) {
 			System.out.println("Hiba a térkép betöltésekor" + e.getMessage());
 		}
