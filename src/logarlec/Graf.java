@@ -60,7 +60,7 @@ public class Graf {
 		}
 
 		try {
-			FileInputStream fis = new FileInputStream("src/logarlec/terkep.txt");
+			FileInputStream fis = new FileInputStream("src/assets/terkep.txt");
 			SwingUtilities.invokeLater(() -> Proto.ertelmezo(fis));
 		}catch (IOException e) {
 			System.out.println("Hiba a térkép betöltésekor" + e.getMessage());
@@ -80,8 +80,8 @@ public class Graf {
 		InputManager inp = new InputManager();
 		GraphicMap.getMap().addKeyListener(inp);
 
-		new Timer(17, (e) -> panel.repaint()).start();
-		new Timer(5000, (e) -> nextKarakter()).start();
+		new Timer(17, e -> panel.repaint()).start();
+		new Timer(5000, e -> nextKarakter()).start();
 
 	}
 

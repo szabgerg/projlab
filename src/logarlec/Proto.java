@@ -141,6 +141,7 @@ public class Proto {
 	public static Tvsz newTvsz() {
 		Tvsz t = new Tvsz();
 		TvszView tv = new TvszView();
+		tv.setCd(new Coordinates(1050,100)); // ez lesz a szobában a helye
 		tv.setModel(t);
 		GraphicMap.getMap().addDrawable(tv);
 		return t;
@@ -149,6 +150,7 @@ public class Proto {
 	public static Sorospohar newSorospohar() {
 		Sorospohar s = new Sorospohar();
 		SorospoharView sv = new SorospoharView();
+		sv.setCd(new Coordinates(1060,330)); // ez lesz a szobában a helye
 		sv.setModel(s);
 		GraphicMap.getMap().addDrawable(sv);
 		return s;
@@ -157,6 +159,7 @@ public class Proto {
 	public static Tranzisztor newTranzisztor() {
 		Tranzisztor t = new Tranzisztor();
 		TranzisztorView tv = new TranzisztorView();
+		tv.setCd(new Coordinates(870,470)); // ez lesz a szobában a helye
 		tv.setModel(t);
 		GraphicMap.getMap().addDrawable(tv);
 		return t;
@@ -165,6 +168,7 @@ public class Proto {
 	public static Rongy newRongy() {
 		Rongy r = new Rongy();
 		RongyView rv = new RongyView();
+		rv.setCd(new Coordinates(730,300)); // ez lesz a szobában a helye
 		rv.setModel(r);
 		GraphicMap.getMap().addDrawable(rv);
 		return r;
@@ -173,6 +177,7 @@ public class Proto {
 	public static Camambert newCamambert() {
 		Camambert c = new Camambert();
 		CamambertView cv = new CamambertView();
+		cv.setCd(new Coordinates(470,50)); // ez lesz a szobában a helye
 		cv.setModel(c);
 		GraphicMap.getMap().addDrawable(cv);
 		return c;
@@ -181,6 +186,7 @@ public class Proto {
 	public static Maszk newMaszk() {
 		Maszk m = new Maszk();
 		MaszkView mv = new MaszkView();
+		mv.setCd(new Coordinates(250,270)); // ez lesz a szobában a helye
 		mv.setModel(m);
 		GraphicMap.getMap().addDrawable(mv);
 		return m;
@@ -189,6 +195,7 @@ public class Proto {
 	public static Legfrissito newLegfrissito() {
 		Legfrissito l = new Legfrissito();
 		LegfrissitoView lv = new LegfrissitoView();
+		lv.setCd(new Coordinates(110,400)); // ez lesz a szobában a helye
 		lv.setModel(l);
 		GraphicMap.getMap().addDrawable(lv);
 		return l;
@@ -197,6 +204,7 @@ public class Proto {
 	public static Logarlec newLogarlec() {
 		Logarlec l = new Logarlec();
 		LogarlecView lv = new LogarlecView();
+		lv.setCd(new Coordinates(80,110)); // ez lesz a szobában a helye
 		lv.setModel(l);
 		GraphicMap.getMap().addDrawable(lv);
 		return l;

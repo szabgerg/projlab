@@ -1,0 +1,9 @@
+add sz 1
+give sz1 lo
+give sz1 le
+give sz1 tr
+give sz1 ma
+give sz1 ro
+give sz1 tv
+give sz1 so
+give sz1 ca
