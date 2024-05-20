@@ -1,4 +1,6 @@
 add sz 1
+add ok sz1
+add ha sz1
 give sz1 lo
 give sz1 le
 give sz1 tr

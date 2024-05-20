@@ -41,7 +41,7 @@ public class OktatoView extends KarakterView{
     @Override
     public void draw(Graphics g) {
         if (oktatoImage != null){
-            g.drawImage(oktatoImage, cd.getX(), cd.getY(),115 , 300, null);
+            g.drawImage(oktatoImage, cd.getX(), cd.getY(),115 , 280, null);
         }
         else{
             // Draw a placeholder rectangle if the image failed to load

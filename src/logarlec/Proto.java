@@ -222,7 +222,7 @@ public class Proto {
 		List<Karakter> szb = sz.getBentlevok();
 		szb.add(o);
 		sz.setBentlevok(szb);
-		ov.setCd(new Coordinates(700,500));
+		ov.setCd(new Coordinates(845,50));
 		ov.setModel(o);
 		Graf.addAI(ov);
 		GraphicMap.getMap().addDrawable(ov);
