@@ -1,6 +1,4 @@
 package logarlec;
-
-import java.util.Scanner;
 /*
 * Hallgato osztaly ami a jatekban szereplo hallgatokat reprezentalja
 * A Hallgato osztaly a Karakter osztalybol szarmazik
