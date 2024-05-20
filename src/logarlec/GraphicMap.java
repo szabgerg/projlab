@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GraphicMap extends JPanel {
+    private static GraphicMap instance = new GraphicMap(); // Singleton példány
     private List<Drawable> drawableList = new ArrayList<>();
     
     @Override
@@ -20,7 +21,7 @@ public class GraphicMap extends JPanel {
         repaint();
     }
     public static GraphicMap getMap(){
-        return new GraphicMap();
+        return instance;
     }
 
     public void addDrawable(Drawable drawable) {
