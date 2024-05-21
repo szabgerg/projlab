@@ -1,11 +1,5 @@
 package logarlec;
 
-import java.util.Scanner;
-/*
- * Oktato osztaly, ami a Karakter osztalybol szarmazik
- *
- */
-
 public class Oktato extends Karakter {
 
 	/*
