@@ -13,7 +13,6 @@ public class InputManager implements KeyListener {
     private StringBuilder command = new StringBuilder();
 
     private void numberInput(int n) {
-        // Handle number input based on the current command
         if (command.length() > 0) {
             char action = command.charAt(0);
             switch (action) {
