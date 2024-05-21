@@ -26,16 +26,16 @@ public class InputManager implements KeyListener {
                     break;
                 case 'a':
                     /* aktiválás */
-                    ITargy aktivalando = Graf.getAktKarakter().getModel().eszkozkeszlet.getTargyak().get(n);
+                    ITargy aktivalando = Graf.getAktKarakter().getModel().eszkozkeszlet.getTargyak().get(n-1);
                     aktivalando.aktival(Graf.getAktKarakter().getModel());
                     break;
                 case 'f':
                     /* felvétel */
-                    Graf.getAktKarakter().getModel().felvesz(n);
+                    Graf.getAktKarakter().getModel().felvesz(n-1);
                     break;
                 case 'l':
                     /* lerakás */
-                    Graf.getAktKarakter().getModel().letesz(n);
+                    Graf.getAktKarakter().getModel().letesz(n-1);
                     break;
                 case 'o':
                     command.append(n);
