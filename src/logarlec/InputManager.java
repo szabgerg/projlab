@@ -1,6 +1,7 @@
 package logarlec;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.List;
 
 public class InputManager implements KeyListener {
     private String[] layout;
@@ -19,19 +20,9 @@ public class InputManager implements KeyListener {
                 case 'm':
                     /* mozgás */
                     Karakter jelenlegiKar = Graf.getAktKarakter().getModel();
-                    Szoba jelenlegiSzoba = Graf.getAktKarakter().getModel().getSzoba();
-                    if ( n == 1){
-                        jelenlegiKar.mozog(jelenlegiSzoba.getSzomszedok().get(1));
-                    }
-                    else if (n == 2){
-                        jelenlegiKar.mozog(jelenlegiSzoba.getSzomszedok().get(2));
-                    }
-                    else if(n == 3){
-                        jelenlegiKar.mozog(jelenlegiSzoba.getSzomszedok().get(3));
-                    }
-                    else if (n == 4){
-                        jelenlegiKar.mozog(jelenlegiSzoba.getSzomszedok().get(4));
-                    }
+                    List<Szoba> szobaList = jelenlegiKar.getSzoba().getSzomszedok();
+                    n -= 1;
+                    jelenlegiKar.mozog(szobaList.get(n));
                     break;
                 case 'a':
                     /* aktiválás */
