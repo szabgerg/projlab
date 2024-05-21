@@ -21,6 +21,11 @@ public class RongyView implements Drawable{
     private Rongy model;
     private Coordinates cd;
 
+    public RongyView() {
+        this.model = null;
+        this.cd = new Coordinates(730, 300);
+    }
+
     public Coordinates getCd() {return cd;}
 
     public void setCd(Coordinates cd) {this.cd = cd;}

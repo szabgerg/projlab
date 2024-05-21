@@ -24,7 +24,7 @@ public class LegfrissitoView implements Drawable{
 
     public LegfrissitoView() {
         this.model = null;
-        this.cd = new Coordinates(0, 0);
+        this.cd = new Coordinates(110, 400);
     }
 
     public LegfrissitoView(Legfrissito model, Coordinates cd) {

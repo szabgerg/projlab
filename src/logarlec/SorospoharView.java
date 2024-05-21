@@ -20,6 +20,11 @@ public class SorospoharView implements Drawable{
     }
     private Sorospohar model;
     private Coordinates cd;
+    
+    public SorospoharView() {
+        this.model = null;
+        this.cd = new Coordinates(1060, 330);
+    }
 
     public Coordinates getCd() {return cd;}
 

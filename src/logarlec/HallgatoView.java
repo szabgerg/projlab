@@ -48,7 +48,7 @@ public class HallgatoView extends KarakterView{
      */
     public HallgatoView() {
         this.model = null;
-        this.cd = new Coordinates(0, 0);
+        this.cd = new Coordinates(500, 200);
     }
 
     /**

@@ -23,7 +23,7 @@ public class LogarlecView implements Drawable {
 
     public LogarlecView() {
         this.model = null;
-        this.cd = new Coordinates(0, 0);
+        this.cd = new Coordinates(250, 90);
     }
 
     public LogarlecView(Logarlec model, Coordinates cd) {
@@ -45,6 +45,11 @@ public class LogarlecView implements Drawable {
 
     public void setModel(Logarlec model) {
         this.model = model;
+    }
+
+    public LogarlecView(Logarlec model){
+        this.model = model;
+        this.cd = new Coordinates(80, 110);
     }
 
     @Override

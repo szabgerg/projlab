@@ -20,6 +20,11 @@ public class TranzisztorView implements Drawable{
     }
     private Tranzisztor model;
     private Coordinates cd;
+    
+    public TranzisztorView() {
+        this.model = null;
+        this.cd = new Coordinates(870, 470);
+    }
 
     public Coordinates getCd() {return cd;}
 

@@ -37,7 +37,7 @@ public class TakaritoView extends KarakterView{
      */
     public TakaritoView(){
         this.model = null;
-        this.cd = new Coordinates(0,0);
+        this.cd = new Coordinates(50,100);
     }
 
     /**
@@ -87,7 +87,7 @@ public class TakaritoView extends KarakterView{
     public void draw(Graphics g) {
         if (takaritoImage != null){
             // Ha a kép sikeresen betöltődött, megrajzoljuk
-            g.drawImage(takaritoImage, cd.getX(), cd.getY(),115 , 250, null);
+            g.drawImage(takaritoImage, cd.getX(), cd.getY(),170 , 250, null);
         }
         else{
             // Ha a kép betöltése nem sikerült, egy helykitöltő téglalapot rajzolunk

@@ -1,10 +1,13 @@
 add sz 1
-add ha sz1 tv ma
-give ha1 tv
-give ha1 ma
-add ha sz2
-give ha2 lo
-add ha sz2
-give ha3 tv
+add ok sz1
 add ha sz1
-give ha4 ma
+add ta sz1
+add ha sz2
+give sz1 lo
+give sz1 le
+give sz1 tr
+give sz1 ma
+give sz1 ro
+give sz1 tv
+give sz1 so
+give sz1 ca

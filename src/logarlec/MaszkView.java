@@ -21,6 +21,13 @@ public class MaszkView implements Drawable{
     private Maszk model;
     private Coordinates cd;
 
+    
+    public MaszkView() {
+        this.model = null;
+        this.cd = new Coordinates(250, 270);
+    }
+
+
     public Coordinates getCd() {return cd;}
 
     public void setCd(Coordinates cd) {this.cd = cd;}

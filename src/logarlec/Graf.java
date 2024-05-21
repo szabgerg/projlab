@@ -45,8 +45,9 @@ public class Graf {
 		if (krktIdx >= hallgatok.size()){
 			krktIdx = 0;
 			if(!ai.isEmpty()){
-			for (KarakterView k : ai)
-				k.getModel().mozog(null);
+				for (KarakterView k : ai)
+					System.out.println("Eskü mozgott");
+					//k.getModel().mozog(null);
 			}
 		}
 		getAktKarakter().setSoros(true);

@@ -125,28 +125,28 @@ public class Proto {
 	private static ITargy parseTargy(String s) {
 		if (s.length() < 2) throw new IllegalArgumentException(s + "\t túl rövid név egy objektumnak");
 		String targy = s.substring(0,2);
-		if(targy == "tv"){
+		if("tv".equals(targy)){
 			return newTvsz();
 		}
-		else if(targy == "so"){
+		else if("so".equals(targy)){
 			return newSorospohar();
 		}
-		else if(targy == "tr"){
+		else if("tr".equals(targy)){
 			return newTranzisztor();
 		}
-		else if(targy == "ro"){
+		else if("ro".equals(targy)){
 			return newRongy();
 		}
-		else if(targy == "ca"){
+		else if("ca".equals(targy)){
 			return newCamambert();
 		}
-		else if(targy == "ma"){
+		else if("ma".equals(targy)){
 			return newMaszk();
 		}
-		else if(targy == "le"){
+		else if("le".equals(targy)){
 			return newLegfrissito();
 		}
-		else if(targy == "lo"){
+		else if("lo".equals(targy)){
 			return newLogarlec();
 		}
 		throw new IllegalArgumentException(s + "\tnem létező tárgy");

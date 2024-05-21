@@ -39,7 +39,7 @@ public class OktatoView extends KarakterView{
      */
     public OktatoView() {
         this.model = null;
-        this.cd = new Coordinates(0, 0);
+        this.cd = new Coordinates(845, 50);
     }
 
     /**

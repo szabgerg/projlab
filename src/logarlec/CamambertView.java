@@ -21,6 +21,11 @@ public class CamambertView implements Drawable{
     private Camambert model;
     private Coordinates cd;
 
+    public CamambertView() {
+        this.model = null;
+        this.cd = new Coordinates(470, 50);
+    }
+
     public Coordinates getCd() {return cd;}
 
     public void setCd(Coordinates cd) {this.cd = cd;}

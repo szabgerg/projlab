@@ -15,4 +15,8 @@ public class KarakterView implements Drawable{
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
 	}
+
+	@Override
+	public void setCd(Coordinates cd) {}
 }
+  

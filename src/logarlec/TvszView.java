@@ -20,6 +20,11 @@ public class TvszView implements Drawable{
     }
     private Tvsz model;
     private Coordinates cd;
+    
+    public TvszView() {
+        this.model = null;
+        this.cd = new Coordinates(1050, 100);
+    }
 
     public Coordinates getCd() {return cd;}
 
