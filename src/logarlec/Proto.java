@@ -49,7 +49,7 @@ public class Proto {
 	//ebből kap a program random értéket
 	public static double getRandVal() {
 		if (randVal < 0) {
-			return rand.nextDouble(0,1);
+			return rand.nextDouble();
 		}else {
 			return randVal;
 		}
@@ -124,18 +124,32 @@ public class Proto {
 
 	private static ITargy parseTargy(String s) {
 		if (s.length() < 2) throw new IllegalArgumentException(s + "\t túl rövid név egy objektumnak");
-		return switch (s.substring(0, 2)) {
-			case "tv" -> newTvsz();
-			case "so" -> newSorospohar();
-			case "tr" -> newTranzisztor();
-			case "ro" -> newRongy();
-			case "ca" -> newCamambert();
-			case "ma" -> newMaszk();
-			case "le" -> newLegfrissito();
-			case "lo" -> newLogarlec();
-			default -> throw new IllegalArgumentException(s + "\t nem létező tárgy");
-		};
-
+		String targy = s.substring(0,2);
+		if(targy == "tv"){
+			return newTvsz();
+		}
+		else if(targy == "so"){
+			return newSorospohar();
+		}
+		else if(targy == "tr"){
+			return newTranzisztor();
+		}
+		else if(targy == "ro"){
+			return newRongy();
+		}
+		else if(targy == "ca"){
+			return newCamambert();
+		}
+		else if(targy == "ma"){
+			return newMaszk();
+		}
+		else if(targy == "le"){
+			return newLegfrissito();
+		}
+		else if(targy == "lo"){
+			return newLogarlec();
+		}
+		throw new IllegalArgumentException(s + "\tnem létező tárgy");
 	}
 
 	public static Tvsz newTvsz() {
@@ -250,6 +264,7 @@ public class Proto {
 		List<Karakter> szb = sz.getBentlevok();
 		szb.add(t);
 		sz.setBentlevok(szb);
+		tv.setCd(new Coordinates(200,300));
 		tv.setModel(t);
 		Graf.addAI(tv);
 		GraphicMap.getMap().addDrawable(tv);
