@@ -13,7 +13,7 @@ public class Takarito extends Karakter {
 	}
 	/*TAkarito mozgasa, letesz, felvesz tragyakat és kiküld embereket a szobákból*/
 	public void mozog(Szoba newSzoba){
-		if(Proto.getRandVal() > 0){
+		if(Proto.getRandVal() < 0){
 			if (!newSzoba.beenged() || !jelenlegi.getSzomszedok().contains(newSzoba)){
 				System.out.println("Takarito_sikertelen_mozgas");
 				return;
