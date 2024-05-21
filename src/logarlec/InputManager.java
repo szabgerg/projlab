@@ -18,15 +18,33 @@ public class InputManager implements KeyListener {
             switch (action) {
                 case 'm':
                     /* mozgás */
+                    Karakter jelenlegiKar = Graf.getAktKarakter().getModel();
+                    Szoba jelenlegiSzoba = Graf.getAktKarakter().getModel().getSzoba();
+                    if ( n == 1){
+                        jelenlegiKar.mozog(jelenlegiSzoba.getSzomszedok().get(1));
+                    }
+                    else if (n == 2){
+                        jelenlegiKar.mozog(jelenlegiSzoba.getSzomszedok().get(2));
+                    }
+                    else if(n == 3){
+                        jelenlegiKar.mozog(jelenlegiSzoba.getSzomszedok().get(3));
+                    }
+                    else if (n == 4){
+                        jelenlegiKar.mozog(jelenlegiSzoba.getSzomszedok().get(4));
+                    }
                     break;
                 case 'a':
                     /* aktiválás */
+                    ITargy aktivalando = Graf.getAktKarakter().getModel().eszkozkeszlet.getTargyak().get(n);
+                    aktivalando.aktival(Graf.getAktKarakter().getModel());
                     break;
                 case 'f':
                     /* felvétel */
+                    Graf.getAktKarakter().getModel().felvesz(n);
                     break;
                 case 'l':
                     /* lerakás */
+                    Graf.getAktKarakter().getModel().letesz(n);
                     break;
                 case 'o':
                     command.append(n);
@@ -71,7 +89,6 @@ public class InputManager implements KeyListener {
 /*
 ● mozgás: ‘m’ megnyomása majd egy szám megadása ami az óra 12-es mutatójánál 1 és
     az óra járásával megyegyező írányba történik
-● aktiválás: ‘a’ megnyomása majd egy szám ami az inventoryban lévő helyet jelzi
 ● felvétel: ‘f’ majd a szoba inventoryjának a megfelelő helyén lévő item száma
 ● letevés: ‘l’ majd ugyanaz mint feljebb
 ● 2 tranzisztor összekapcsolása: ‘o’ gomb majd kettő szám szóközzel elválasztva, ezen
