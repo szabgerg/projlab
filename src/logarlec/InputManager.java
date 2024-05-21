@@ -16,26 +16,42 @@ public class InputManager implements KeyListener {
     private void numberInput(int n) {
         if (command.length() > 0) {
             char action = command.charAt(0);
+            Karakter jelenlegiKar = Graf.getAktKarakter().getModel();
+
             switch (action) {
                 case 'm':
                     /* mozgás */
-                    Karakter jelenlegiKar = Graf.getAktKarakter().getModel();
                     List<Szoba> szobaList = jelenlegiKar.getSzoba().getSzomszedok();
                     n -= 1;
-                    jelenlegiKar.mozog(szobaList.get(n));
+                    if(n >= 0 && n < szobaList.size()){
+                        jelenlegiKar.mozog(szobaList.get(n));
+                    } else {
+                        System.out.println("Nincs ilyen számú szoba");
+                    }
                     break;
+
                 case 'a':
                     /* aktiválás */
-                    ITargy aktivalando = Graf.getAktKarakter().getModel().eszkozkeszlet.getTargyak().get(n);
-                    aktivalando.aktival(Graf.getAktKarakter().getModel());
+                    Targyinventory eszkozkeszlet = jelenlegiKar.getEszkozkeszlet();
+                    List<ITargy> targyak = eszkozkeszlet.getTargyak();
+                    if(n >= 0 && n < targyak.size() && targyak.get(n) != null){
+                        ITargy aktivalando = targyak.get(n);
+                        aktivalando.aktival(jelenlegiKar);
+                    }
                     break;
+
                 case 'f':
                     /* felvétel */
-                    Graf.getAktKarakter().getModel().felvesz(n);
+                    Targyinventory bentitargyak = jelenlegiKar.getSzoba().getBentiTargyak();
+                    if(n >= 0 && n < bentitargyak.getTargyak().size()){
+                        jelenlegiKar.felvesz(n);
+                    }
                     break;
                 case 'l':
                     /* lerakás */
-                    Graf.getAktKarakter().getModel().letesz(n);
+                    if(n >= 0 && n < jelenlegiKar.getEszkozkeszlet().getTargyak().size()){
+                        jelenlegiKar.letesz(n);
+                    }
                     break;
                 case 'o':
                     command.append(n);
