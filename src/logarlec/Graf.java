@@ -35,7 +35,7 @@ public class Graf {
 	public static KarakterView getAktKarakter() {
 		if (krktIdx >= hallgatok.size())
 			krktIdx = 0;
-		return hallgatok.get(krktIdx++);
+		return hallgatok.get(krktIdx);
 	}
 
 	public static void nextKarakter() {
@@ -44,8 +44,10 @@ public class Graf {
 		krktIdx++;
 		if (krktIdx >= hallgatok.size()){
 			krktIdx = 0;
+			if(ai.size() > 0){
 			for (KarakterView k : ai)
 				k.getModel().mozog(null);
+			}
 		}
 		getAktKarakter().setSoros(true);
 	}
