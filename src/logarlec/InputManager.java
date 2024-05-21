@@ -40,10 +40,17 @@ public class InputManager implements KeyListener {
                 case 'o':
                     command.append(n);
                     if (command.toString().split(" ").length == 2) {
-                        /* tranzisztor kapcsolás */
+                        /* tranzisztor összekapcsolás */
+                        String[] numbers = command.toString().split(" ");
+                        int number1 = Integer.parseInt(numbers[0]);
+                        int number2 = Integer.parseInt(numbers[1]);
+                        Tranzisztor tr = (Tranzisztor)Graf.getAktKarakter().getModel().eszkozkeszlet.getTargyak().get(number1-1);
+                        Tranzisztor tr2 = (Tranzisztor)Graf.getAktKarakter().getModel().eszkozkeszlet.getTargyak().get(number2-1);
+                        tr.setPar(tr2);
                         command.setLength(0); // reset
                     }
                     break;
+
             }
         }
     }
@@ -68,19 +75,12 @@ public class InputManager implements KeyListener {
     
     @Override
     public void keyTyped(KeyEvent k) {
-        /* tudtommal nem kell */
+        /* nem kell */
     }
 
     @Override
     public void keyReleased(KeyEvent k) {
-        /* tudtommal nem kell */
+        /* nem kell */
     }
 
 }
-/*
-● mozgás: ‘m’ megnyomása majd egy szám megadása ami az óra 12-es mutatójánál 1 és
-    az óra járásával megyegyező írányba történik
-● felvétel: ‘f’ majd a szoba inventoryjának a megfelelő helyén lévő item száma
-● letevés: ‘l’ majd ugyanaz mint feljebb
-● 2 tranzisztor összekapcsolása: ‘o’ gomb majd kettő szám szóközzel elválasztva, ezen
-    két helyen van a két tranzisztor */
