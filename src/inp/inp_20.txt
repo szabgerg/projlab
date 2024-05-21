@@ -1,2 +1,0 @@
-add sz 1
-merge sz1 sz2

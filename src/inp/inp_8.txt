@@ -1,4 +1,0 @@
-add sz 1
-give sz1 ma
-add ha sz1 ro le ca tv tr
-pickup ha1 0

@@ -1,2 +1,0 @@
-add sz 1
-split sz1

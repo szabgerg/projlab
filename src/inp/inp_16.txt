@@ -1,4 +1,0 @@
-add sz 1
-random 0.4
-add ha sz1 lo
-activate ha1 0

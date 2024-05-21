@@ -1,4 +1,0 @@
-add sz 1
-add sz 1 
-add ha sz1
-move ha1 sz2
