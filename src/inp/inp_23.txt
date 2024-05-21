@@ -1,6 +1,0 @@
-add sz 2
-add ha sz1 ca
-add ok sz2
-activate ha1 0
-random 0.8
-move ok1 sz1

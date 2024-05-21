@@ -1,7 +1,0 @@
-add sz 1
-add ha sz1 tr tr
-pairing ha1 0 1
-activate ha1 0 
-place ha1 0
-move ha1 sz2
-activate ha1 0

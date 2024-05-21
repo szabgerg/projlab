@@ -1,3 +1,0 @@
-add sz 1
-add ha sz1 tr tr
-pairing ha1 0 1

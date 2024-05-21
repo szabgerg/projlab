@@ -1,3 +1,0 @@
-add sz 1
-add ha sz1 so
-place ha1 0

@@ -1,3 +1,0 @@
-add sz 1
-add ha sz1 ca
-activate ha1 0
