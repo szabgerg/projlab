@@ -44,7 +44,7 @@ public class Graf {
 		krktIdx++;
 		if (krktIdx >= hallgatok.size()){
 			krktIdx = 0;
-			if(ai.size() > 0){
+			if(!ai.isEmpty()){
 			for (KarakterView k : ai)
 				k.getModel().mozog(null);
 			}

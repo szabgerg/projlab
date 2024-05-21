@@ -252,7 +252,7 @@ public class Proto {
 		sz.setBentlevok(szb);
 		hv.setCd(new Coordinates(500,200));
 		hv.setModel(h);
-		//Graf.addHallgato(hv);
+		Graf.addHallgato(hv);
 		GraphicMap.getMap().addDrawable(hv);
 		hallgatok.add(h);
 		return h;
