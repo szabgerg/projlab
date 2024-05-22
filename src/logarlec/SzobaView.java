@@ -32,7 +32,6 @@ public class SzobaView implements Drawable{
             for (ITargy t : Graf.getAktKarakter().getModel().getSzoba().getAktiv().getTargyak()) {
                 // Ha a tárgy neve "Camambert", akkor a padló képe gázos lesz
                 if (t.getClass().getSimpleName().equals("Camambert")) {
-                    System.out.println("Camambert található az aktívban");
                     padlo = Toolkit.getDefaultToolkit().getImage("kepek/szoba_padlo_gazos.png");
                     break; // Ha találtunk egy camambert, nincs szükség további ellenőrzésekre
                 }
