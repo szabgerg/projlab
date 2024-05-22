@@ -88,7 +88,7 @@ public class Graf {
 
 		//valamennyire szálbiztos
 		try {
-			FileInputStream fis = new FileInputStream("kepek/terkep.txt");
+			FileInputStream fis = new FileInputStream("kepek/kezdo.txt");
 			SwingUtilities.invokeLater(() -> Proto.ertelmezo(fis));
 			//proto bezárja a fájlt
 		}catch (IOException e) {
