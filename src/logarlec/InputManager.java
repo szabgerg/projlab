@@ -32,63 +32,125 @@ public class InputManager implements KeyListener {
                     break;
 
                 case 'a':
-                    /* aktiválás */
                     Targyinventory eszkozkeszlet = jelenlegiKar.getEszkozkeszlet();
                     List<ITargy> targyak = eszkozkeszlet.getTargyak();
-                    // ITargy aktivalando =
-                    // Graf.getAktKarakter().getModel().eszkozkeszlet.getTargyak().get(n-1);
-                    if (n >= 0 && n < targyak.size() && targyak.get(n) != null) {
-                        ITargy aktivalando = targyak.get(n);
-                        aktivalando.aktival(jelenlegiKar);
+
+                    if (n >= 1 && n <= 5) { // Ellenőrizzük, hogy a megadott sorszám a megfelelő tartományban van-e
+                                            // (1-től 5-ig)
+                        ITargy aktivalando = targyak.get(n - 1); // Az indexeket 0-tól kezdve indexeljük
+                        if (aktivalando != null) {
+                            aktivalando.aktival(jelenlegiKar);
+                        } else {
+                            System.out.println("Az adott sorszámú tárgy nem található.");
+                        }
+                    } else {
+                        System.out.println("Hibás sorszám, válasszon 1 és 5 közötti számot.");
                     }
                     break;
 
-                case 'f':
-                    /* felvétel */
+                case 'f': // Felvétel szám szerint, ahogy a szoba inventoryban számozva van, ami fix
+                    // 1->tranzisztor
+                    // 2->sorosohar
+                    // 3->camambert
+                    // 4->maszk
+                    // 5->tvsz
+                    // 6->logarlec
+                    // 7->rongy
+                    // 8->legfrissito
                     Targyinventory bentitargyak = jelenlegiKar.getSzoba().getBentiTargyak();
-                    if (n >= 0 && n < bentitargyak.getTargyak().size()) {
-                        jelenlegiKar.felvesz(n - 1);
-                    }
-                    break;
-                case 'l':
-                    /* lerakás */
-                    if (n >= 0 && n < jelenlegiKar.getEszkozkeszlet().getTargyak().size()) {
-                        jelenlegiKar.letesz(n - 1);
+                    if (n >= 1 && n <= 8) { // Check if the number is within the valid range
+                        String tipus = null;
+                        switch (n) { // Determine the item type based on the given number
+                            case 1:
+                                tipus = "Tranzisztor";
+                                break;
+                            case 2:
+                                tipus = "Sorospohar";
+                                break;
+                            case 3:
+                                tipus = "Camambert";
+                                break;
+                            case 4:
+                                tipus = "Maszk";
+                                break;
+                            case 5:
+                                tipus = "Tvsz";
+                                break;
+                            case 6:
+                                tipus = "Logarlec";
+                                break;
+                            case 7:
+                                tipus = "Rongy";
+                                break;
+                            case 8:
+                                tipus = "Legfrissito";
+                                break;
+                            default:
+                                break;
+                        }
+                        // Iterate through the items in the room and pick up the item with the matching
+                        // type
+                        for (int i = 0; i < bentitargyak.getTargyak().size(); i++) {
+                            if (bentitargyak.getTargyak().get(i).getClass().getSimpleName().equals(tipus)) {
+                                jelenlegiKar.felvesz(i);
+                                break;
+                            }
+                        }
                     }
                     break;
 
-                case 'o':
+                case 'l': // Tárgy lerakása az inventoryból
+                    if (n >= 1 && n <= jelenlegiKar.getEszkozkeszlet().getTargyak().size()) { // Ellenőrizzük a
+                                                                                              // sorszámot
+                        jelenlegiKar.letesz(n - 1); // Az indexek 0-tól kezdve vannak
+                    } else {
+                        System.out.println("Hibás sorszám, válasszon 1 és "
+                                + jelenlegiKar.getEszkozkeszlet().getTargyak().size() + " közötti számot.");
+                    }
+                    break;
+
+                case 'o': // Tranzisztor összekapcsolás
                     command.append(n);
-                    if (command.toString().split(" ").length == 2) {
-                        /* tranzisztor összekapcsolás */
+                    if (command.toString().length() == 3) { // Ellenőrizze, hogy a parancs 3 karakter hosszú-e (o + 2
+                                                            // szám)
                         try {
-                            String[] numbers = command.toString().split(" ");
+                            String[] numbers = command.toString().substring(1).split(""); // Az egyes karaktereket
+                                                                                          // szétválasztjuk
 
                             int number1 = Integer.parseInt(numbers[0]);
                             int number2 = Integer.parseInt(numbers[1]);
 
                             List<ITargy> targyakk = Graf.getAktKarakter().getModel().eszkozkeszlet.getTargyak();
 
-                            if (number1 - 1 >= 0 && number1 - 1 < targyakk.size() && number2 - 1 >= 0
-                                    && number2 - 1 < targyakk.size()) {
-                                Tranzisztor tr = (Tranzisztor) targyakk.get(number1 - 1);
-                                Tranzisztor tr2 = (Tranzisztor) targyakk.get(number2 - 1);
+                            // Ellenőrizze, hogy az indexek a tartományban vannak-e
+                            if (number1 >= 1 && number1 <= targyakk.size() && number2 >= 1
+                                    && number2 <= targyakk.size()) {
+                                // Ellenőrizze, hogy a tárgyak tranzisztorok-e
+                                ITargy targy1 = targyakk.get(number1 - 1);
+                                ITargy targy2 = targyakk.get(number2 - 1);
 
-                                if (tr != null && tr2 != null) {
-                                    tr.setPar(tr2);
+                                if (targy1 instanceof Tranzisztor && targy2 instanceof Tranzisztor) {
+                                    Tranzisztor tr1 = (Tranzisztor) targy1;
+                                    Tranzisztor tr2 = (Tranzisztor) targy2;
+
+                                    // Összekapcsolás
+                                    tr1.setPar(tr2);
+                                    tr2.setPar(tr1);
+
+                                    System.out.println("A tranzisztorok összekapcsolva.");
                                 } else {
-                                    System.out.println("Tranzisztor null. :(");
+                                    System.out.println("Az egyik vagy mindkét tárgy nem tranzisztor.");
                                 }
-
                             } else {
                                 System.out.println("Hibás tranzisztor indexek.");
                             }
                         } catch (NumberFormatException e) {
-                            System.out.println("Invalid number format.");
+                            System.out.println("Érvénytelen számformátum.");
                         } catch (IndexOutOfBoundsException e) {
-                            System.out.println("Index out of bounds.");
+                            System.out.println("Index túlmutat a határon.");
+                        } finally {
+                            command.setLength(0); // Parancs törlése
                         }
-                        command.setLength(0); // reset
                     }
                     break;
 

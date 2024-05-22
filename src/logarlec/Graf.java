@@ -88,7 +88,7 @@ public class Graf {
 		GraphicMap.getMap().addKeyListener(inp);
 
 		new Timer(17, e -> panel.repaint()).start();
-		new Timer(5000, e -> nextKarakter()).start();
+		//new Timer(5000, e -> nextKarakter()).start();
 
 	}
 

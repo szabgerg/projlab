@@ -20,20 +20,39 @@ public class SzobaView implements Drawable{
     protected void setModel(Szoba model){this.model=model;}
     @Override
     public void draw(Graphics g) {
-        //ez az alap amit kirajzol, a szoba padlója és az inventoryk
+        // Alap padló
         Image padlo = Toolkit.getDefaultToolkit().getImage("kepek/szoba_padlo.png");
+
+        // Ha a model és az aktiv attribútum nem null, és van tárgy az aktivban
+        if (Graf.getAktKarakter().getModel().getSzoba().getAktiv() != null
+             && !Graf.getAktKarakter().getModel().getSzoba().getAktiv().getTargyak().isEmpty()) {
+            for (ITargy t : Graf.getAktKarakter().getModel().getSzoba().getAktiv().getTargyak()) {
+                // Ha a tárgy neve "Camambert", akkor a padló képe gázos lesz
+                if (t.getClass().getSimpleName().equals("Camambert")) {
+                    padlo = Toolkit.getDefaultToolkit().getImage("kepek/szoba_padlo_gazos.png");
+                    break; // Ha találtunk egy camambert, nincs szükség további ellenőrzésekre
+                }
+            }
+        }else if (!Graf.getAktKarakter().getModel().getSzoba().getBentlevok().isEmpty()) {// Ha van bentlevő karakter és van takarító
+            for (Karakter k : Graf.getAktKarakter().getModel().getSzoba().getBentlevok()) {
+                // Ha a karakter neve "Takarito", akkor a padló képe ragacsos lesz
+                if (k.getClass().getSimpleName().equals("Takarito")) {
+                    padlo = Toolkit.getDefaultToolkit().getImage("kepek/szoba_padlo_ragacsos.png");
+                    break; // Ha találtunk egy takaritot, nincs szükség további ellenőrzésekre
+                }
+            }
+        }
+
+        // Padló kirajzolása
         g.drawImage(padlo, cd.getX(), cd.getY(), null);
+
+        // Szoba és hallgató inventoryk kirajzolása
         Image szoba_inventory = Toolkit.getDefaultToolkit().getImage("kepek/szoba_inventory.png");
         g.drawImage(szoba_inventory, 1195, 0, null);
         Image hallgato_inventory = Toolkit.getDefaultToolkit().getImage("kepek/hallgato_iventory.png");
         g.drawImage(hallgato_inventory, 200, 580, null);
-
-        //TODO: kirajzolni az inventorykba a tárgyakat
-        //elso kocka a hallgato inventoryjaban kb (300,600) koord, a méretét is ugye állítani kell a tárgyaknak ide, a többi kocka x irányban jobbra haladva
-    
-        //a szoba inventoryjaban az elso kocka kb (1200,15) koord, ide is állítani kell a méretét a tárgyaknak, a többi kocka y irányban lefelé haladva
-
     }
+
     @Override
     public void setTulajdonsag(int width, int height, float transparency) {}
 }

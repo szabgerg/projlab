@@ -1,8 +1,9 @@
-add sz 1
+add sz 5
+add sz 3
 add ok sz1
-add ha sz1
+add ok sz2
+add ha sz1 tr tr ma ca
 add ta sz1
-add ha sz2
 give sz1 lo
 give sz1 le
 give sz1 tr
@@ -11,3 +12,5 @@ give sz1 ro
 give sz1 tv
 give sz1 so
 give sz1 ca
+give sz2 le
+give sz2 tv
