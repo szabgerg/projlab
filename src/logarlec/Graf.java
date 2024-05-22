@@ -39,7 +39,11 @@ public class Graf {
 	}
 
 	public static void nextKarakter() {
-		if (!vanHallgato()) return;
+		if (!vanHallgato()){
+			Controller ctrl = new Controller();
+			ctrl.endGame();
+			return;
+		}
 		getAktKarakter().setSoros(false);
 		krktIdx++;
 		if (krktIdx >= hallgatok.size()){
@@ -49,10 +53,28 @@ public class Graf {
 					System.out.println("Eskü mozgott");
 					k.getModel().mozog(null);
 				}
+				halottTörlés();
+				if (!vanHallgato()){
+					Controller ctrl = new Controller();
+					ctrl.endGame();
+					return;
+				}
 			}
 		}
 		getAktKarakter().setSoros(true);
 	}
+	/*
+	* Ha egy hallgatónak elvett véve a lelke, akkor töröljük a nyilvántartásból
+	* */
+	private static void halottTörlés() {
+		for (int i = 0; i < hallgatok.size(); i++) {
+			if (hallgatok.get(i).getModel().getHalott()) {
+				hallgatok.remove(i);
+				i--; // Csökkentjük az indexet, hogy ne hagyjunk ki elemeket
+			}
+		}
+	}
+
 
 	public static void main(String[] args) {
 		GraphicMap.getMap().clearDrawable();
@@ -88,7 +110,7 @@ public class Graf {
 		GraphicMap.getMap().addKeyListener(inp);
 
 		new Timer(17, e -> panel.repaint()).start();
-		//new Timer(5000, e -> nextKarakter()).start();
+		new Timer(5000, e -> nextKarakter()).start();
 
 	}
 

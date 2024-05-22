@@ -11,6 +11,7 @@ public class Karakter {
 	protected Targyinventory eszkozkeszlet;
 	protected Szoba jelenlegi;
 	protected boolean bena = false;
+	protected boolean halott = false;
 	/*
 	 * Szoba amiben a karakter tartózkodik
 	 * Nem lehet null, amig a karakter a játékban van
@@ -128,6 +129,10 @@ public class Karakter {
 	public boolean vedekezes() {
 		System.out.println("Vedekezesi_kiserlet");
 		return true;
+	}
+
+	public boolean getHalott(){
+		return halott;
 	}
 
 

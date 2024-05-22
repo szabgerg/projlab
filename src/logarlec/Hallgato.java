@@ -77,6 +77,7 @@ public class Hallgato extends Karakter {
 			}
 		}
 		System.out.println("Hallgato_meghalt");
+		halott = true;
 		return false;
 	}
 

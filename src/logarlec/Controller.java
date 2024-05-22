@@ -152,5 +152,6 @@ public class Controller {
 	 */
 	public void endGame() {
 		System.out.println("Jatek_vege");
+		System.exit(0);
 	}
 }
