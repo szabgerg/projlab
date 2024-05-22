@@ -1,5 +1,7 @@
 package logarlec;
 
+import java.util.Iterator;
+
 public class Oktato extends Karakter {
 
 	/*
@@ -113,17 +115,22 @@ public class Oktato extends Karakter {
 	 * vege a jateknak
 	 */
 	void lelekelvetel() {
-		for (Karakter karakter : jelenlegi.getBentlevok()) {
+		if (jelenlegi.getBentlevok().size() <= 1) return;
+
+		Iterator<Karakter> iterator = jelenlegi.getBentlevok().iterator();
+		while (iterator.hasNext()) {
+			Karakter karakter = iterator.next();
 			if (karakter == this) continue;
 			if (!karakter.vedekezes()) {
 				karakter.mindentelejt();
-				jelenlegi.getBentlevok().remove(karakter);
+				iterator.remove(); // Biztonságos eltávolítás
 				System.out.println("Sikeres_lelekelvetel");
+			} else {
+				System.out.println("Sikertelen_lelekelvetel");
 			}
-			else{System.out.println("Sikertelen_lelekelvetel");
-		}
 		}
 	}
+
 	//ha valódi játék van, akkor az oktató "ai", ez felel a random tárgy felvételért
 	void random_felvesz() {
 		double rand = Proto.getRandVal();
