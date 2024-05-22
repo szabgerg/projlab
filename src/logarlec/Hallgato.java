@@ -1,4 +1,7 @@
 package logarlec;
+
+import java.util.Iterator;
+
 /*
 * Hallgato osztaly ami a jatekban szereplo hallgatokat reprezentalja
 * A Hallgato osztaly a Karakter osztalybol szarmazik
@@ -70,8 +73,10 @@ public class Hallgato extends Karakter {
 	 */
 
 	public boolean vedekezes() {
-		for (ITargy t: eszkozkeszlet.getTargyak()){
-			if(t.hasznal(this)) {
+		Iterator<ITargy> iterator = eszkozkeszlet.getTargyak().iterator();
+		while (iterator.hasNext()) {
+			ITargy t = iterator.next();
+			if (t.hasznal(this)) {
 				System.out.println("Hallgato_sikeresen_vedekezett");
 				return true;
 			}
@@ -80,6 +85,7 @@ public class Hallgato extends Karakter {
 		halott = true;
 		return false;
 	}
+
 
 	/*
 	* A metodusban a hallgato teleportalasat valositjuk meg
