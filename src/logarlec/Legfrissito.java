@@ -21,6 +21,7 @@ public class Legfrissito implements ITargy{
         for (ITargy t : k.getSzoba().getAktiv().getTargyak()) {
             if (t != null || t.gaztalanit(k.getSzoba())) {
                 gazos = true;
+                k.getSzoba().getAktiv().RemoveTargy(t);
                 System.out.println("Szoba_gazossaga_megszunt");
             }
         }
