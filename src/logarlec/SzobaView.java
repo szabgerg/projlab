@@ -36,15 +36,7 @@ public class SzobaView implements Drawable{
                     break; // Ha találtunk egy camambert, nincs szükség további ellenőrzésekre
                 }
             }
-        }/*else if (!Graf.getAktKarakter().getModel().getSzoba().getBentlevok().isEmpty()) {// Ha van bentlevő karakter és van takarító
-            for (Karakter k : Graf.getAktKarakter().getModel().getSzoba().getBentlevok()) {
-                // Ha a karakter neve "Takarito", akkor a padló képe ragacsos lesz
-                if (k.getClass().getSimpleName().equals("Takarito")) {
-                    padlo = Toolkit.getDefaultToolkit().getImage("kepek/szoba_padlo_ragacsos.png");
-                    break; // Ha találtunk egy takaritot, nincs szükség további ellenőrzésekre
-                }
-            }
-        }*/
+        }
 
         // Padló kirajzolása
         g.drawImage(padlo, cd.getX(), cd.getY(), null);
