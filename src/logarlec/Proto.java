@@ -49,7 +49,7 @@ public class Proto {
 	//ebből kap a program random értéket
 	public static double getRandVal() {
 		if (randVal < 0) {
-			return rand.nextDouble();
+			return rand.nextDouble(0,1);
 		}else {
 			return randVal;
 		}

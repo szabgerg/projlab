@@ -98,7 +98,7 @@ public class Takarito extends Karakter {
 		double rand = Proto.getRandVal();
 		if(rand < 0.5 || eszkozkeszlet.getTargyak().size() >= 5 || jelenlegi.getBentiTargyak().getTargyak().isEmpty()) return;
 		int randint = (int) (rand * 10);
-		if(randint > jelenlegi.getBentiTargyak().getTargyak().size()){
+		if(randint >= jelenlegi.getBentiTargyak().getTargyak().size()){
 			randint = jelenlegi.getBentiTargyak().getTargyak().size()-1;
 		}
 
@@ -110,7 +110,7 @@ public class Takarito extends Karakter {
 		double rand = Proto.getRandVal();
 		if(rand < 0.5 || eszkozkeszlet.getTargyak().isEmpty()) return;
 		int randint = (int) (rand * 10);
-		if(randint > eszkozkeszlet.getTargyak().size()){
+		if(randint >= eszkozkeszlet.getTargyak().size()){
 			randint = eszkozkeszlet.getTargyak().size()-1;
 		}
 		letesz(randint);
