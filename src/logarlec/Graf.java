@@ -11,6 +11,7 @@ public class Graf {
 	private static List<KarakterView> hallgatok = new LinkedList<>();
 	private static List<KarakterView> ai = new LinkedList<>();
 	private static int krktIdx = 0; //a következő karakter indexe
+	private static JLabel playernum;
 
 	public static void addHallgato(KarakterView k) {
 		if (hallgatok == null)
@@ -62,6 +63,7 @@ public class Graf {
 			}
 		}
 		getAktKarakter().setSoros(true);
+		updatePlayerLabel();
 	}
 	/*
 	* Ha egy hallgatónak elvett véve a lelke, akkor töröljük a nyilvántartásból
@@ -105,6 +107,10 @@ public class Graf {
 		panel.add(GraphicMap.getMap());
 		frame.setVisible(true);
 		GraphicMap.getMap().grabFocus();
+		
+		playernum = new JLabel("Játékos: " + (krktIdx+1), SwingConstants.CENTER);
+		panel.add(playernum, BorderLayout.NORTH);
+		frame.setVisible(true);
 
 		InputManager inp = new InputManager();
 		GraphicMap.getMap().addKeyListener(inp);
@@ -113,5 +119,9 @@ public class Graf {
 		new Timer(5000, e -> nextKarakter()).start();
 
 	}
+
+	private static void updatePlayerLabel() {
+        playernum.setText("Játékos: " + (krktIdx + 1)); // Frissítjük a JLabel szövegét
+    }
 
 }

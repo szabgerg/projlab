@@ -175,6 +175,7 @@ public class InputManager implements KeyListener {
         } else {
             wasInput(c);
         }
+        GraphicMap.getMap().repaint();
     }
 
     @Override
