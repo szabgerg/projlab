@@ -80,10 +80,9 @@ public class MaszkView implements Drawable{
                 newHeight = Math.round(boundWidth / aspectRatio);
             }
         }
-
-        int x = cd.getX() + (width - maszkImage.getWidth(null)) / 2;
-        int y = cd.getY() + (height - maszkImage.getHeight(null)) / 2;
-        //setCd(new Coordinates(x, y));
+        int x = cd.getX() + (45 - newWidth) / 2;
+        int y = cd.getY() + (45 - newHeight) / 2;
+        setCd(new Coordinates(x, y));
         return new Dimension(newWidth, newHeight);
     }
 }

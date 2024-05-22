@@ -63,8 +63,8 @@ public class GraphicMap extends JPanel {
             Function<ITargy, Drawable> factory = drawableFactoryMap.get(targy.getClass());
             if (factory != null) {
                 Drawable drawable = factory.apply(targy);
-                drawable.setCd(new Coordinates(307+(i*142), 601));
-                drawable.setTulajdonsag(50, 50, 1.0f);
+                drawable.setCd(new Coordinates(312+(i*142), 605));
+                drawable.setTulajdonsag(40, 40, 1.0f);
                 aktDrawableList.add(drawable);
                 i++;
             } else {
@@ -91,11 +91,11 @@ public class GraphicMap extends JPanel {
                     }
                 }
                 Drawable drawable = factory.apply(exampleTargy);
-                drawable.setCd(new Coordinates(1203, 27+(i*83)));
+                drawable.setCd(new Coordinates(1210, 31+(i*83)));
                 if (!contains) {
-                    drawable.setTulajdonsag(50, 70, 0.3f); // Halványan rajzoljuk ki
+                    drawable.setTulajdonsag(40, 40, 0.3f); // Halványan rajzoljuk ki
                 } else {
-                    drawable.setTulajdonsag(50,70, 1.0f); // Normálisan rajzoljuk ki
+                    drawable.setTulajdonsag(40,40, 1.0f); // Normálisan rajzoljuk ki
                 }
                 aktDrawableList.add(drawable);
             } else {
