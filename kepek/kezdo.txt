@@ -1,7 +1,6 @@
 add sz 5
 add sz 3
 add sz 5
-add sz2 sz3
 add sz 3
 add ok sz1
 add ok sz3
