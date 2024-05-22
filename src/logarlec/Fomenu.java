@@ -46,6 +46,7 @@ public class Fomenu {
 		buttonPanel.setBackground(Color.LIGHT_GRAY);
 
 		startButton = createImageButton("Start", "kepek/start&exit.png");
+		startButton.setEnabled(false); // Alapértelmezésben letiltva
 		startButton.addActionListener(new StartButtonListener());
 
 		addPlayerButton = createImageButton("Add player", "kepek/start&exit.png");
@@ -120,6 +121,9 @@ public class Fomenu {
 			playerCount++;
 			Proto.newHallgato(Proto.getRandSzoba(), new Targyinventory());
 			playernum.setText("Number of players: " + playerCount);
+			if (playerCount > 0) {
+				startButton.setEnabled(true); // Engedélyezd a "Start" gombot
+			}
 		}
 	}
 }
