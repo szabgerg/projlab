@@ -37,11 +37,12 @@ public class InputManager implements KeyListener {
 
                     if (n >= 1 && n <= 5) { // Ellenőrizzük, hogy a megadott sorszám a megfelelő tartományban van-e
                                             // (1-től 5-ig)
-                        ITargy aktivalando = targyak.get(n - 1); // Az indexeket 0-tól kezdve indexeljük
-                        if (aktivalando != null) {
-                            aktivalando.aktival(jelenlegiKar);
-                        } else {
+                        if (targyak.size() <= n){
                             System.out.println("Az adott sorszámú tárgy nem található.");
+                        }
+                        else {
+                            ITargy aktivalando = targyak.get(n - 1); // Az indexeket 0-tól kezdve indexeljük
+                            aktivalando.aktival(jelenlegiKar);
                         }
                     } else {
                         System.out.println("Hibás sorszám, válasszon 1 és 5 közötti számot.");
