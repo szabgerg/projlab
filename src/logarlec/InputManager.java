@@ -37,7 +37,7 @@ public class InputManager implements KeyListener {
 
                     if (n >= 1 && n <= 5) { // Ellenőrizzük, hogy a megadott sorszám a megfelelő tartományban van-e
                                             // (1-től 5-ig)
-                        if (targyak.size() <= n){
+                        if (targyak.size() < n){
                             System.out.println("Az adott sorszámú tárgy nem található.");
                         }
                         else {
