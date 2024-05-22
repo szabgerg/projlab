@@ -18,5 +18,8 @@ public class KarakterView implements Drawable{
 
 	@Override
 	public void setCd(Coordinates cd) {}
+
+	@Override
+    public void setTulajdonsag(int width, int height, float transparency) {}
 }
   

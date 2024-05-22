@@ -47,7 +47,8 @@ public class Graf {
 			if(!ai.isEmpty()){
 				for (KarakterView k : ai){
 					System.out.println("Eskü mozgott");
-					k.getModel().mozog(null);}
+					k.getModel().mozog(null);
+				}
 			}
 		}
 		getAktKarakter().setSoros(true);
@@ -87,7 +88,7 @@ public class Graf {
 		GraphicMap.getMap().addKeyListener(inp);
 
 		new Timer(17, e -> panel.repaint()).start();
-		new Timer(5000, e -> nextKarakter()).start();
+		//new Timer(5000, e -> nextKarakter()).start();
 
 	}
 
