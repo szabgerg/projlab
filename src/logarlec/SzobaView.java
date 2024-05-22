@@ -54,6 +54,20 @@ public class SzobaView implements Drawable{
         g.drawImage(szoba_inventory, 1195, 0, null);
         Image hallgato_inventory = Toolkit.getDefaultToolkit().getImage("kepek/hallgato_iventory.png");
         g.drawImage(hallgato_inventory, 200, 580, null);
+
+        // Ajtók kirajzolása
+
+        Image ajto = Toolkit.getDefaultToolkit().getImage("kepek/ajto.png");
+        int ablakSzelesseg = 1200; // Ablak szélessége
+        int ajtoSzelesseg = 50; // Az ajtó szélessége (kép szélességétől függően)
+        int ajtokSzama = getModel().getSzomszedok().size();
+        int tavolsag = (ablakSzelesseg - (ajtokSzama * ajtoSzelesseg)) / (ajtokSzama + 1); // Ajtók közötti távolság
+
+        for (int i = 0; i < ajtokSzama; i++) {
+            int x = tavolsag + i * (ajtoSzelesseg + tavolsag); // Ajtó x koordinátája
+            g.drawImage(ajto, x, cd.getY(), ajtoSzelesseg, 100, null); // Ajtó kirajzolása
+        }
+
     }
 
     @Override
