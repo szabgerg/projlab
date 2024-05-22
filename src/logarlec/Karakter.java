@@ -55,8 +55,7 @@ public class Karakter {
 	 * Ha a karakternek nincs helye a tárgyaknak, akkor nem tud felvenni
 	 */
 	public void felvesz(int i) {
-		int rand = (int) (Proto.getRandVal() * 10);
-		if (jelenlegi.getLegutobbTakaritva() <= rand) {
+		if (jelenlegi.getRagacsos()) {
 			if (eszkozkeszlet.getTargyak().size() < 5) {
 				ITargy t = jelenlegi.getBentiTargyak().getTargyak().get(i);
 				eszkozkeszlet.AddTargy(t);

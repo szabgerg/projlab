@@ -105,7 +105,9 @@ public class GraphicMap extends JPanel {
         }
 
         super.paintComponent(g);
-        new SzobaView().draw(g);
+        SzobaView szobaView = new SzobaView();
+        szobaView.setModel(Graf.getAktKarakter().getModel().getSzoba());
+        szobaView.draw(g);
         for(Drawable drawable : aktDrawableList) {
             drawable.draw(g);
         }

@@ -22,6 +22,9 @@ public class SzobaView implements Drawable{
     public void draw(Graphics g) {
         // Alap padló
         Image padlo = Toolkit.getDefaultToolkit().getImage("kepek/szoba_padlo.png");
+        if (Graf.getAktKarakter().getModel().getSzoba().getRagacsos()) {
+            padlo = Toolkit.getDefaultToolkit().getImage("kepek/szoba_padlo_ragacsos.png");
+        }
 
         // Ha a model és az aktiv attribútum nem null, és van tárgy az aktivban
         if (Graf.getAktKarakter().getModel().getSzoba().getAktiv() != null
@@ -29,11 +32,12 @@ public class SzobaView implements Drawable{
             for (ITargy t : Graf.getAktKarakter().getModel().getSzoba().getAktiv().getTargyak()) {
                 // Ha a tárgy neve "Camambert", akkor a padló képe gázos lesz
                 if (t.getClass().getSimpleName().equals("Camambert")) {
+                    System.out.println("Camambert található az aktívban");
                     padlo = Toolkit.getDefaultToolkit().getImage("kepek/szoba_padlo_gazos.png");
                     break; // Ha találtunk egy camambert, nincs szükség további ellenőrzésekre
                 }
             }
-        }else if (!Graf.getAktKarakter().getModel().getSzoba().getBentlevok().isEmpty()) {// Ha van bentlevő karakter és van takarító
+        }/*else if (!Graf.getAktKarakter().getModel().getSzoba().getBentlevok().isEmpty()) {// Ha van bentlevő karakter és van takarító
             for (Karakter k : Graf.getAktKarakter().getModel().getSzoba().getBentlevok()) {
                 // Ha a karakter neve "Takarito", akkor a padló képe ragacsos lesz
                 if (k.getClass().getSimpleName().equals("Takarito")) {
@@ -41,7 +45,7 @@ public class SzobaView implements Drawable{
                     break; // Ha találtunk egy takaritot, nincs szükség további ellenőrzésekre
                 }
             }
-        }
+        }*/
 
         // Padló kirajzolása
         g.drawImage(padlo, cd.getX(), cd.getY(), null);
