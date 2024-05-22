@@ -53,7 +53,7 @@ public class Graf {
 					System.out.println("Eskü mozgott");
 					k.getModel().mozog(null);
 				}
-				halottTörlés();
+				halottTorles();
 				if (!vanHallgato()){
 					Controller ctrl = new Controller();
 					ctrl.endGame();
@@ -66,7 +66,7 @@ public class Graf {
 	/*
 	* Ha egy hallgatónak elvett véve a lelke, akkor töröljük a nyilvántartásból
 	* */
-	private static void halottTörlés() {
+	private static void halottTorles() {
 		for (int i = 0; i < hallgatok.size(); i++) {
 			if (hallgatok.get(i).getModel().getHalott()) {
 				hallgatok.remove(i);
