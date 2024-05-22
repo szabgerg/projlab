@@ -230,6 +230,7 @@ public class Szoba {
     }
 
     public boolean getRagacsos() {
+        if(legutobbTakaritva <0) return false;
 		int rand = (int) (Proto.getRandVal() * 10);
 		return !(legutobbTakaritva <= rand);
 	}
