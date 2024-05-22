@@ -13,8 +13,19 @@ public class GraphicMap extends JPanel {
     private List<Drawable> drawableList = new ArrayList<>();
     private Map<Class<? extends ITargy>, Function<ITargy, Drawable>> drawableFactoryMap = new HashMap<>();
     private Map<Class<? extends Karakter>, Function<Karakter, Drawable>> drawableFactoryMapKarakter = new HashMap<>();
+    private List<Class<? extends ITargy>> targyClasses = new ArrayList<>();
     
     public GraphicMap() {
+        // Tárgy típusok hozzáadása a listához garantált sorrendben
+        targyClasses.add(Tranzisztor.class);
+        targyClasses.add(Sorospohar.class);
+        targyClasses.add(Camambert.class);
+        targyClasses.add(Maszk.class);
+        targyClasses.add(Tvsz.class);
+        targyClasses.add(Logarlec.class);
+        targyClasses.add(Rongy.class);
+        targyClasses.add(Legfrissito.class);
+
         drawableFactoryMap.put(Camambert.class, camambert -> new CamambertView());
         drawableFactoryMap.put(Legfrissito.class, legfrissito -> new LegfrissitoView());
         drawableFactoryMap.put(Logarlec.class, logarlec -> new LogarlecView());
@@ -73,7 +84,7 @@ public class GraphicMap extends JPanel {
         }
 
         i = 0;
-        for (Class<? extends ITargy> targyClass : drawableFactoryMap.keySet()) {
+        for (Class<? extends ITargy> targyClass : targyClasses) {
             boolean contains = false;
             for (ITargy targy : targyak) {
                 if (targyClass.isInstance(targy)) {
