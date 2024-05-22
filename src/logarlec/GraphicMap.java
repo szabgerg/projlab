@@ -58,19 +58,51 @@ public class GraphicMap extends JPanel {
         }
 
         // Végigiterálunk a hordozott tárgyak listáján és létrehozzuk a megfelelő view-t
-        /*int i = 0;
+        int i = 0;
         for (ITargy targy : hTargyak) {
             Function<ITargy, Drawable> factory = drawableFactoryMap.get(targy.getClass());
             if (factory != null) {
                 Drawable drawable = factory.apply(targy);
-                //drawable.setCd(new Coordinates(100, 100+(1*10)));
+                drawable.setCd(new Coordinates(307+(i*142), 601));
+                drawable.setTulajdonsag(50, 50, 1.0f);
                 aktDrawableList.add(drawable);
                 i++;
             } else {
                 System.out.println("Nincs megjelenítés az alábbi tárgy típusra: " + targy.getClass().getSimpleName());
             }
-        }*/
+        }
 
+        i = 0;
+        for (Class<? extends ITargy> targyClass : drawableFactoryMap.keySet()) {
+            boolean contains = false;
+            for (ITargy targy : targyak) {
+                if (targyClass.isInstance(targy)) {
+                    contains = true;
+                    break;
+                }
+            }
+            Function<ITargy, Drawable> factory = drawableFactoryMap.get(targyClass);
+            if (factory != null) {
+                ITargy exampleTargy = null;
+                for (ITargy targy : targyak) {
+                    if (targyClass.isInstance(targy)) {
+                        exampleTargy = targy;
+                        break;
+                    }
+                }
+                Drawable drawable = factory.apply(exampleTargy);
+                drawable.setCd(new Coordinates(1203, 27+(i*83)));
+                if (!contains) {
+                    drawable.setTulajdonsag(50, 70, 0.3f); // Halványan rajzoljuk ki
+                } else {
+                    drawable.setTulajdonsag(50,70, 1.0f); // Normálisan rajzoljuk ki
+                }
+                aktDrawableList.add(drawable);
+            } else {
+                System.out.println("Nincs megjelenítés az alábbi tárgy típusra: " + targyClass.getSimpleName());
+            }
+            i++;
+        }
 
         super.paintComponent(g);
         new SzobaView().draw(g);

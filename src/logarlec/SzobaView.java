@@ -34,4 +34,6 @@ public class SzobaView implements Drawable{
         //a szoba inventoryjaban az elso kocka kb (1200,15) koord, ide is állítani kell a méretét a tárgyaknak, a többi kocka y irányban lefelé haladva
 
     }
+    @Override
+    public void setTulajdonsag(int width, int height, float transparency) {}
 }
