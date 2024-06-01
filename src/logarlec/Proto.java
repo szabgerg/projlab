@@ -26,6 +26,9 @@ public class Proto {
 		ertelmezo(System.in);
 	}
 
+	public static List<Szoba> getSzobak() {
+		return szobak;
+	}
 
 	//parancsok mapje, hibákat dob, ha nem jó a parancs
 	private static Map<String, Consumer<String[]>> parancsok;
@@ -332,15 +335,13 @@ public class Proto {
 					if(szobak.isEmpty()){
 						Szoba sz1 = newSzoba(new Targyinventory(), pareseInt(tasks[2]));
 						Szoba sz2 = newSzoba(new Targyinventory(), pareseInt(tasks[2]));
-						sz1.setSzomszedok(new ArrayList<Szoba>(Arrays.asList(sz2)));
-						sz2.setSzomszedok(new ArrayList<Szoba>(Arrays.asList(sz1)));
+						sz1.addSzomszed(sz2);
+						sz2.addSzomszed(sz1);
 
 					} else {
 						Szoba sz = newSzoba(new Targyinventory(), pareseInt(tasks[2]));
-						sz.setSzomszedok(new ArrayList<Szoba>(Arrays.asList(szobak.get(szobak.size()-1))));
-						List<Szoba> szomszed = szobak.get(szobak.size()-1).getSzomszedok();
-						szomszed.add(sz);
-						szobak.get(szobak.size()-1).setSzomszedok(szomszed);
+						sz.addSzomszed(szobak.get(szobak.size()-2));
+						szobak.get(szobak.size()-2).addSzomszed(sz);
 					}
 					
 				} else if(tasks.length == 4){

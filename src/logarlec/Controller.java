@@ -1,10 +1,6 @@
 package logarlec;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /*
  * Kontroller osztály, a játékban azokat a metódusokat valósítja meg,
@@ -117,23 +113,25 @@ public class Controller {
 	 * a hátralevő idejük 1-el való csökkentése már 0-nak felel meg, akkor
 	 * az 1-el való értékcsökkenés után el is tűnik az aktív tárgyak listájából, azaz megszűnik
 	 */
-	public void nextRound(Szoba szoba) {
+	public static void nextRound() {
 		System.out.println("Kovetkezo_kor_kezdete");
-		szobakatOsszegyujt(szoba);
-
+		List<Szoba> szobak = Proto.getSzobak();
 		// Végigmegyünk az összes szobán
-		for (Szoba s : collectedSzobak) {
+		for (Szoba s : szobak) {
 			Targyinventory aktivTargyak = s.getAktiv();
-	
+
 			// Ellenőrizzük az aktív tárgyakat
-			for (ITargy targy : aktivTargyak.getTargyak()) {
+			Iterator<ITargy> iterator = aktivTargyak.getTargyak().iterator();
+			while (iterator.hasNext()) {
+				ITargy targy = iterator.next();
 				// Ha a tárgynak 0 az élettartama, akkor eltávolítjuk az aktív tárgyak listából
 				if (targy.romlik() == 0) {
-					aktivTargyak.RemoveTargy(targy);
+					iterator.remove();
 				}
 			}
 		}
 	}
+
 
 	/*
 	 * Következő játékos kiválasztása

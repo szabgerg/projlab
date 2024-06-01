@@ -1,6 +1,8 @@
 package logarlec;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /*
 * Hallgato osztaly ami a jatekban szereplo hallgatokat reprezentalja
@@ -73,9 +75,8 @@ public class Hallgato extends Karakter {
 	 */
 
 	public boolean vedekezes() {
-		Iterator<ITargy> iterator = eszkozkeszlet.getTargyak().iterator();
-		while (iterator.hasNext()) {
-			ITargy t = iterator.next();
+		List<ITargy> targyakCopy = new ArrayList<>(eszkozkeszlet.getTargyak());
+		for (ITargy t : targyakCopy) {
 			if (t.hasznal(this)) {
 				System.out.println("Hallgato_sikeresen_vedekezett");
 				return true;
@@ -85,6 +86,7 @@ public class Hallgato extends Karakter {
 		halott = true;
 		return false;
 	}
+
 
 
 	/*

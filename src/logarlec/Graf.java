@@ -62,6 +62,7 @@ public class Graf {
 				}
 			}
 		}
+		Controller.nextRound();
 		getAktKarakter().setSoros(true);
 		updatePlayerLabel();
 	}
@@ -116,7 +117,7 @@ public class Graf {
 		GraphicMap.getMap().addKeyListener(inp);
 
 		new Timer(17, e -> panel.repaint()).start();
-		new Timer(5000, e -> nextKarakter()).start();
+		new Timer(10000, e -> nextKarakter()).start();
 
 	}
 

@@ -130,6 +130,14 @@ public class Szoba {
         this.szomszedok = s;
     }
 
+    public void addSzomszed(Szoba s){
+        szomszedok.add(s);
+    }
+
+    public void removeSzomszed(Szoba s){
+        szomszedok.remove(s);
+    }
+
     /* Visszaadja a szoba jelenleg aktív tárgyait,
      * amelyek hatása jelenleg befolyásolja a szoba működését
      * @return Targyinventory, az aktív tárgyak listája
